@@ -1,0 +1,78 @@
+﻿<crm:MasterDetailsControlBase x:Class="DykBits.Crm.UI.DocumentTransitionEditorControl"
+            xmlns:crm ="http://www.dykbits.net/wpf/crm"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+            xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+            xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"  
+            mc:Ignorable="d" 
+            d:DesignHeight="500" d:DesignWidth="800" Grid.IsSharedSizeScope="True">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <crm:DocumentIdConverter x:Key="idConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <crm:MasterDetailsControlBase.Master>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0"/>
+
+                <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="96"/>
+
+                <ColumnDefinition Width="12"/>
+
+                <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="96"/>
+            </Grid.ColumnDefinitions>
+            <Label Style="{StaticResource crmLabel}" Grid.Row="0" Grid.Column="1" Content="Наименование:" />
+            <TextBox Style="{StaticResource crmTextBox}" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="9" Text="{crm:BindingEx FileAsUI}"/>
+            <Label Style="{StaticResource crmLabel}" Grid.Row="1" Grid.Column="1" Content="Документ:" />
+            <crm:DataComboBox x:Name="comboDocumentType" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="9" SelectedValue="{crm:BindingEx DocumentTypeIdUI}" DataSource="DocumentTypeEntry" IsNullable="False" />
+            <Label Style="{StaticResource crmLabel}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Foreground="Gray" Content="Переход" />
+            <Label Style="{StaticResource crmLabel}" Grid.Row="3" Grid.Column="1" Content="Из состояния:" />
+            <ComboBox Style="{StaticResource crmComboBox}" x:Name="comboFromState" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3" SelectedValue="{crm:BindingEx FromStateUI}" SelectedValuePath="Value" DisplayMemberPath="FileAs" ItemsSource="{Binding States}" />
+            <Label Style="{StaticResource crmLabel}" Grid.Row="3" Grid.Column="7" Content="В состояние:" />
+            <ComboBox Style="{StaticResource crmComboBox}" x:Name="comboToState" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="3" SelectedValue="{crm:BindingEx ToStateUI}"  SelectedValuePath="Value" DisplayMemberPath="FileAs" ItemsSource="{Binding States}" />
+        </Grid>
+    </crm:MasterDetailsControlBase.Master>
+    <crm:MasterDetailsControlBase.Details>
+        <dxg:GridControl ShowBorder="True" Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="11" ItemsSource="{Binding Roles}" x:Name="items">
+            <dxg:GridControl.View>
+                <dxg:TableView AllowMoveColumnToDropArea="True" AllowEditing="True" AutoWidth="True" ShowGroupPanel="False" ShowTotalSummary="False" />
+            </dxg:GridControl.View>
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn Header="Роль" FieldName="ApplicationRole" Binding="{Binding ApplicationRoleId, Converter={StaticResource idConverter}, ConverterParameter=ApplicationRole}" Width="300" />
+            </dxg:GridControl.Columns>
+        </dxg:GridControl>
+    </crm:MasterDetailsControlBase.Details>
+</crm:MasterDetailsControlBase>

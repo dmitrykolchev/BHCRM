@@ -1,0 +1,88 @@
+﻿<crm:EditorControlBase 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:crm ="http://www.dykbits.net/wpf/crm"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    x:Class="DykBits.Crm.UI.OpportunityEditorControl"
+    mc:Ignorable="d" 
+    d:DesignHeight="600" d:DesignWidth="800" UseLayoutRounding="True" TextOptions.TextFormattingMode="Display"
+    Grid.IsSharedSizeScope="True">
+    <crm:EditorControlBase.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </crm:EditorControlBase.Resources>
+    <Grid Margin="4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="12"/>
+
+            <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="96"/>
+
+            <ColumnDefinition Width="12"/>
+
+            <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="96"/>
+        </Grid.ColumnDefinitions>
+        <Label Style="{StaticResource crmLabel}" Grid.Row="2" Grid.Column="1">Организация:</Label>
+        <crm:DocumentPicker Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" SelectedValue="{Binding OrganizationId}" DataSource="Organization" />
+        <Label Style="{StaticResource crmLabel}" Grid.Row="2" Grid.Column="7">Контрагент:</Label>
+        <crm:DocumentPicker Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="3" SelectedValue="{Binding AccountId}" DataSource="Account" />
+        <Label Style="{StaticResource crmLabel}" Grid.Row="3" Grid.Column="1">Менеджер:</Label>
+        <crm:DocumentPicker Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3" SelectedValue="{Binding AssignedToEmployeeId}" DataSource="Employee" />
+        <Label Style="{StaticResource crmLabel}" Grid.Row="3" Grid.Column="7">Тип:</Label>
+        <crm:DataComboBox Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="3" SelectedValue="{Binding OpportunityTypeId}" DataSource="OpportunityType" />
+        <Label Style="{StaticResource crmLabel}" Grid.Row="4" Grid.Column="1">Источник:</Label>
+        <crm:DataComboBox Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="3" SelectedValue="{Binding LeadSourceId}" DataSource="LeadSource" />
+        <Label Style="{StaticResource crmLabel}" Grid.Row="4" Grid.Column="7">Тип мероприятия:</Label>
+        <crm:DataComboBox Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="3" SelectedValue="{Binding ProjectTypeId}" DataSource="ProjectType" />
+
+        <Label Style="{StaticResource crmLabel}" Grid.Row="5" Grid.Column="1">Вероятность (%):</Label>
+        <dxe:TextEdit Style="{StaticResource crmNumeric}" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1" EditValue="{Binding Probability}" DisplayFormatString="P" />
+        <Label Style="{StaticResource crmLabel}" Grid.Row="5" Grid.Column="7">Повод:</Label>
+        <crm:DataComboBox Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="3" SelectedValue="{Binding ReasonId}" DataSource="Reason" />
+
+        <Label Style="{StaticResource crmLabel}" Grid.Row="6" Foreground="Gray" Grid.ColumnSpan="12">Информация о мероприятии</Label>
+
+        <Label Style="{StaticResource crmLabel}" Grid.Row="7" Grid.Column="1">Дата закрытия:</Label>
+        <dxe:DateEdit Style="{StaticResource crmDateEdit}" Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="1" EditValue="{Binding DateClosed}" />
+        <Label Style="{StaticResource crmLabel}" Grid.Row="7" Grid.Column="7">Дата мероприятия:</Label>
+        <dxe:DateEdit Style="{StaticResource crmDateEdit}" Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="1" EditValue="{Binding EventDate}" />
+
+        <Label Style="{StaticResource crmLabel}" Grid.Row="8" Grid.Column="1">Кол-во гостей:</Label>
+        <dxe:TextEdit Style="{StaticResource crmNumeric}" Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="1" EditValueType="{x:Type sys:Int32}" EditValue="{Binding AmountOfGuests}" DisplayFormatString="#,##0" />
+        <Label Style="{StaticResource crmLabel}" Grid.Row="9" Grid.Column="1">Сумма:</Label>
+        <dxe:TextEdit Style="{StaticResource crmNumeric}" Grid.Row="9" Grid.Column="3" Grid.ColumnSpan="1" EditValue="{Binding Value}" />
+        <Label Style="{StaticResource crmLabel}" Grid.Row="10" Grid.Column="1">На человека:</Label>
+        <dxe:TextEdit Style="{StaticResource crmNumeric}" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="1" IsReadOnly="True" />
+    </Grid>
+</crm:EditorControlBase>

@@ -1,0 +1,146 @@
+﻿<crm:MasterDetailsControlBase  x:Class="DykBits.Crm.UI.Operations.PayrollEditorControl"
+        xmlns:crm ="http://www.dykbits.net/wpf/crm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"  
+        xmlns:dxgt="http://schemas.devexpress.com/winfx/2008/xaml/grid/themekeys"
+        xmlns:core="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:local="clr-namespace:DykBits.Crm"
+        mc:Ignorable="d" 
+        d:DesignHeight="600" d:DesignWidth="800" Grid.IsSharedSizeScope="True">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="rowStyle" BasedOn="{StaticResource {dxgt:GridRowThemeKey ResourceKey=RowStyle, ThemeName={x:Static core:ThemeManager.ApplicationThemeName}}}"
+                   TargetType="{x:Type dxg:GridRowContent}">
+                <Setter Property="FontWeight" Value="{Binding Path=Row.Level, Converter={local:BudgetLevelValueConverter MaxValue=1}}" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.AddEmptyRow}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.MoveUp}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.MoveDown}" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed" />
+    </UserControl.CommandBindings>
+    <crm:MasterDetailsControlBase.Master>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0"/>
+
+                <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="96"/>
+
+                <ColumnDefinition Width="12"/>
+
+                <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="96"/>
+            </Grid.ColumnDefinitions>
+            <Label Style="{StaticResource crmLabel}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1">№ / Дата:</Label>
+            <TextBox Style="{StaticResource crmTextBox}" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Text="{crm:BindingEx Number}" />
+            <dxe:DateEdit Style="{StaticResource crmDateEdit}" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" EditValue="{crm:BindingEx DocumentDate}" />
+            <Label Style="{StaticResource crmLabel}" Grid.Row="1" Grid.Column="1">Организация:</Label>
+            <crm:DocumentPicker Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" DataSource="Organization" SelectedValue="{crm:BindingEx OrganizationId}" IsEnabled="False" />
+            <Label Style="{StaticResource crmLabel}" Grid.Row="2" Grid.Column="1">Этап:</Label>
+            <crm:DataComboBox Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" DataSource="CalculationStage" SelectedValue="{Binding CalculationStage}" IsEnabled="False" IsNullable="False" />
+            <Label Style="{StaticResource crmLabel}" Grid.Row="0" Grid.Column="7" Content="ФОТ:" />
+            <crm:DataComboBox x:Name="comboSalaryBudgetItem" Grid.Row="0" Grid.Column="9" Grid.ColumnSpan="3" SelectedValue="{crm:BindingEx SalaryBudgetItemId}" DataSource="BudgetItem" IsNullable="False" />
+            <Label Style="{StaticResource crmLabel}" Grid.Row="1" Grid.Column="7" Content="Налоги на ФОТ:" />
+            <crm:DataComboBox x:Name="comboTaxBudgetItem" Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="3" SelectedValue="{crm:BindingEx TaxBudgetItemId}" DataSource="BudgetItem" IsNullable="False" />
+            <Label Style="{StaticResource crmLabel}" Grid.Row="2" Grid.Column="7" Content="Конвертация:" />
+            <crm:DataComboBox x:Name="comboCashingBudgetItem" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="3" SelectedValue="{crm:BindingEx CashingBudgetItemId}" DataSource="BudgetItem" IsNullable="False" />
+            <Label Style="{StaticResource crmLabel}" Grid.Row="3" Grid.Column="7" Content="Ставка:" />
+            <crm:DataComboBox x:Name="comboExtraCostRate" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="3" SelectedValue="{crm:BindingEx ExtraCostRateId}" DataSource="ExtraCostRate" IsNullable="False" />
+        </Grid>
+    </crm:MasterDetailsControlBase.Master>
+    <crm:MasterDetailsControlBase.DetailsToolbar>
+        <dxb:BarManager AllowQuickCustomization="False" AllowHotCustomization="False" AllowCustomization="False">
+            <dxb:BarManager.Items>
+                <dxb:BarButtonItem x:Name="itemAdd" Content="Добавить сотрудника" Glyph="/DykBits.Crm.Core;component/Images/16x16/AddRecord.png" 
+                                       Command="{x:Static crm:CrmApplicationCommands.AddRow}" />
+                <dxb:BarButtonItem x:Name="itemAddEmpty" Content="Добавить строку" Glyph="/DykBits.Crm.Core;component/Images/16x16/Plus.png" 
+                                       Command="{x:Static crm:CrmApplicationCommands.AddEmptyRow}" />
+                <dxb:BarButtonItem x:Name="itemMoveUp" Content="Вверх" Glyph="/DykBits.Crm.Core;component/Images/16x16/MoveUpSection.png" 
+                                   Command="{x:Static crm:CrmApplicationCommands.MoveUp}" CommandTarget="{Binding RelativeSource={RelativeSource AncestorType=crm:EditorControlBase}}" />
+                <dxb:BarButtonItem x:Name="itemMoveDown" Content="Вниз"  Glyph="/DykBits.Crm.Core;component/Images/16x16/MoveDownSection.png" BarItemDisplayMode="ContentAndGlyph" 
+                                   Command="{x:Static crm:CrmApplicationCommands.MoveDown}" CommandTarget="{Binding RelativeSource={RelativeSource AncestorType=crm:EditorControlBase}}" />
+                <dxb:BarButtonItem x:Name="itemDelete" Content="Удалить" Glyph="/DykBits.Crm.Core;component/Images/16x16/DeleteRecord.png" BarItemDisplayMode="ContentAndGlyph"
+                                       Command="{x:Static crm:CrmApplicationCommands.DeleteRow}" />
+            </dxb:BarManager.Items>
+            <dxb:BarManager.Bars>
+                <dxb:Bar ShowDragWidget="False" UseWholeRow="True">
+                    <dxb:Bar.DockInfo>
+                        <dxb:BarDockInfo ContainerType="Top"/>
+                    </dxb:Bar.DockInfo>
+                    <dxb:Bar.ItemLinks>
+                        <dxb:BarButtonItemLink BarItemName="itemAdd" BarItemDisplayMode="ContentAndGlyph" />
+                        <dxb:BarButtonItemLink BarItemName="itemAddEmpty" BarItemDisplayMode="ContentAndGlyph" />
+                        <dxb:BarItemLinkSeparator />
+                        <dxb:BarButtonItemLink BarItemName="itemMoveUp" BarItemDisplayMode="ContentAndGlyph" />
+                        <dxb:BarButtonItemLink BarItemName="itemMoveDown" BarItemDisplayMode="ContentAndGlyph" />
+                        <dxb:BarItemLinkSeparator />
+                        <dxb:BarButtonItemLink BarItemName="itemDelete" />
+                    </dxb:Bar.ItemLinks>
+                </dxb:Bar>
+            </dxb:BarManager.Bars>
+        </dxb:BarManager>
+    </crm:MasterDetailsControlBase.DetailsToolbar>
+    <crm:MasterDetailsControlBase.Details>
+        <dxg:GridControl ShowBorder="True" ItemsSource="{Binding Items}" x:Name="grid">
+            <dxg:GridControl.View>
+                <dxg:TreeListView KeyFieldName="Id" ParentFieldName="ParentId" AutoWidth="True" AllowEditing="True" RowStyle="{DynamicResource rowStyle}"
+                                  ShowTotalSummary="False" AllowColumnFiltering="False" AllowColumnMoving="False" AllowSorting="False" ShowingEditor="TreeListView_ShowingEditor"
+                                  AutoExpandAllNodes="True" CellValueChanging="TreeListView_CellValueChanging"  ShowBandsPanel="False"
+                                  UseLightweightTemplates="None">
+                </dxg:TreeListView>
+            </dxg:GridControl.View>
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn x:Name="columnFileAs"  Header="ФИО" Binding="{crm:BindingEx FileAs}" Width="200" />
+                <dxg:GridColumn x:Name="columnPosition"  Header="Должность" Binding="{crm:ReferenceBinding PositionId, ClassName=Position}" Width="200" />
+                <dxg:GridColumn x:Name="columnSalaryTotal" Header="ЗП УУ" Binding="{crm:BindingEx SalaryTotalUI}" Width="100">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings DisplayFormat="#,##0.00" HorizontalContentAlignment="Right" MaskType="Numeric" Mask="N" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn x:Name="columnSalaryBase" Header="ЗП БУ" Binding="{Binding SalaryBaseUI, Mode=TwoWay}" Width="100">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings DisplayFormat="#,##0.00" HorizontalContentAlignment="Right" MaskType="Numeric" Mask="N" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn x:Name="columnIncomeTax" Header="НДФЛ" Binding="{Binding IncomeTax, Mode=OneWay}" Width="100" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnSocialTax" Header="ЕСН" Binding="{Binding SocialTax, Mode=OneWay}" Width="100" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnCashing" Header="ОБН" Binding="{Binding Cashing, Mode=OneWay}" Width="100" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnTotal" Header="Сумма" Binding="{Binding Total, Mode=OneWay}" Width="100" crm:StandardGridColumn.DisplayFormat="Money" />
+            </dxg:GridControl.Columns>
+        </dxg:GridControl>
+    </crm:MasterDetailsControlBase.Details>
+</crm:MasterDetailsControlBase>

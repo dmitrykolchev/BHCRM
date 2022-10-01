@@ -1,0 +1,864 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Documents>
+  <Document Name="PresentationNode" Table="dbo.PresentationNode" Caption="Представление" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="MoneyOperationType" Table="dbo.MoneyOperationType" Caption="Тип операции с ДС" DataAdapterMode="XmlReader" IsNumbered="False" SupportsTransitionTemplates="False">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="MoneyOperation" Table="dbo.MoneyOperation" Caption="Операция с ДС" DataAdapterMode="XmlReader" IsNumbered="True" SupportsTransitionTemplates="True">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Draft" Caption="Черновик" />
+    <State Value="2" Name="Approved" Caption="Утверждена" />
+  </Document>
+  <Document Name="Payroll" Table="dbo.Payroll" Caption="Расчетная ведомость" DataAdapterMode="XmlReader" IsNumbered="True" SupportsTransitionTemplates="True">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Draft" Caption="Черновик" />
+    <State Value="2" Name="Approved" Caption="Утверждена" />
+  </Document>
+  <Document Name="OperatingCalculation" Table="dbo.OperatingCalculation" Caption="Калькуляция операционных расходов" DataAdapterMode="XmlReader"  IsNumbered="True" SupportsTransitionTemplates="True">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Draft" Caption="Черновик" />
+    <State Value="2" Name="Approved" Caption="Утверждена" />
+  </Document>
+  <Document Name="OperatingBudget" Table="dbo.OperatingBudget" Caption="Бюджет операционных расходов" DataAdapterMode="XmlReader" IsNumbered="True" SupportsTransitionTemplates="True">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Draft" Caption="Черновик" />
+    <State Value="2" Name="PlannedApproved" Caption="План утвержден" />
+    <State Value="3" Name="ActualApproved" Caption="Факт утвержден" />
+    <State Value="4" Name="Closed" Caption="Закрыт" />
+  </Document>
+  <Document Name="ErrorMessage" Table="dbo.ErrorMessage" Caption="Сообщение об ошибке" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="UserNotification" Table="dbo.UserNotification" Caption="Уведомление" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="DocumentAccessControlList" Table="dbo.DocumentAccessControlList" Caption="Права доступа к документу" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DocumentReport" Table="dbo.DocumentReport" Caption="Отчет" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DocumentStateLog" Table="dbo.DocumentStateLog" Caption="Изменение состояния документа" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+  </Document>
+  <Document Name="EstimatesDocument" Table="dbo.EstimatesDocument" Caption="Смета" DataAdapterMode="XmlReader" IsNumbered="True">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Draft" Caption="Черновик" />
+    <State Value="2" Name="Approved" Caption="Утверждена" />
+  </Document>
+  <Document Name="VATRate" Table="dbo.VATRate" Caption="Ставка НДС" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="TaxRate" Table="dbo.TaxRate" Caption="Ставка налога" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="ExtraCostRate" Table="dbo.ExtraCostRate" Caption="Ставка дополнительных расходов" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="EstimatesTemplate" Table="dbo.EstimatesTemplate" Caption="Шаблон сметы" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="ErrorInformation" Table="dbo.ErrorInformation" Caption="Ошибка" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DataQuery" Table="dbo.DataQuery" Caption="Запрос к базе данных" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="AccessRightCategory" Table="dbo.AccessRightCategory" Caption="Категория прав доступа" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="Reminder" Table="dbo.Reminder" Caption="Напоминание" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Активное" />
+    <State Value="2" Name="Dismissed" Caption="Прекращенное" />
+  </Document>
+  <Document Name="SecurityScheme" Table="dbo.SecurityScheme" Caption="Схема прав доступа" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="ProjectTaskStatus" Table="dbo.ProjectTaskStatus" Caption="Статус задачи" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="ProjectTaskTemplate" Table="dbo.ProjectTaskTemplate" Caption="Шаблон задачи" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="ProjectTemplate" Table="dbo.ProjectTemplate" Caption="Шаблон проекта" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="Importance" Table="dbo.Importance" Caption="Важность" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="PriceMargin" Table="dbo.PriceMargin" Caption="Наценка" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="CalculationStage" Table="dbo.CalculationStage" Caption="Тип калькуляции" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="Beverage" Table="dbo.Beverage" Caption="Напиток" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="BeverageType" Table="dbo.BeverageType" Caption="Тип напитка" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="BeverageSubtype" Table="dbo.BeverageSubtype" Caption="Подтип напитка" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="BeveragePack" Table="dbo.BeveragePack" Caption="Тара" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="BeverageMisc" Table="dbo.BeverageMisc" Caption="Специальное предложение" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="MasterMenu" Table="dbo.MasterMenu" Caption="Продукт питания" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="Season" Table="dbo.Season" Caption="Сезон" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DishIngredient" Table="dbo.DishIngredient" Caption="Ингредиент" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DishType" Table="dbo.DishType" Caption="Тип блюда" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DishSubtype" Table="dbo.DishSubtype" Caption="Подтип блюда" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DishCourse" Table="dbo.DishCourse" Caption="Категория блюда" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DishOccasion" Table="dbo.DishOccasion" Caption="Повод" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DishDiet" Table="dbo.DishDiet" Caption="Диета" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DishWorld" Table="dbo.DishWorld" Caption="Кухня" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DishCookingMethod" Table="dbo.DishCookingMethod" Caption="Метод приготовления" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DishServing" Table="dbo.DishServing" Caption="Способ подачи" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="CalculationStatementTemplate" Table="dbo.CalculationStatementTemplate" Caption="Шаблон калькуляции" DataAdapterMode="XmlReader" EntityAssembly="DykBits.Crm.Budget.Entities" DataAdapterAssembly="DykBits.Crm.Budget.DataAdapters">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="CalculationStatement" Table="dbo.CalculationStatement" Caption="Калькуляция" DataAdapterMode="XmlReader"  IsNumbered="True" EntityAssembly="DykBits.Crm.Budget.Entities" DataAdapterAssembly="DykBits.Crm.Budget.DataAdapters" SupportsTransitionTemplates="True">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Draft" Caption="Черновик" />
+    <State Value="2" Name="Approved" Caption="Утверждена" />
+  </Document>
+  <Document Name="AccountEvent" Table="dbo.AccountEvent" Caption="Событие" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Planned" Caption="Запланированно" />
+    <State Value="2" Name="Canceled" Caption="Отменено" />
+    <State Value="3" Name="Completed" Caption="Завершено" />
+  </Document>
+  <Document Name="AccountEventTemplate" Table="dbo.AccountEventTemplate" Caption="Шаблон события" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="AccountEventType" Table="dbo.AccountEventType" Caption="Тип события" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="AccountEventDirection" Table="dbo.AccountEventDirection" Caption="Направление события" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="ContactGroup" Table="dbo.ContactGroup" Caption="Группа контактов" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="ContactRole" Table="dbo.ContactRole" Caption="Роль контакта" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="CateringType" Table="dbo.CateringType" Caption="Возможность кейтеринга" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="VenuePlace" Table="dbo.VenuePlace" Caption="Расположение площадки" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="VenueType" Table="dbo.VenueType" Caption="Тип площадки" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="Venue" Table="dbo.Venue" Caption="Площадка" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="DocumentTypeEntry" Table="dbo.DocumentTypeEntry" Caption="Класс документа" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DocumentViewEntry" Table="dbo.DocumentViewEntry" Caption="Класс представления" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DocumentStateEntry" Table="dbo.DocumentStateEntry" Caption="Состояние документа" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DocumentTransition" Table="dbo.DocumentTransition" Caption="Шаблон перехода" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DocumentAccessType" Table="dbo.DocumentAccessType" Caption="Тип доступа к документу" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="DocumentEmployeeAccessRight" Table="dbo.DocumentEmployeeAccessRight" Caption="Право доступа к документу" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="AccountGroup" Table="dbo.AccountGroup" Caption="Группа контрагентов" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="BusinessActivityType" Table="dbo.BusinessActivityType" Caption="Вид деятельности" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="TradeMark" Table="dbo.TradeMark" Caption="Торговая марка" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="RelationType" Table="dbo.RelationType" Caption="Тип отношений" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="SizeOfServiceRequest" Table="dbo.SizeOfServiceRequest" Caption="Размер заказа" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="AccessRight" Table="dbo.AccessRight" Caption="Право доступа" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="ApplicationRole" Table="dbo.ApplicationRole" Caption="Роль" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="GLAccount" Table="dbo.GLAccount" Caption="Синтетический счет" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="PurchaseOrder" Table="dbo.PurchaseOrder" Caption="Приходная накладная" DataAdapterMode="XmlReader" IsNumbered="True" SupportsTransitionTemplates="True">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Draft" Caption="Черновик" />
+    <State Value="2" Name="Approved" Caption="Утверждена" />
+  </Document>
+  <Document Name="SalesOrder" Table="dbo.SalesOrder" Caption="Расходная накладная" DataAdapterMode="XmlReader" IsNumbered="True" SupportsTransitionTemplates="True">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Draft" Caption="Черновик" />
+    <State Value="2" Name="Approved" Caption="Утверждена" />
+  </Document>
+  <Document Name="ReturnStatement" Table="dbo.ReturnStatement" Caption="Акт возврата" DataAdapterMode="XmlReader" IsNumbered="True" SupportsTransitionTemplates="True">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Draft" Caption="Черновик" />
+    <State Value="2" Name="Approved" Caption="Утвержден" />
+  </Document>
+  <Document Name="WriteoffStatement" Table="dbo.WriteoffStatement" Caption="Акт списания" DataAdapterMode="XmlReader" IsNumbered="True" SupportsTransitionTemplates="True">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Draft" Caption="Черновик" />
+    <State Value="2" Name="Approved" Caption="Утвержден" />
+  </Document>
+  <Document Name="InventoryStatement" Table="dbo.InventoryStatement" Caption="Инвентаризационная ведомость" DataAdapterMode="XmlReader" IsNumbered="True" SupportsTransitionTemplates="True">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Draft" Caption="Черновик" />
+    <State Value="2" Name="Approved" Caption="Утверждена" />
+  </Document>
+  <Document Name="PriceList" Table="dbo.PriceList" Caption="Прайс-лист" DataAdapterMode="XmlReader" IsNumbered="True">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Draft" Caption="Черновик" />
+    <State Value="2" Name="Approved" Caption="Утвержден" />
+    <State Value="3" Name="Outdated" Caption="Устаревший" />
+  </Document>
+  <Document Name="SalesInvoice" Table="dbo.SalesInvoice" Caption="Исходящий счет" DataAdapterMode="XmlReader" IsNumbered="True">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Draft" Caption="Черновик" />
+    <State Value="2" Name="Approved" Caption="Утвержден" />
+    <State Value="3" Name="Payed" Caption="Оплачен" />
+  </Document>
+  <Document Name="PurchaseInvoice" Table="dbo.PurchaseInvoice" Caption="Входящий счет" DataAdapterMode="XmlReader" IsNumbered="True">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Draft" Caption="Черновик" />
+    <State Value="2" Name="Approved" Caption="Утвержден" />
+    <State Value="3" Name="Payed" Caption="Оплачен" />
+  </Document>
+  <Document Name="DocumentPropertyMetadata" Table="dbo.DocumentPropertyMetadata" Caption="Свойство документа" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="ProjectMemberRole" Table="dbo.ProjectMemberRole" Caption="Роль участника проекта" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="ProjectMember" Table="dbo.ProjectMember" Caption="Участник проекта" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Активный" />
+    <State Value="2" Name="Inactive" Caption="Исключен" />
+  </Document>
+  <Document Name="ProjectTask" Table="dbo.ProjectTask" Caption="Задача" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Draft" Caption="Черновик" />
+    <State Value="2" Name="Assigned" Caption="Назначена" />
+    <State Value="3" Name="Canceled" Caption="Отменена" />
+    <State Value="4" Name="Completed" Caption="Завершена" />
+  </Document>
+  <Document Name="ServiceRequestType" Table="dbo.ServiceRequestType" Caption="Форма обслуживания" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="ServiceRequest" Table="dbo.ServiceRequest" Caption="Заказ покупателя" DataAdapterMode="XmlReader" IsNumbered="True">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Ordinal="0" Name="NotExist" Caption="Не существует" OverlayImage="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADaSURBVHjaYnxyNO8/l6AIA4+QMMOzE90MUhaZDF9+cDF8f/OBQcq4hpGBAGASlFZl+PRoHQMrx28GBgEHIM3O8OnGXAZOAQEGYgDjrxdT/4M1cxgwfPzwgYEfpPHHBYbfP1gZWMWzCLvg2YFuhocXDkA0izuAaRD/2YXZRLmARcqhFOJ8DgGGjy8PgF3Ab+AAcsExYgxg+v3jH8PDEwsYGD4cYPjwYAPY+UD+MZA4UQZ8ePGMgU8uiOE3AyfU7z+PgfggcaIC8f///wyUACYGCsGoAcPCAIAAAwCb4VdvtXzblwAAAABJRU5ErkJggg==" />
+    <State Value="1" Ordinal="1" Name="Prospecting" Caption="Информация" OverlayImage="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADkSURBVHja7FOhDsIwEH0lCBx14NgfUIkDiWMCEhxIHPwB+wM2hwMcpIh9whyTxSGLA1ccrrQsQHAds7zk0t6l93Lv7kq01iiCEgriTwCUXR5FuyNPUtUXJwl5UfDqFH7Xw2LaJk4ESSr7caIyp0INCRBuhXGodpIQpya5Aox9uteHEWGM2mQIKd16EIdsHwwpVvPeINocuRCG8A4wzwPsJrpasEw4WmttbRYK/dziPASdSazBPsnWco1RSgVah+l+k7xiJM9nOl9v3J6NWnXwDrqWb+bPbflWv73/JCGD+vIeAgwAIR/DkDSrHmcAAAAASUVORK5CYII=" />
+    <State Value="8" Ordinal="2" Name="InProgress" Caption="В работе" OverlayImage="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAE6SURBVHjaxFIhbsNAEJxEBkb1waD2oFG0T7j0BYaFVlGh8wP3BU1f0MDCwqL6ygIXBi403BSZpXupClqpsqWAruS70+lmPDuzs+PxiHNqjjPr/wlmLneOAlVU0tov/FIHPcRdbGOMWwzQMY/mvvRk4Cfn3NItHGwv7HsIFOpJLRDRo6pCRMDM4B2juWsQQrifQpBJL1f2X9RNDe89tP8iU+jFJAJ7WcggP8BGiqRqmgKVleylS9KR4wROrZi575NSSAuRD95Tl85mIMTxgV+kUtE4lkIWbihUddXJoGhDiyIvsH5eF8i5w15X9iaOEFSdRQbJGZu4QSjtrGyqHLhH963y70lMEYJhAwRPwOa1NUNduv6wFsbnQAecwL/LwJNiyJjjtQz+LcWWYkQPky7GgEuz9naM4FOAAQCefZ4yziW6UAAAAABJRU5ErkJggg==" />
+    <State Value="2" Ordinal="3" Name="Qualification" Caption="Тендер" OverlayImage="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAG7SURBVHja7FO9SxxBHH07c7d7eod3fkIwBBIwaUTiqQQ1ggQLCVgkRap0VmkDCaSR/A3aWFmlUQQr0UYQG0EJfoFmY/wKesmdWW93b/fc3ZnbcfwDJo2tP/jBML95b957w2hCCNylCO5Y9wRAQjU4PZqGphFw7uei8HJBiFofi8qI46j44OGb8YZs1yqlmf8pEBAiNuRiUYKGvYqZDoJCmjH7yfHPqZmL37OGEJGawHX24JS3kjXu9QfXBbDIQUvbq1sFODm1HwfB+WdCUmoLYVCUCjgI1Tlj5WSuqQfZXLfcL8HzluF7x0OEGmqCuvpHMgPKotAyOfM6/xbW5e0hXHsP1lWEdKZjJ5HIqAkkGITooeztYinstKwI5uEaXJfjqszkiXiz4u6rM5BAyMBe6EbLu6fP+pFMElSrNQwNtiL/PIujXxsfOKuklASpuvYMpfUT8vn0GvdBqYbefA7Zxjyam3X8ML1hc//rhNKCa++8deyD14U/Afd9XnVc3mAYBAfmCtpaje+MxfHc/OEXTfWdV5YGd6X3Uk/v2KR1udY9v3D26dbGy4Gm2ZHRuY/nZ9/4v9Lq+xsBBgDahNNrrtjEuAAAAABJRU5ErkJggg==" />
+    <State Value="3" Ordinal="4" Name="Won" Caption="Победа" OverlayImage="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHJSURBVHja7NC/axNxGAbw5y73I+HORmuoVdSkocSCwRK0RAWliw6CS0EHERx06SpWcOkfoRUcxMmlOIiDopHaQgNSJNgiDZSa1ssl17s2zZHkcnfJ/fjaf+Dr0tVnfeHD87wMIQSHCYtD5j8AcLSDtvTigD/w262jrFJ9z7vOBNQ9uDwxpJsPHvLn80usHP9HgyAAwkDkHP8jZ1qTqtOQqglPirSN9Pa7uTf1T/Nivx/QgbC0An+lyEfr+pUd1oWVcnDyznU0cjLczfURU28+5XiBDnh/NHjbGsIdze97Jk6czWI4M4ZMdgh2t4+tXfsaLwj0H5Az58BEOK+5r28IW7tZHR0kOipaC7+waR9BKpVcE2IxOiD2QjAC02tGBlcVjcl2qw3o32owTB4VEkeSIT/Ueo0+gYkJgNXIJwaFu+NXcxCtEL87w0jmL+LGUAilWJwmrXaUCjiZC3IgDcyKri2cNsoYdRVcHpFx+3gX4zAQLRcnl1+/nKVO8ErfpzSlckvd9/z4Xs3uEXngmFnF54IJ/dREqceuhmuLhWdUoFKrP1E74kL63qPn1vLX3M/C4oxU6SJ9KTc/9ert4/KXD35kfeP+XwEGAJGDxmsUmQmTAAAAAElFTkSuQmCC" />
+    <State Value="4" Ordinal="5" Name="Lost" Caption="Поражение" OverlayImage="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAG2SURBVHja7FO/S1thFD33JS/GwJMYhYCCZAiCkIIO0kGcVOhQOjkU/DUVu3bt3sXFwXYpAfUfEGmnUEQjKmkb00Jbp/eIfTyFFpu85mn0/fi+z09nv8nVA2e593I493AvCSFwH2i4Jx4EgLiqEQwPg4IA8d7eBRodfS76+x+TbXuhae46vr/yOR7/Us3l1A44ENNSqTcsn1+DYTwhx+mG6w6Q78/2nZx80oGnQtPUApeMzbJU6vXPsTFY1SqulpdxvLmJ/fFxROl014BlreHioqBcoR1Fc7ppIpNMgheL+DU/j3BmBkNTU2hsbECzrB69o+Mlbi7xLtay2abd2SlMXRf19XXhyaJ3eiqOCgXxDRBlWX+VyZSUDhqct1kYpj0iGLEYclEET9fhJBK3ybcYg+sHbWUGLc63j6UTbXUV+YkJHExO4k+phEdbWzgfGYHDOX74VwdKgZhhvG0A/0Wlgtr0NOxyGYeLi/i9tIR/jSYqwN53HhVJ9Y0fBwfxt15/dhZF7xNANilXCeVsU/YkdypEC18JtjIDmSSI6AMDTJfoRQAMMaKWK0TtjOidvBPvxv61AAMA8QzQdTYdpkoAAAAASUVORK5CYII=" />
+    <State Value="5" Ordinal="6" Name="Canceled" Caption="Отменен" OverlayImage="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAEnSURBVHja3JKxTsMwEIb/ZOpEbqmEhETNgNQuQLduBF4A2BgYwluw8UZIjEy0bxC2jg5TJIY4Wzbzn0kr1IZGiI2LfufOzv/5khjee2wpS/fW+UNWhTpLsQp/m45YV7oe6bAV9xc6HkKkwIBZgxzOXTF7Z37KuQVKl9TLvBsQRdHXTll6wtsbTYDA8bqm+RnWJrW1+sh0J6CFnPM2ZwegajTcuXS6ZMSiiNEfC3ZwQ6MC1FzZBkd5g0IX+wFLO6LxUTuonVvNPlHH8/0egJ+ZhO+eo7RnaHemPmSAqQCvCol7zJZGCe0DlxwtdacQ1gdUjs5zMBNZ52Nx3hDVhrZNDamX8AO6AKGDMZJQfzNvQCY7ARrO/Px9WojpPom/iBh/jH8A+BRgAMO81C7uDicwAAAAAElFTkSuQmCC" />
+    <State Value="6" Ordinal="7" Name="Completed" Caption="Проведен" OverlayImage="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGNSURBVHja7JG9S0JhFIfP+94Pr7frB6WSilCWRKbDpWgRFBrb/B9aGpqiaGxpSGhuraFJGhqCiKKiKISWhMI0oQ8/uCaJFnrvVd+bLg5xh6LGfvM5z3nOOUjTNPia7VMChXINSjUaymUJapUaYA0BUAzIqA8mRwSb14GXzhJpM4YfhBANBCPlKFXljeOrzPLYKP9Ef7e5K8qyyGHiW/Fi4TEcCjjSwx7ria4BRuBDCCK9yRoBmsZ2Wz+/LxVz4YlhPiUGh+ZaBBK6AKn0dtBSqSOE0EL3RjTN2Fxu81au+CJa6MbNzHRgRW2Tc0I6YD3Azu5h0TM65XW73GucgeGswkA4LxVmk3eZvdD4YNRq6tPeFQVUjtUHkLoczd1exqEpRuxOZ+w5n4Vq5fWB59qr5Xpd279IgtJugizLgPTeKEa3gbSJwLAQUzAzbxI4CPpdK9ep7LrabEFDVqGzXudWSN+gC2WN7IfRwi1S72/3fp9n3CAYNztQoDEGE8/1anUNfhIMv8w/4A8AnwIMAM12m7ufLj3DAAAAAElFTkSuQmCC" />
+    <State Value="7" Ordinal="8" Name="Closed" Caption="Закрыт" OverlayImage="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHuSURBVHjapJJLbxJRFMf/M8PAdIZYBkgUI0iBxqCY1PiIJsaVSWPc6cqldsPClRs/gzujC3fGXePCXRcatXGjK1PF1pL0IQj4gg4MFO4wdx7XKR/gdsHZ3Jxz7/md/znnCowxTGMiprSpASHeZfVVZnL6riOrsXg5mkjd3OtFV34Y559LIiOHAibJnisdSWWfiPGz5a26j2IpsbjTNrVfneijAMJv4WDAYUW9q+jF8rMX/fdv3+xkaduoiJ75YG3LEzZrlK+AMQ+zWvze109/jVJBuHMhIy9Ig580Jcuxa/luzrDTu1yAKEZgDc3Q3Fxy9nLx1OeIhUyjsgrNaWA+nnlNjGM3uC2oifzjPpUugnZCUeJmxs0qfndc2PptZBduFSzSf8hVoGr60l5XBxWPYowc5PlzuHolDVHNwawtBwO201yA7DBSurQYjZzIB94Yje06WG0NJ8+YYF4riAkOF+CSIRzSRsQXJ4D6xhfMyH4ASAIeOfwj2fYAIdoFhmqwEhdJmSCmzwCUIEytgz0pXIBlm6riBJWGwWPPwulCPFDNYKxXsLK6b7X6uY98wHj/pTwgS7LfwqDXwb+ej+9Nb3ujprwzRsefxnS1ygVIknD/2+5wfbOpXB+NNDawtGWbWh8gKn8iYQoBPv4LMADoddPBD6ifbQAAAABJRU5ErkJggg==" />
+  </Document>
+  <Document Name="Budget" Table="dbo.Budget" Caption="Бюджет" DataAdapterMode="XmlReader" IsNumbered="True">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="StandardApproved" Caption="Норматив утвержден" />
+    <State Value="2" Name="PlannedApproved" Caption="План утвержден" />
+    <State Value="3" Name="ActualApproved" Caption="Факт утвержден" />
+  </Document>
+  <Document Name="BudgetTemplate" Table="dbo.BudgetTemplate" Caption="Шаблон ПРС" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="BankAccount" Table="dbo.BankAccount" Caption="Банковский счет" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="DocumentNumberingRule" Table="dbo.DocumentNumberingRule" Caption="Номер документа" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="Contract" Table="dbo.Contract" Caption="Договор" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="Account" Table="dbo.Account" Caption="Контрагент" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+    <View Name="AccountByMarketingProgramView" Table="dbo.AccountByMarketingProgramView" Caption="Участники маркетинговых программ" DataAdapterMode="View" />
+  </Document>
+  <Document Name="MarketingProgramType" Table="dbo.MarketingProgramType" Caption="Типы маркетинговых програм" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="StoragePlace" Table="dbo.StoragePlace" Caption="Склады" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="Country" Table="dbo.Country" Caption="Страна" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="ServiceLevel" Table="dbo.ServiceLevel" Caption="Уровень обслуживания" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="ItemColor" Table="dbo.ItemColor" Caption="Цвет" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="AccountType" Table="dbo.AccountType" Caption="Тип контрагента" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="ProductCategory" Table="dbo.ProductCategory" Caption="Категория номенклатуры" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="ProductSubcategory" Table="dbo.ProductSubcategory" Caption="Подкатегория номенклатуры" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="AbstractProduct" Table="dbo.AbstractProduct" Caption="Базовая номенклатура" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="Product" Table="dbo.Product" Caption="Номенклатура" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+    <View Name="InventoryBalance" Table="dbo.InventoryBalance" Caption="Остатки на складе" DataAdapterMode="View" />
+  </Document>
+  <Document Name="UnitOfMeasure" Table="dbo.UnitOfMeasure" Caption="Единица измерения" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="UnitOfMeasureClass" Table="dbo.UnitOfMeasureClass" Caption="Тип единицы измерения" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="CostCenter" Table="dbo.CostCenter" Caption="Центр финансовой ответственности" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="Contact" Table="dbo.Contact" Caption="Контакт" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+    <View Name="ContactByMarketingProgramView" Table="dbo.ContactByMarketingProgramView" Caption="Участники маркетинговых программ" DataAdapterMode="View" />
+  </Document>
+  <Document Name="Division" Table="dbo.Division" Caption="Подразделение" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="Employee" Table="dbo.Employee" Caption="Сотрудник" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Работает" />
+    <State Value="2" Name="Inactive" Caption="Уволен" />
+  </Document>
+  <Document Name="BudgetItemLink" Table="dbo.BudgetItemLink" Caption="Связь статей ПРС" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="BudgetItem" Table="dbo.BudgetItem" Caption="Статья ПРС" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="BudgetItemGroup" Table="dbo.BudgetItemGroup" Caption="Раздел ПРС" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="Industry" Table="dbo.Industry" Caption="Отрасль" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="Lead" Table="dbo.Lead" Caption="Интерес" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует">
+      <Decription>Черновик. Необходимо сохранить.</Decription>
+    </State>
+    <State Value="1" Name="Draft" Caption="Черновик">
+      <Description>Новый интерес. Необходимо назначить менеджера по продажам.</Description>
+    </State>
+    <State Value="2" Name="Assigned" Caption="Назначен">
+      <Description>Менеджер назначен. Необходимо установить контакт и назначить встречу.</Description>
+    </State>
+    <State Value="3" Name="InProcess" Caption="В работе">
+      <Description>В работе. После успешной встречи интерес должен быть конвертирован в контрагента.</Description>
+    </State>
+    <State Value="4" Name="Converted" Caption="Конвертирован">
+      <Description>Конвертирован в контрагента.</Description>
+    </State>
+    <State Value="5" Name="Recycled" Caption="Отправлен в корзину">
+      <Description>Отправлен в корзину.</Description>
+    </State>
+    <State Value="6" Name="Dead" Caption="Мертвый">
+      <Description>Мертвый. Дальнейшая работа не имеет перспектив.</Description>
+    </State>
+  </Document>
+  <Document Name="LeadSource" Table="dbo.LeadSource" Caption="Источник" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="Organization" Table="dbo.Organization" Caption="Организация" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="Position" Table="dbo.Position" Caption="Должность" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="Reason" Table="dbo.Reason" Caption="Повод" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="ReasonType" Table="dbo.ReasonType" Caption="Тип повода" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="ProjectType" Table="dbo.ProjectType" Caption="Тип проекта" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="Project" Table="dbo.Project" Caption="Проект" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Draft" Caption="Черновик" />
+    <State Value="2" Name="Accepted" Caption="Утвержден" />
+    <State Value="3" Name="Completed" Caption="Завершен" />
+    <State Value="4" Name="Canceled" Caption="Отменен" />
+  </Document>
+  <Document Name="Region" Table="dbo.Region" Caption="Регион" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+  <Document Name="Category" Table="dbo.Category" Caption="Категории" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="OpportunityType" Table="dbo.OpportunityType" Caption="Тип возможности" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+  </Document>
+  <Document Name="Opportunity" Table="dbo.Opportunity" Caption="Возможность" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVDhPzY5BCgAgCAT9ru/zgYW4BwlBDaQGBjJ2RfoDZl5dUTWiQCaqRhTIRNXQD4+I4GWc88wCDVWducBztUBDVWcu8Fwt6Irqc4g2Rr7X0DglmaMAAAAASUVORK5CYII=</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVFhH7ZBBCgAxCAP7Zr/mA3cRAl5c3EtEaAYGSlESPGINZvZMitikGmKK2KQaYorYpBpiitikGmKK2CQ+O9wdr2/+zKjA3gKxPOHeC3SoAL1ALE+49wIdKkAvEMsT7r1AhwrQC0yKWHE957x9ki8+37BirQAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Prospecting" Caption="Информация" />
+    <State Value="2" Name="Proposal" Caption="Тендер" />
+    <State Value="3" Name="Canceled" Caption="Отмена" />
+  </Document>
+  <Document Name="CurrentUser" Table="dbo.CurrentUser" Caption="Учетная запись текущего пользователя" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Активная" />
+    <State Value="2" Name="Inactive" Caption="Заблокированна" />
+  </Document>
+  <Document Name="User" Table="dbo.User" Caption="Учетная запись" DataAdapterMode="XmlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Активная" />
+    <State Value="2" Name="Inactive" Caption="Заблокированна" />
+  </Document>
+  <Document Name="ProductType" Table="dbo.ProductType" Caption="Тип номенклатуры" DataAdapterMode="SqlReader">
+    <SmallImage>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACpSURBVDhPYxh4UFRU9J8SDDaAXIBhwKX7b/4XzDwExiA2IYBhQHTnjv9etRvBGMQmBDAMiO3eCTcAxIaBzZs3Y2AQwDDgzK2XYJtBGMQmBFAMePz68/+cqQf+v/30/f/rj9/A4fD07RewHFEuAGkGOX3Ojiv/5+26CmaDDMEHUAwIbt4K9z8MwwKSKBdsP/0AIxZ2n3sElsMFUAwgB8ANoARDc8SAAQYGAADMbVch9AkpAAAAAElFTkSuQmCC</SmallImage>
+    <LargeImage>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVFhH7ZK7agJBFIb3+SSmsowmlW9gGbKInZIQKwtFRAi2ZhG8xAvkBYKNF7AMqQIp7KIe+Ycds9HjzqziJsJ88MPhzIHzzc5aBsO/wbZtCjPu2h/QDAsjcD4C34slVXtTunkYiKBG71i0BSrdCUXTzV9BbxvHcbQi0Ra4yvV2BNA7lvMR4J6g3Nl9gqBoC+CHK7XHlLjvi6DmfkLuvblItAVOhVIAt6y8jCiebVG+/uZ2SdTo4cz7JbjbcpEoBWqDCUVu6yIXd880+/gSQS37T/2xOx0cX4HlakXXufZmEZIqvop4e5jBLOBuy0WiFPAu8osUCIqvAIhlGuxCbzAj4W7LRaIUeP+cU6ExpORjly5tZ7MUNXo4w8yhKAVOjRHYKxBm3LUGw19jWWuIXGqbQBJrBAAAAABJRU5ErkJggg==</LargeImage>
+    <State Value="0" Name="NotExist" Caption="Не существует" />
+    <State Value="1" Name="Active" Caption="Используется" />
+    <State Value="2" Name="Inactive" Caption="Не используется" />
+  </Document>
+</Documents>

@@ -1,0 +1,21 @@
+﻿CREATE TABLE [dbo].[DocumentNumberingRule]
+(
+	[Id] TIdentifier not null primary key identity, 
+	[State] TState not null,
+	[FileAs] TName not null,
+	[OrganizationId] TIdentifier not null,
+	[DocumentTypeId] TIdentifier not null,
+	[PeriodStart] date null,
+	[PeriodEnd] date null,
+	[Value] int not null,
+	[Increment] int not null,
+	[FormatString] nvarchar(256) null,
+	[FileAsFormatString] nvarchar(256) null,
+    [Comments] nvarchar(max) null, 
+    [Created] datetime not null, 
+    [CreatedBy] int not null, 
+    [Modified] datetime not null, 
+    [ModifiedBy] int not null, 
+    [RowVersion] rowversion not null, 
+    CONSTRAINT [FK_DocumentNumberingRule_Organization] FOREIGN KEY ([OrganizationId]) REFERENCES [Account]([Id]), 
+)

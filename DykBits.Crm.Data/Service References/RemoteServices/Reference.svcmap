@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ddf24193-d433-4724-a35d-b302959fd4ac" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://bhw-112.bh.local:38733/DykBits.BlobSvc/BlobService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="documentservice.wsdl" MetadataType="Wsdl" ID="7c69a6e0-d000-4d37-9e72-e8ddf0038eb5" SourceId="1" SourceUrl="net.tcp://bhw-112.bh.local:38733/DykBits.BlobSvc/BlobService/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="336ed811-b9af-4b2f-9711-e59c1b1e4d29" SourceId="1" SourceUrl="net.tcp://bhw-112.bh.local:38733/DykBits.BlobSvc/BlobService/mex" />
+    <MetadataFile FileName="documentservice.xsd" MetadataType="Schema" ID="3635c58d-2465-4079-83dc-c00c4a21705f" SourceId="1" SourceUrl="net.tcp://bhw-112.bh.local:38733/DykBits.BlobSvc/BlobService/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="d4436e3d-0006-49c4-b872-6505c2633d66" SourceId="1" SourceUrl="net.tcp://bhw-112.bh.local:38733/DykBits.BlobSvc/BlobService/mex" />
+    <MetadataFile FileName="Message1.xsd" MetadataType="Schema" ID="10c9f2c5-51fa-4112-b121-0ffc15dc39e8" SourceId="1" SourceUrl="net.tcp://bhw-112.bh.local:38733/DykBits.BlobSvc/BlobService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

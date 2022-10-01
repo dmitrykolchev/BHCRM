@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Project]
+(
+	[Id] TIdentifier not null primary key identity, 
+	[State] TState not null,
+	[Code] TCode not null,
+	[FileAs] TName not null,
+	[ProjectTypeId] TIdentifier not null,
+	[OpportunityId] TIdentifier null,
+	[OrganizationId] TIdentifier not null,
+	[AccountId] TIdentifier null,
+	[ResponsibleContactId] TIdentifier null,
+	[ContractId] TIdentifier null,
+	[StartDate] date not null,
+	[EndDate] date not null,
+    [Comments] nvarchar(max) null, 
+    [Created] datetime not null, 
+    [CreatedBy] int not null, 
+    [Modified] datetime not null, 
+    [ModifiedBy] int not null, 
+    [RowVersion] rowversion NOT NULL, 
+    CONSTRAINT [FK_Project_Organization] FOREIGN KEY ([OrganizationId]) REFERENCES [Account]([Id]), 
+	CONSTRAINT [FK_Project_Account] FOREIGN KEY ([AccountId]) REFERENCES [Account]([Id]), 
+	CONSTRAINT [FK_Project_Contract] FOREIGN KEY ([ContractId]) REFERENCES [Contract]([Id]), 
+    CONSTRAINT [FK_Project_Opportunity] FOREIGN KEY ([OpportunityId]) REFERENCES [Opportunity]([Id]),
+	CONSTRAINT [FK_Project_ProjectType] FOREIGN KEY ([ProjectTypeId]) REFERENCES [ProjectType]([Id]), 
+    CONSTRAINT [FK_Project_Contact] FOREIGN KEY ([ResponsibleContactId]) REFERENCES [Employee]([Id])
+)

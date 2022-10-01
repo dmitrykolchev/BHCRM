@@ -1,0 +1,27 @@
+﻿<crm:DataViewFilterControl x:Class="DykBits.Crm.UI.ProductFilterControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:crm="http://www.dykbits.net/wpf/crm"
+             xmlns:data="clr-namespace:DykBits.Crm.Data;assembly=DykBits.Crm.Entities"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" DocumentType="{x:Type data:Product}">
+    <crm:DataViewFilterControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </crm:DataViewFilterControl.Resources>
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Label Style="{StaticResource crmLabel}" Content="Тип:" />
+            <crm:DataComboBox DataSource="ProductType" SelectedValue="{crm:BindingEx ProductTypeId}" />
+            <Label Style="{StaticResource crmLabel}" Content="Категория:" />
+            <crm:DataComboBox DataSource="ProductCategory" SelectedValue="{crm:BindingEx ProductCategoryId}" />
+            <Label Style="{StaticResource crmLabel}" Content="Поставщик:" />
+            <crm:DocumentPicker x:Name="docSupplier" DataSource="Account" SelectedValue="{crm:BindingEx SupplierId}" RequestFilterData="docSupplier_RequestFilterData" />
+        </StackPanel>
+    </Grid>
+</crm:DataViewFilterControl>

@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SecurityScheme State="1" Id="1" FileAs="Стандартная система прав доступа" Created="2014-05-07T15:01:16.777" CreatedBy="1" Modified="2014-05-28T02:07:23.23" ModifiedBy="2" RowVersion="AAAAAAAAXRE=">
+  <Rights>
+    <AccessRight Code="ViewDictionaries" FileAs="Просмотр справочников" />
+    <AccessRight Code="ManageDictionaries" FileAs="Изменение справочников" />
+    <AccessRight Code="ManageSecurity" FileAs="Управлению безопасностью" />
+    <AccessRight Code="ApplicationAccess" FileAs="Доступ к приложению" />
+    <AccessRight Code="ViewProducts" FileAs="Просмотр справочника номенклатуры" />
+    <AccessRight Code="ViewMasterMenu" FileAs="Просмотр мастер-меню" />
+    <AccessRight Code="ViewBeverages" FileAs="Просмотр справочника напитков" />
+    <AccessRight Code="ManageProducts" FileAs="Управление справочником номенклатуры" />
+    <AccessRight Code="ManageMasterMenu" FileAs="Управление мастер-меню" />
+    <AccessRight Code="ManageBeverages" FileAs="Управление справочником напитков" />
+    <AccessRight Code="ManageBudgetTemplates" FileAs="Управление шаблонами ПРС" />
+    <AccessRight Code="ManageMetadata" FileAs="Администрирование метаданных" />
+    <AccessRight Code="ViewAccountsPresentation" FileAs="Доступ к представлению &quot;Все контрагенты&quot;" />
+    <AccessRight Code="ViewCustomersPresentation" FileAs="Доступ к представлению &quot;Покупатели&quot;" />
+    <AccessRight Code="ViewSuppliersPresentation" FileAs="Доступ к представлению &quot;Поставщики&quot;" />
+    <AccessRight Code="ViewVenuesPresentation" FileAs="Доступ к представлению &quot;Площадки&quot;" />
+    <AccessRight Code="ViewOwnOrganizationsPresentation" FileAs="Доступ к представлению &quot;Собственные организации&quot;" />
+    <AccessRight Code="ViewAccountsByMarketingProgramPresentation" FileAs="Доступ к представлению &quot;Участники маркетинговых программ (контрагенты)&quot;" />
+    <AccessRight Code="ViewAccountGroup" FileAs="Доступ к группе представлений &quot;Контрагенты&quot;" />
+    <AccessRight Code="ViewContactGroup" FileAs="Доступ к группе представлений &quot;Контакты&quot;" />
+    <AccessRight Code="ViewContactsPresentation" FileAs="Доступ к представлению &quot;Контакты&quot;" />
+    <AccessRight Code="ViewContactsByMarketingProgramPresentation" FileAs="Доступ к представлению &quot;Участники маркетинговых программ (контакты)&quot;" />
+    <AccessRight Code="ViewOpportunitiesPresentation" FileAs="Доступ к представлению &quot;Возможности&quot;" />
+    <AccessRight Code="ViewServiceRequestsPresentation" FileAs="Доступ к представлению &quot;Заказы покупателей&quot;" />
+    <AccessRight Code="ViewProjectsPresentation" FileAs="Доступ к представлению &quot;Проекты&quot;" />
+    <AccessRight Code="ViewProjectMemberRolesPresentation" FileAs="Доступ к представлению &quot;Роли участников проекта&quot;" />
+    <AccessRight Code="ViewEmployeesPresentation" FileAs="Доступ к представлению &quot;Сотрудники&quot;" />
+    <AccessRight Code="ViewAccountEventGroup" FileAs="Доступ к группе представлений &quot;События&quot;" />
+    <AccessRight Code="ViewAccountEventsPresentation" FileAs="Доступ к представлению &quot;Все события&quot;" />
+    <AccessRight Code="ViewAccountEventSchedulePresentation" FileAs="Доступ к представлению &quot;Календарь событий&quot;" />
+    <AccessRight Code="ViewAccountDetails" FileAs="Доступ к карточке &quot;Контрагент&quot;" />
+    <AccessRight Code="ViewBankAccountsPresentation" FileAs="Доступ к представлению &quot;Банковские счета&quot;" />
+    <AccessRight Code="ViewDocumentEmployeeAccessRightsPresentation" FileAs="Доступ к представлению &quot;Доступ&quot; в карточке контрагента" />
+    <AccessRight Code="ViewVenueDetails" FileAs="Доступ к карточке &quot;Площадка&quot;" />
+    <AccessRight Code="ViewServiceRequestDetails" FileAs="Доступ к карточке &quot;Заказ покупателя&quot;" />
+    <AccessRight Code="ViewServiceRequestBudget" FileAs="Доступ к ПРС &quot;Заказа покупателя&quot;" />
+    <AccessRight Code="ViewCalculationsPresentation" FileAs="Доступ к представлению &quot;Калькуляции&quot;" />
+    <AccessRight Code="ViewCalculationDetails" FileAs="Доступ к карточке &quot;Калькуляция&quot;" />
+    <AccessRight Code="ViewWorkPlanDetails" FileAs="Доступ к карточке &quot;Норматив времени&quot;" />
+    <AccessRight Code="ViewProjectDetails" FileAs="Доступ к карточке &quot;Проект&quot;" />
+    <AccessRight Code="ViewOpportunityDetails" FileAs="Доступ к карточке &quot;Возможность&quot;" />
+    <AccessRight Code="ViewContactDetails" FileAs="Доступ к карточке &quot;Контакт&quot;" />
+    <AccessRight Code="ViewDivisionsPresentation" FileAs="Доступ к представлению &quot;Подразделения&quot;" />
+    <AccessRight Code="ViewContractsPresentation" FileAs="Доступ к представлению &quot;Договоры&quot;" />
+    <AccessRight Code="ViewOrganizationDetails" FileAs="Доступ к карточке &quot;Организация&quot;" />
+    <AccessRight Code="ViewEmployeeDetails" FileAs="Доступ к карточке &quot;Сотрудник&quot;" />
+    <AccessRight Code="ViewBankAccountDetails" FileAs="Доступ к карточке &quot;Банковский счет&quot;" />
+    <AccessRight Code="ViewContractDetails" FileAs="Доступ к карточке &quot;Договор&quot;" />
+    <AccessRight Code="ViewProductCostStatementDetails" FileAs="Доступ к карточке &quot;Ведомость учета себестоимости&quot;" />
+    <AccessRight Code="ViewPriceListDetails" FileAs="Доступ к карточке &quot;Прайс-лист&quot;" />
+    <AccessRight Code="ManageSimpleDictionary" FileAs="Управление простыми справочниками" />
+    <AccessRight Code="ViewPriceListsPresentation" FileAs="Доступ к представлению &quot;Прайс-листы&quot;" />
+    <AccessRight Code="ViewProductCostStatementsPresentation" FileAs="Доступ к представлению &quot;Себестоимость&quot;" />
+    <AccessRight Code="ViewAccountEventDetails" FileAs="Доступ к карточке &quot;Событие&quot;" />
+    <AccessRight Code="ViewDocumentEmployeeAccessRightDetails" FileAs="Доступ к карточке &quot;Доступ сотрудника&quot;" />
+    <AccessRight Code="ViewBudgetTemplatesPresentation" FileAs="Доступ к представлению &quot;Шаблоны ПРС&quot;" />
+    <AccessRight Code="ViewUsersSelector" FileAs="Доступ к диалогу выбора &quot;Пользователь&quot;" />
+    <AccessRight Code="ViewProjectTemplatePresentation" FileAs="Доступ к представлению &quot;Шаблоны проектов&quot;" />
+    <AccessRight Code="ViewProjectTemplatesPresentation" FileAs="Доступ к представлению &quot;Шаблоны проектов&quot;" />
+    <AccessRight Code="ViewProjectTemplateDetails" FileAs="Доступ к карочке &quot;Шаблон проекта&quot;" />
+    <AccessRight Code="ViewAllContactsPresentation" FileAs="Доступ к представлению &quot;Все контакты&quot;" />
+    <AccessRight Code="ViewTaskGroup" FileAs="Доступ к группе представлений &quot;Задачи&quot;" />
+    <AccessRight Code="ViewMyTasksPresentation" FileAs="Доступ к представлению &quot;Мои задачи&quot;" />
+    <AccessRight Code="ViewMyProjectTasksPresentation" FileAs="Доступ к представлению &quot;Задачи моих проектов&quot;" />
+    <AccessRight Code="ViewAllTasksPresentation" FileAs="Доступ к представлению &quot;Все задачи&quot;" />
+    <AccessRight Code="ViewMyAccountsPresentation" FileAs="Доступ к представлению &quot;Мои контрагенты&quot;" />
+    <AccessRight Code="ManageAccounts" FileAs="Полный доступ к справочнику &quot;Контрагенты&quot;" />
+    <AccessRight Code="ViewMyContactsPresentation" FileAs="Доступ к представлению &quot;Мои контакты&quot;" />
+    <AccessRight Code="ManageContacts" FileAs="Полный доступ к справочнику &quot;Контакты&quot;" />
+    <AccessRight Code="ViewTradeMarkSelector" FileAs="Доступ к диалогу выбора Торговых марок" />
+    <AccessRight Code="ViewServiceRequestsGroup" FileAs="Доступ к группе представлений &quot;Заказы покупателей&quot;" />
+    <AccessRight Code="ViewMyServiceRequestsPresentation" FileAs="Доступ к представлению &quot;Мои заказы покупателей&quot;" />
+    <AccessRight Code="ViewAllServiceRequestsPresentation" FileAs="Доступ к представлению &quot;Все заказы покупателей&quot;" />
+    <AccessRight Code="ViewMyAccountEventsPresentation" FileAs="Доступ к представлению &quot;Мои события&quot;" />
+    <AccessRight Code="ViewMyProjectsPresentation" FileAs="Доступ к представлению &quot;Мои проекты&quot;" />
+    <AccessRight Code="ViewAllProjectsPresentation" FileAs="Доступ к представлению &quot;Все проекты&quot;" />
+    <AccessRight Code="ViewProjectsGroup" FileAs="Доступ к группе представлений &quot;Проекты&quot;" />
+  </Rights>
+  <Roles>
+    <ApplicationRole Code="DictionaryAdministrator" FileAs="Администратор справочников" />
+    <ApplicationRole Code="SecurityAdministrator" FileAs="Администратор безопасности системы" />
+    <ApplicationRole Code="ApplicationUser" FileAs="Пользователь системы" />
+    <ApplicationRole Code="ProductManager" FileAs="Администратор справочника номенклатуры" />
+    <ApplicationRole Code="MasterMenuManager" FileAs="Администратор справочника мастер-меню" />
+    <ApplicationRole Code="BeveragesManager" FileAs="Администратор справочника напитков" />
+    <ApplicationRole Code="BudgetTemplatesManager" FileAs="Администратор шаблонов ПРС" />
+    <ApplicationRole Code="MetadataAdministrator" FileAs="Администратор метаданных" />
+    <ApplicationRole Code="SuperUser" FileAs="Супер пользователь" />
+    <ApplicationRole Code="SalesManager" FileAs="Сотрудник отдела продаж" />
+    <ApplicationRole Code="HeadOfSales" FileAs="Руководитель отдела продаж" />
+  </Roles>
+  <RoleRights>
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewDictionaries" />
+    <ApplicationRoleAccessRight ApplicationRole="DictionaryAdministrator" AccessRight="ViewDictionaries" />
+    <ApplicationRoleAccessRight ApplicationRole="DictionaryAdministrator" AccessRight="ManageDictionaries" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ManageDictionaries" />
+    <ApplicationRoleAccessRight ApplicationRole="SecurityAdministrator" AccessRight="ManageSecurity" />
+    <ApplicationRoleAccessRight ApplicationRole="ApplicationUser" AccessRight="ApplicationAccess" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ApplicationAccess" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewProducts" />
+    <ApplicationRoleAccessRight ApplicationRole="ProductManager" AccessRight="ViewProducts" />
+    <ApplicationRoleAccessRight ApplicationRole="MasterMenuManager" AccessRight="ViewMasterMenu" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewMasterMenu" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewBeverages" />
+    <ApplicationRoleAccessRight ApplicationRole="BeveragesManager" AccessRight="ViewBeverages" />
+    <ApplicationRoleAccessRight ApplicationRole="ProductManager" AccessRight="ManageProducts" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ManageProducts" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ManageMasterMenu" />
+    <ApplicationRoleAccessRight ApplicationRole="MasterMenuManager" AccessRight="ManageMasterMenu" />
+    <ApplicationRoleAccessRight ApplicationRole="BeveragesManager" AccessRight="ManageBeverages" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ManageBeverages" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ManageBudgetTemplates" />
+    <ApplicationRoleAccessRight ApplicationRole="BudgetTemplatesManager" AccessRight="ManageBudgetTemplates" />
+    <ApplicationRoleAccessRight ApplicationRole="MetadataAdministrator" AccessRight="ManageMetadata" />
+    <ApplicationRoleAccessRight ApplicationRole="SecurityAdministrator" AccessRight="ManageMetadata" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewAccountsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewAccountsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewCustomersPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewCustomersPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewSuppliersPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewSuppliersPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewVenuesPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewVenuesPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewOwnOrganizationsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewOwnOrganizationsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewAccountsByMarketingProgramPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewAccountsByMarketingProgramPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewAccountGroup" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewAccountGroup" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewAccountGroup" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewContactGroup" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewContactGroup" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewContactGroup" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewContactsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewContactsByMarketingProgramPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewContactsByMarketingProgramPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewOpportunitiesPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewServiceRequestsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewServiceRequestsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewProjectsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewProjectsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewProjectMemberRolesPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewProjectMemberRolesPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewEmployeesPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewEmployeesPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewAccountEventGroup" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewAccountEventGroup" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewAccountEventGroup" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewAccountEventsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewAccountEventsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewAccountEventSchedulePresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewAccountEventSchedulePresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewAccountEventSchedulePresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewAccountDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewAccountDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewAccountDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewBankAccountsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewBankAccountsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewDocumentEmployeeAccessRightsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewDocumentEmployeeAccessRightsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewVenueDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewVenueDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewVenueDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewServiceRequestDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewServiceRequestDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewServiceRequestDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewServiceRequestBudget" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewServiceRequestBudget" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewCalculationsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewCalculationsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewCalculationDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewCalculationDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewWorkPlanDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewProjectDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewProjectDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewProjectDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewOpportunityDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewContactDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewContactDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewDivisionsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewDivisionsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewContractsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewOrganizationDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewOrganizationDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewOrganizationDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewEmployeeDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewEmployeeDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewEmployeeDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewBankAccountDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewBankAccountDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewContractDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewProductCostStatementDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewPriceListDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewPriceListDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ManageSimpleDictionary" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewPriceListsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewProductCostStatementsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewAccountEventDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewAccountEventDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewAccountEventDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewDocumentEmployeeAccessRightDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewDocumentEmployeeAccessRightDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewBudgetTemplatesPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewBudgetTemplatesPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SecurityAdministrator" AccessRight="ViewUsersSelector" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewUsersSelector" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewProjectTemplatePresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewProjectTemplatePresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewProjectTemplatesPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewProjectTemplateDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewProjectTemplateDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewProjectTemplateDetails" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewAllContactsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewAllContactsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewAllContactsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewTaskGroup" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewTaskGroup" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewMyTasksPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewMyTasksPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewMyProjectTasksPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewMyProjectTasksPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewAllTasksPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewAllTasksPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewAllTasksPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewMyAccountsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewMyAccountsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ManageAccounts" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ManageAccounts" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ManageAccounts" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewMyContactsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewMyContactsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ManageContacts" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ManageContacts" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewTradeMarkSelector" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewTradeMarkSelector" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewTradeMarkSelector" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewServiceRequestsGroup" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewServiceRequestsGroup" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewServiceRequestsGroup" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewMyServiceRequestsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewMyServiceRequestsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewMyServiceRequestsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewAllServiceRequestsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewAllServiceRequestsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="HeadOfSales" AccessRight="ViewMyAccountEventsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SalesManager" AccessRight="ViewMyAccountEventsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewMyAccountEventsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewMyProjectsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewAllProjectsPresentation" />
+    <ApplicationRoleAccessRight ApplicationRole="SuperUser" AccessRight="ViewProjectsGroup" />
+  </RoleRights>
+</SecurityScheme>

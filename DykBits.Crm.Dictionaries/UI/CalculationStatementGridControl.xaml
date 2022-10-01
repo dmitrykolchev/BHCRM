@@ -1,0 +1,52 @@
+﻿<crm:DataGridControlBase
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:crm="http://www.dykbits.net/wpf/crm"
+        xmlns:data="clr-namespace:DykBits.Crm.Data;assembly=DykBits.Crm.Budget.Entities"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+        xmlns:lui="clr-namespace:DykBits.Crm.UI"
+        x:Class="DykBits.Crm.UI.CalculationStatementGridControl" 
+        DataSourceType="{x:Type data:CalculationStatementView}"
+        mc:Ignorable="d" 
+        d:DesignHeight="600" d:DesignWidth="800" TextOptions.TextFormattingMode="Display" UseLayoutRounding="True">
+    <crm:DataGridControlBase.GridView>
+        <crm:StandardGridControl x:Name="gridView">
+            <dxg:GridControl.View>
+                <crm:StandardTableView ShowTotalSummary="True" ShowGroupFooters="True" />
+            </dxg:GridControl.View>
+            <dxg:GridControl.GroupSummary>
+                <crm:StandardCount />
+                <crm:StandardSum Field="RowData.Row.TotalCost" />
+                <crm:StandardSum Field="RowData.Row.TotalPrice" />
+                <crm:StandardSum Field="RowData.Row.TotalIncome" />
+            </dxg:GridControl.GroupSummary>
+            <dxg:GridControl.TotalSummary>
+                <crm:StandardSum Field="RowData.Row.TotalCost" />
+                <crm:StandardSum Field="RowData.Row.TotalPrice" />
+                <crm:StandardSum Field="RowData.Row.TotalIncome" />
+            </dxg:GridControl.TotalSummary>
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn x:Name="columnId" crm:StandardGridColumn.Column="Id" />
+                <dxg:GridColumn x:Name="columnIcon" crm:StandardGridColumn.Column="Icon" />
+                <dxg:GridColumn x:Name="columnState" crm:StandardGridColumn.Column="State" />
+                <dxg:GridColumn x:Name="columnFileAs" crm:StandardGridColumn.Column="FileAs" Visible="False" />
+                <dxg:GridColumn x:Name="columnNumber" crm:StandardGridColumn.Column="Number" />
+                <dxg:GridColumn x:Name="columnDocumentDate" crm:StandardGridColumn.Column="DocumentDate" />
+                <dxg:GridColumn x:Name="columnCalculationStage" Header="Этап" Width="200" Binding="{crm:ReferenceBinding CalculationStage, ClassName=CalculationStage}" />
+                <dxg:GridColumn x:Name="columnIncomeBudgetItemId" Header="Доходы" Width="200" Binding="{crm:ReferenceBinding IncomeBudgetItemId, ClassName=BudgetItem}" />
+                <dxg:GridColumn x:Name="columnExpenseBudgetItemId" Header="Расходы" Width="200" Binding="{crm:ReferenceBinding ExpenseBudgetItemId, ClassName=BudgetItem}" />
+                <dxg:GridColumn x:Name="columnTotalPrice" Header="Сумма" Width="150" Binding="{Binding TotalPrice, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnTotalCost" Header="Себестоимость" Width="150" Binding="{Binding TotalCost, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnTotalIncome" Header="Доход" Width="150" Binding="{Binding TotalIncome, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnCreated" crm:StandardGridColumn.Column="Created" />
+                <dxg:GridColumn x:Name="columnCreatedBy" crm:StandardGridColumn.Column="CreatedBy" />
+                <dxg:GridColumn x:Name="columnModified" crm:StandardGridColumn.Column="Modified" />
+                <dxg:GridColumn x:Name="columnModifiedBy" crm:StandardGridColumn.Column="ModifiedBy" />
+            </dxg:GridControl.Columns>
+        </crm:StandardGridControl>
+    </crm:DataGridControlBase.GridView>
+</crm:DataGridControlBase>

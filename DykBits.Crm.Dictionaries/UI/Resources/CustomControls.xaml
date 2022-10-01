@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:crm ="http://www.dykbits.net/wpf/crm">
+    <crm:StateConverter x:Key="stateConverter" />
+    <Style x:Key="{x:Type crm:DocumentPicker}" TargetType="{x:Type crm:DocumentPicker}">
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Margin" Value="0,2,0,2" />
+    </Style>
+    <Style x:Key="{x:Type crm:PersonNameBox}" TargetType="{x:Type crm:PersonNameBox}">
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Margin" Value="0,2,0,2" />
+    </Style>
+    <Style x:Key="{x:Type crm:AddressBox}" TargetType="{x:Type crm:AddressBox}">
+        <Setter Property="Margin" Value="0,2,0,2" />
+    </Style>
+</ResourceDictionary>

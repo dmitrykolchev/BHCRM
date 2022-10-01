@@ -1,0 +1,87 @@
+﻿<crm:DataGridControlBase
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:crm="http://www.dykbits.net/wpf/crm"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+        xmlns:local="clr-namespace:DykBits.Crm"
+        xmlns:data ="clr-namespace:DykBits.Crm.Data;assembly=DykBits.Crm.Entities"
+        x:Class="DykBits.Crm.UI.Reports.ConsolidatedInventoryGridControl" DataSourceType="{x:Type data:ConsolidatedInventoryOperationLine}"
+        mc:Ignorable="d" 
+        d:DesignHeight="600" d:DesignWidth="800" TextOptions.TextFormattingMode="Display" UseLayoutRounding="True">
+    <crm:DataGridControlBase.GridView>
+        <dxg:GridControl x:Name="gridView">
+            <dxg:GridControl.View>
+                <dxg:TableView AllowMoveColumnToDropArea="False" AllowEditing="False" AutoWidth="True" UseAnimationWhenExpanding="False" 
+                               ShowTotalSummary="True" ShowGroupFooters="True" />
+            </dxg:GridControl.View>
+            <dxg:GridControl.TotalSummary>
+                <crm:StandardSum Field="RowData.Row.StartCost" />
+                <crm:StandardSum Field="RowData.Row.PurchaseCost" />
+                <crm:StandardSum Field="RowData.Row.SalesCost" />
+                <crm:StandardSum Field="RowData.Row.WriteoffCost"/>
+                <crm:StandardSum Field="RowData.Row.ReturnsCost" />
+                <crm:StandardSum Field="RowData.Row.TotalCost" />
+            </dxg:GridControl.TotalSummary>
+            <dxg:GridControl.GroupSummary>
+                <crm:StandardCount />
+                <crm:StandardSum Field="RowData.Row.StartCost" />
+                <crm:StandardSum Field="RowData.Row.PurchaseCost" />
+                <crm:StandardSum Field="RowData.Row.SalesCost" />
+                <crm:StandardSum Field="RowData.Row.WriteoffCost"/>
+                <crm:StandardSum Field="RowData.Row.ReturnsCost" />
+                <crm:StandardSum Field="RowData.Row.TotalCost" />
+            </dxg:GridControl.GroupSummary>
+            <dxg:GridControl.Bands>
+                <dxg:GridControlBand Header="">
+                    <dxg:GridColumn x:Name="columnFileAs" Header="Наименование" Width="500" Binding="{Binding FileAs, Mode=OneWay}" SortIndex="0" SortOrder="Ascending"/>
+                    <dxg:GridColumn x:Name="columnProductCategoryId" Header="Категория" Width="500" Binding="{crm:ReferenceBinding ProductCategoryId, ClassName=ProductCategory}" crm:StandardGridColumn.IsReference="True" GroupIndex="0" />
+                </dxg:GridControlBand>
+
+                <dxg:GridControlBand Header="Начало периода">
+                    <dxg:GridColumn x:Name="columnStartAmount" Header="Кол-во" Width="100" Binding="{Binding StartAmount, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                    <dxg:GridColumn x:Name="columnStartCost" Header="Сумма" Width="100" Binding="{Binding StartCost, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                </dxg:GridControlBand>
+
+                <dxg:GridControlBand Header="Приход">
+                    <dxg:GridColumn x:Name="columnPurchaseAmount" Header="Кол-во" Width="100" Binding="{Binding PurchaseAmount, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money"/>
+                    <dxg:GridColumn x:Name="columnPurchaseCost" Header="Сумма" Width="100" Binding="{Binding PurchaseCost, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                </dxg:GridControlBand>
+
+                <dxg:GridControlBand Header="Расход">
+                    <dxg:GridColumn x:Name="columnSalesAmount" Header="Кол-во" Width="100" Binding="{Binding SalesAmount, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                    <dxg:GridColumn x:Name="columnSalesCost" Header="Сумма" Width="100" Binding="{Binding SalesCost, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                </dxg:GridControlBand>
+
+                <dxg:GridControlBand Header="Списание">
+                    <dxg:GridColumn x:Name="columnWriteoffAmount" Header="Кол-во" Width="100" Binding="{Binding WriteoffAmount, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                    <dxg:GridColumn x:Name="columnWriteoffCost" Header="Сумма" Width="100" Binding="{Binding WriteoffCost, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                </dxg:GridControlBand>
+
+                <dxg:GridControlBand Header="Возврат">
+                    <dxg:GridColumn x:Name="columnReturnsAmount" Header="Кол-во" Width="100" Binding="{Binding ReturnsAmount, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                    <dxg:GridColumn x:Name="columnReturnsCost" Header="Сумма" Width="100" Binding="{Binding ReturnsCost, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                </dxg:GridControlBand>
+
+                <dxg:GridControlBand Header="Конец периода">
+                    <dxg:GridColumn x:Name="columnTotalAmount" Header="Кол-во" Width="100" Binding="{Binding TotalAmount, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                    <dxg:GridColumn x:Name="columnTotalCost" Header="Сумма" Width="100" Binding="{Binding TotalCost, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                </dxg:GridControlBand>
+            </dxg:GridControl.Bands>
+        </dxg:GridControl>
+    </crm:DataGridControlBase.GridView>
+    <crm:DataGridControlBase.FilterView>
+        <crm:DataViewFilterControl x:Name="filterControl">
+            <StackPanel Orientation="Vertical">
+                <crm:PeriodSelectorControl PeriodStart="{crm:BindingEx PeriodStart, Mode=TwoWay}" PeriodEnd="{crm:BindingEx PeriodEnd, Mode=TwoWay}" />
+                <Label Content="Организация" />
+                <crm:DocumentPicker SelectedValue="{crm:BindingEx OrganizationId}" DataSource="Organization" />
+                <Label Content="Склад" />
+                <crm:DataComboBox SelectedValue="{crm:BindingEx StoragePlaceId}" DataSource="StoragePlace" />
+            </StackPanel>
+        </crm:DataViewFilterControl>
+    </crm:DataGridControlBase.FilterView>
+</crm:DataGridControlBase>

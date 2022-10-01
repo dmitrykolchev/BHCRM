@@ -1,0 +1,22 @@
+﻿CREATE TABLE [dbo].[OperatingCalculation]
+(
+	[Id] TIdentifier not null primary key identity, 
+	[State] TState not null,
+	[FileAs] TName not null,
+	[Number] TCode not null,
+	[DocumentDate] date not null,
+	[OrganizationId] TIdentifier not null,
+	[OperatingBudgetId] TIdentifier not null,
+	[BudgetItemId] TIdentifier NOT null,
+	[CalculationStage] int not null,
+	[TotalValue] TMoney not null default(0),
+    [Comments] nvarchar(max) null, 
+    [Created] datetime not null, 
+    [CreatedBy] int not null, 
+    [Modified] datetime not null, 
+    [ModifiedBy] int not null, 
+    [RowVersion] rowversion NOT NULL, 
+    CONSTRAINT [FK_OperatingCalculation_Organization] FOREIGN KEY ([OrganizationId]) REFERENCES [Account]([Id]), 
+    CONSTRAINT [FK_OperatingCalculation_OperatingBudget] FOREIGN KEY ([OperatingBudgetId]) REFERENCES [OperatingBudget]([Id]), 
+    CONSTRAINT [FK_OperatingCalculation_IncomeBudgetItem] FOREIGN KEY ([BudgetItemId]) REFERENCES [BudgetItem]([Id]),
+)

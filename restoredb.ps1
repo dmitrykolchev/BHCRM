@@ -1,0 +1,3 @@
+Backup-SqlDatabase -ServerInstance as3 -Database CrmDbMain -Initialize -BackupFile CrmDbMainPS.bak
+Copy-Item "Microsoft.PowerShell.Core\FileSystem::\\as3\C$\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Backup\CrmDbMainPS.bak" -destination "C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Backup" -Force
+Restore-SqlDatabase -ServerInstance localhost -Database CrmDb -ReplaceDatabase -RestoreAction Database -BackupFile CrmDbMainPS.bak

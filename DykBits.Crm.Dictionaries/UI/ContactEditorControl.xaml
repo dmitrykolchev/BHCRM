@@ -1,0 +1,115 @@
+﻿<crm:EditorControlBase x:Class="DykBits.Crm.UI.ContactEditorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:crm ="http://www.dykbits.net/wpf/crm"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800" UseLayoutRounding="True" TextOptions.TextFormattingMode="Display"
+             Grid.IsSharedSizeScope="True">
+    <crm:EditorControlBase.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </crm:EditorControlBase.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="12"/>
+
+            <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="96"/>
+
+            <ColumnDefinition Width="12"/>
+
+            <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="96"/>
+        </Grid.ColumnDefinitions>
+        <crm:ExternalEditorButton Content="Имя..." Grid.Column="1" Grid.Row="0" TargetControl="{x:Reference fullName}" />
+        <crm:PersonNameBox x:Name="fullName"  Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="3" FirstName="{crm:BindingEx FirstName}" 
+                           MiddleName="{crm:BindingEx MiddleName}" LastName="{crm:BindingEx LastName}"/>
+        <Label Style="{StaticResource crmLabel}" Content="Отдел:" Grid.Column="1" Grid.Row="2"/>
+        <TextBox Style="{StaticResource crmTextBox}" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3" Text="{crm:BindingEx Department}" />
+        <Label Style="{StaticResource crmLabel}" Content="Должность:" Grid.Column="7" Grid.Row="2"/>
+        <TextBox Style="{StaticResource crmTextBox}" Grid.Column="9" Grid.Row="2" Grid.ColumnSpan="3" Text="{crm:BindingEx Title}" />
+        <Label Style="{StaticResource crmLabel}" Content="Группа:" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="3"/>
+        <ComboBox Style="{StaticResource crmComboBox}" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="3" SelectedValue="{crm:BindingEx ContactGroupId}" ItemsSource="{crm:ListSource ContactGroup}" DisplayMemberPath="FileAs" SelectedValuePath="Id" />
+        <Label Style="{StaticResource crmLabel}" Content="Роль:" Grid.Column="7" Grid.ColumnSpan="1" Grid.Row="3"/>
+        <ComboBox Style="{StaticResource crmComboBox}" Grid.Column="9" Grid.ColumnSpan="3" Grid.Row="3" SelectedValue="{crm:BindingEx ContactRoleId}" ItemsSource="{crm:ListSource ContactRole, OrderById=True}" DisplayMemberPath="FileAs" SelectedValuePath="Id" />
+
+        <Label Style="{StaticResource crmLabel}" Content="Контрагент:" Grid.Column="7" Grid.Row="0" />
+        <crm:DocumentPicker x:Name="comboAccount" Grid.Column="9" Grid.Row="0" Grid.ColumnSpan="3" SelectedValue="{crm:BindingEx AccountId}" DataSource="Account" />
+        <Label Style="{StaticResource crmLabel}" Content="Источник:" Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="0" Visibility="Collapsed" />
+        <crm:DataComboBox Grid.Column="9" Grid.ColumnSpan="3" Grid.Row="0" SelectedValue="{crm:BindingEx LeadSourceId}" DataSource="LeadSource" Visibility="Collapsed" />
+
+        <Label Style="{StaticResource crmLabel}" Grid.ColumnSpan="2" Content="Телефоны" Grid.Row="6" Grid.Column="0" Foreground="Gray" />
+        <Label Style="{StaticResource crmLabel}" Content="Рабочий:" Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="2"/>
+        <dxe:TextEdit Style="{StaticResource crmPhoneEdit}" Grid.Column="3" Grid.Row="7" Grid.ColumnSpan="3" EditValue="{crm:BindingEx BusinessPhone}" />
+        <Label Style="{StaticResource crmLabel}" Content="Мобильный:" Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2"/>
+        <dxe:TextEdit Style="{StaticResource crmPhoneEdit}" Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="3" EditValue="{crm:BindingEx MobilePhone}"/>
+        <Label Style="{StaticResource crmLabel}" Content="Домашний:" Grid.Column="1" Grid.Row="9" Visibility="Collapsed"/>
+        <dxe:TextEdit Style="{StaticResource crmPhoneEdit}" Grid.Column="3" Grid.Row="9" Grid.ColumnSpan="3" EditValue="{crm:BindingEx HomePhone}" Visibility="Collapsed" />
+        <Label Style="{StaticResource crmLabel}" Content="Другой:" Grid.Column="1" Grid.Row="10"/>
+        <dxe:TextEdit Style="{StaticResource crmPhoneEdit}" Grid.Column="3" Grid.Row="10" Grid.ColumnSpan="3" EditValue="{crm:BindingEx OtherPhone}"/>
+        <Label Style="{StaticResource crmLabel}" Content="Факс:" Grid.Column="1" Grid.Row="11" Visibility="Collapsed"/>
+        <dxe:TextEdit Style="{StaticResource crmPhoneEdit}" Grid.Column="3" Grid.Row="11" Grid.ColumnSpan="3" EditValue="{crm:BindingEx Fax}" Visibility="Collapsed"/>
+
+        <Label Style="{StaticResource crmLabel}" Grid.ColumnSpan="2" Content="Интернет" Grid.Row="6" Grid.Column="6" Foreground="Gray"/>
+        <Label Style="{StaticResource crmLabel}" Content="Email 1:" Grid.Column="7" Grid.Row="7"/>
+        <TextBox Style="{StaticResource crmTextBox}" Grid.Column="9" Grid.Row="7" Grid.ColumnSpan="3" Text="{Binding Email}"/>
+        <Label Style="{StaticResource crmLabel}" Content="Email 2:" Grid.Column="7" Grid.Row="8"/>
+        <TextBox Style="{StaticResource crmTextBox}" Grid.Column="9" Grid.Row="8" Grid.ColumnSpan="3" Text="{Binding OtherEmail}"/>
+        <!--<Label Style="{StaticResource crmLabel}" Content="Веб страница:" Grid.Column="7" Grid.Row="9"/>
+        <TextBox Style="{StaticResource crmTextBox}" Grid.Column="9" Grid.Row="9" Grid.ColumnSpan="3" Text="{Binding WebSite}"/>-->
+
+
+        <Label Style="{StaticResource crmLabel}" Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="2" Foreground="Gray" Content="Адреса"/>
+
+        <crm:ExternalEditorButton Grid.Row="14" Content="Основной..." Grid.Column="1" Height="23" VerticalAlignment="Top" Margin="0,2,0,0" TargetControl="{x:Reference Name=primaryAddress}" />
+        <crm:AddressBox x:Name="primaryAddress" Grid.Row="14" Grid.Column="3" Height="64" Grid.RowSpan="1" 
+                        Street="{Binding PrimaryAddressStreet}" 
+                        City="{Binding PrimaryAddressCity}"
+                        PostalCode="{Binding PrimaryAddressPostalCode}"
+                        Region="{Binding PrimaryAddressRegion}"
+                        Country="{Binding PrimaryAddressCountry}" />
+        <crm:MapItButton Grid.Row="14" Grid.Column="5" Height="64" TargetControl="{x:Reference primaryAddress}" />
+
+        <crm:ExternalEditorButton Grid.Row="14" Grid.Column="7" Content="Другой..." Height="23" VerticalAlignment="Top" Margin="0,2,0,0" TargetControl="{x:Reference Name=alternateAddress}" />
+        <crm:AddressBox x:Name="alternateAddress"  Grid.Row="14" Grid.Column="9" Height="64" 
+                        Street="{Binding AlternateAddressStreet}" 
+                        City="{Binding AlternateAddressCity}"
+                        PostalCode="{Binding AlternateAddressPostalCode}"
+                        Region="{Binding AlternateAddressRegion}"
+                        Country="{Binding AlternateAddressCountry}" />
+        <crm:MapItButton Grid.Row="14" Grid.Column="11" Height="64" TargetControl="{x:Reference alternateAddress}" />
+        <Label Style="{StaticResource crmLabel}" Content="Ответственный:" Grid.Column="1" Grid.Row="15"/>
+        <crm:DocumentPicker Grid.Column="3" Grid.Row="15" Grid.ColumnSpan="9" SelectedValue="{Binding AssignedToEmployeeId}" DataSource="Employee" />
+
+    </Grid>
+</crm:EditorControlBase>

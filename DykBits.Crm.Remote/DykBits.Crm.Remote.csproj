@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4AA05467-A1D3-401A-959C-8CAC84C3B941}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DykBits.Crm</RootNamespace>
+    <AssemblyName>DykBits.Crm.Remote</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\DataAdapterProxy`2.cs" />
+    <Compile Include="Data\RemoteConnectionManager.cs" />
+    <Compile Include="Data\RemoteDataAdapter.cs" />
+    <Compile Include="Data\RemoteDataService.cs" />
+    <Compile Include="Data\RemoteDataServicePool.cs" />
+    <Compile Include="Data\RemoteStream.cs" />
+    <Compile Include="Data\RemoteViewDataAdapter`1.cs" />
+    <Compile Include="Data\ViewDataAdapterProxy`1.cs" />
+    <Compile Include="DocumentServices\DocumentServiceClient.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\DocumentServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DykBits.Crm.Data\DykBits.Crm.Data.csproj">
+      <Project>{ec5a6c6d-7063-43ca-a338-9f061592fd4c}</Project>
+      <Name>DykBits.Crm.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Services\DykBits.Crm.Services.csproj">
+      <Project>{1ba66118-22ff-4006-9e6b-a0cfab0fbad8}</Project>
+      <Name>DykBits.Crm.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.DataService.GzipEncoder\DykBits.DataService.GzipEncoder.csproj">
+      <Project>{28addd39-3cd3-47bf-aa3e-89a6067f8c46}</Project>
+      <Name>DykBits.DataService.GzipEncoder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Xml\DykBits.Xml.csproj">
+      <Project>{a4305687-4c8b-4f30-a502-9501415e4d75}</Project>
+      <Name>DykBits.Xml</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\DykBits.Crm.Data.DocumentNumberInfo.datasource" />
+    <None Include="Properties\DataSources\DykBits.Crm.Data.DocumentNumberInfo1.datasource" />
+    <None Include="Service References\DocumentServices\documentservice1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DocumentServices\DykBits.Crm.Data1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DocumentServices\DykBits.Crm.DocumentServices.DocumentNumberInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentServices\DykBits.DataService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DocumentServices\Message1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DocumentServices\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DocumentServices\service1.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DocumentServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DocumentServices\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DocumentServices\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DocumentServices\documentservice1.wsdl" />
+    <None Include="Service References\DocumentServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

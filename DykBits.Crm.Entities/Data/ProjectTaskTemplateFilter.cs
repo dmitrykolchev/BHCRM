@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DykBits.Crm.Data
+{
+    partial class ProjectTaskTemplateFilter
+    {
+        public Nullable<int> ProjectTemplateId
+        {
+            get;
+            set;
+        }
+        public override void InitializeDefaults(object dataContext, object parameter)
+        {
+            base.InitializeDefaults(dataContext, parameter);
+            if (dataContext is ProjectTemplate)
+                this.ProjectTemplateId = ((ProjectTemplate)dataContext).Id;
+        }
+    }
+}

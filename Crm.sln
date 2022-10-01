@@ -1,0 +1,215 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20623.1 VSUPREVIEW
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CrmDb", "CrmDb\CrmDb.sqlproj", "{EC0072D9-CC10-4A11-AB72-4D2EF57CC69F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DykBits.Crm", "DykBits.Crm\DykBits.Crm.csproj", "{2FC2D093-BA96-4DBA-BF21-C64A2D6E5513}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CRM", "CRM", "{57286A9D-C3F1-4C46-995E-2E8B82A927F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{B83EF68E-938B-47C7-9B09-BED2559BEA67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DykBits.Crm.Core", "DykBits.Crm.Core\DykBits.Crm.Core.csproj", "{B40605BB-DB90-41B0-8B02-6C90005E36A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{080FEC93-01E5-446B-B81D-C9D1370249BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{ED37514A-2139-495F-ABD6-8163A796DBE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DykBits.Crm.UI", "DykBits.Crm.UI\DykBits.Crm.UI.csproj", "{B376DA47-7389-4F66-96D8-19543037BC3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "Generator\Generator.csproj", "{14F0B7CD-D6CC-4E73-AD52-063DD986EA0A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppGenerator", "AppGenerator", "{AF818FF3-0C17-49B3-A60A-3A93BFFD73C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmTest", "CrmTest\CrmTest.csproj", "{508872AF-3587-424E-A49F-E1F21C70FD3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DykBits.Crm.Entities", "DykBits.Crm.Entities\DykBits.Crm.Entities.csproj", "{73A8C4A7-FB5D-40EA-8CAD-B1DF2CBB96BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DykBits.Crm.Dictionaries", "DykBits.Crm.Dictionaries\DykBits.Crm.Dictionaries.csproj", "{D0A7D363-76A7-4118-8E67-37CCC2A7B496}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://srv-003:8080/tfs/crm
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CrmDb\\CrmDb.sqlproj
+		SccProjectTopLevelParentUniqueName1 = Crm.sln
+		SccProjectName1 = CrmDb
+		SccLocalPath1 = CrmDb
+		SccProjectUniqueName2 = DykBits.Crm.UI\\DykBits.Crm.UI.csproj
+		SccProjectTopLevelParentUniqueName2 = Crm.sln
+		SccProjectName2 = DykBits.Crm.UI
+		SccLocalPath2 = DykBits.Crm.UI
+		SccProjectUniqueName3 = DykBits.Crm.Core\\DykBits.Crm.Core.csproj
+		SccProjectTopLevelParentUniqueName3 = Crm.sln
+		SccProjectName3 = DykBits.Crm.Core
+		SccLocalPath3 = DykBits.Crm.Core
+		SccProjectUniqueName4 = DykBits.Crm.Entities\\DykBits.Crm.Entities.csproj
+		SccProjectTopLevelParentUniqueName4 = Crm.sln
+		SccProjectName4 = DykBits.Crm.Entities
+		SccLocalPath4 = DykBits.Crm.Entities
+		SccProjectUniqueName5 = DykBits.Crm\\DykBits.Crm.csproj
+		SccProjectTopLevelParentUniqueName5 = Crm.sln
+		SccProjectName5 = DykBits.Crm
+		SccLocalPath5 = DykBits.Crm
+		SccProjectUniqueName6 = Generator\\Generator.csproj
+		SccProjectTopLevelParentUniqueName6 = Crm.sln
+		SccProjectName6 = Generator
+		SccLocalPath6 = Generator
+		SccProjectUniqueName7 = CrmTest\\CrmTest.csproj
+		SccProjectName7 = CrmTest
+		SccLocalPath7 = CrmTest
+		SccProjectUniqueName8 = DykBits.Crm.Dictionaries\\DykBits.Crm.Dictionaries.csproj
+		SccProjectTopLevelParentUniqueName8 = Crm.sln
+		SccProjectName8 = DykBits.Crm.Dictionaries
+		SccLocalPath8 = DykBits.Crm.Dictionaries
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC0072D9-CC10-4A11-AB72-4D2EF57CC69F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC0072D9-CC10-4A11-AB72-4D2EF57CC69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC0072D9-CC10-4A11-AB72-4D2EF57CC69F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{EC0072D9-CC10-4A11-AB72-4D2EF57CC69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC0072D9-CC10-4A11-AB72-4D2EF57CC69F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC0072D9-CC10-4A11-AB72-4D2EF57CC69F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2FC2D093-BA96-4DBA-BF21-C64A2D6E5513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FC2D093-BA96-4DBA-BF21-C64A2D6E5513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FC2D093-BA96-4DBA-BF21-C64A2D6E5513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FC2D093-BA96-4DBA-BF21-C64A2D6E5513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B40605BB-DB90-41B0-8B02-6C90005E36A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B40605BB-DB90-41B0-8B02-6C90005E36A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B40605BB-DB90-41B0-8B02-6C90005E36A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B40605BB-DB90-41B0-8B02-6C90005E36A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B376DA47-7389-4F66-96D8-19543037BC3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B376DA47-7389-4F66-96D8-19543037BC3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B376DA47-7389-4F66-96D8-19543037BC3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B376DA47-7389-4F66-96D8-19543037BC3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14F0B7CD-D6CC-4E73-AD52-063DD986EA0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14F0B7CD-D6CC-4E73-AD52-063DD986EA0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14F0B7CD-D6CC-4E73-AD52-063DD986EA0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14F0B7CD-D6CC-4E73-AD52-063DD986EA0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{508872AF-3587-424E-A49F-E1F21C70FD3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{508872AF-3587-424E-A49F-E1F21C70FD3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{508872AF-3587-424E-A49F-E1F21C70FD3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{508872AF-3587-424E-A49F-E1F21C70FD3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73A8C4A7-FB5D-40EA-8CAD-B1DF2CBB96BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73A8C4A7-FB5D-40EA-8CAD-B1DF2CBB96BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73A8C4A7-FB5D-40EA-8CAD-B1DF2CBB96BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73A8C4A7-FB5D-40EA-8CAD-B1DF2CBB96BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0A7D363-76A7-4118-8E67-37CCC2A7B496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0A7D363-76A7-4118-8E67-37CCC2A7B496}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0A7D363-76A7-4118-8E67-37CCC2A7B496}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0A7D363-76A7-4118-8E67-37CCC2A7B496}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EC0072D9-CC10-4A11-AB72-4D2EF57CC69F} = {080FEC93-01E5-446B-B81D-C9D1370249BC}
+		{2FC2D093-BA96-4DBA-BF21-C64A2D6E5513} = {57286A9D-C3F1-4C46-995E-2E8B82A927F9}
+		{B83EF68E-938B-47C7-9B09-BED2559BEA67} = {57286A9D-C3F1-4C46-995E-2E8B82A927F9}
+		{ED37514A-2139-495F-ABD6-8163A796DBE6} = {57286A9D-C3F1-4C46-995E-2E8B82A927F9}
+		{B40605BB-DB90-41B0-8B02-6C90005E36A5} = {B83EF68E-938B-47C7-9B09-BED2559BEA67}
+		{73A8C4A7-FB5D-40EA-8CAD-B1DF2CBB96BD} = {B83EF68E-938B-47C7-9B09-BED2559BEA67}
+		{D0A7D363-76A7-4118-8E67-37CCC2A7B496} = {B83EF68E-938B-47C7-9B09-BED2559BEA67}
+		{B376DA47-7389-4F66-96D8-19543037BC3F} = {ED37514A-2139-495F-ABD6-8163A796DBE6}
+		{14F0B7CD-D6CC-4E73-AD52-063DD986EA0A} = {AF818FF3-0C17-49B3-A60A-3A93BFFD73C6}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 11
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://srv-003:8080/tfs/crm
+		SccProjectUniqueName1 = CrmDb\\CrmDb.sqlproj
+		SccProjectTopLevelParentUniqueName1 = Crm.sln
+		SccProjectName1 = CrmDb
+		SccLocalPath1 = CrmDb
+		SccProjectUniqueName2 = DykBits.Crm.Data.Common\\DykBits.Crm.Data.Common.csproj
+		SccProjectTopLevelParentUniqueName2 = Crm.sln
+		SccProjectName2 = DykBits.Crm.Data.Common
+		SccLocalPath2 = DykBits.Crm.Data.Common
+		SccProjectUniqueName3 = DykBits.Crm.UI\\DykBits.Crm.UI.csproj
+		SccProjectTopLevelParentUniqueName3 = Crm.sln
+		SccProjectName3 = DykBits.Crm.UI
+		SccLocalPath3 = DykBits.Crm.UI
+		SccProjectUniqueName4 = DykBits.Crm.Core\\DykBits.Crm.Core.csproj
+		SccProjectTopLevelParentUniqueName4 = Crm.sln
+		SccProjectName4 = DykBits.Crm.Core
+		SccLocalPath4 = DykBits.Crm.Core
+		SccProjectUniqueName5 = DykBits.Crm.DataAdapters\\DykBits.Crm.DataAdapters.csproj
+		SccProjectTopLevelParentUniqueName5 = Crm.sln
+		SccProjectName5 = DykBits.Crm.DataAdapters
+		SccLocalPath5 = DykBits.Crm.DataAdapters
+		SccProjectUniqueName6 = Generator\\Generator.csproj
+		SccProjectTopLevelParentUniqueName6 = Crm.sln
+		SccProjectName6 = Generator
+		SccLocalPath6 = Generator
+		SccProjectUniqueName7 = DykBits.Crm.ProjectTypes\\DykBits.Crm.Dictionaries.csproj
+		SccProjectTopLevelParentUniqueName7 = Crm.sln
+		SccProjectName7 = DykBits.Crm.ProjectTypes
+		SccLocalPath7 = DykBits.Crm.ProjectTypes
+		SccProjectUniqueName8 = DykBits.Crm\\DykBits.Crm.csproj
+		SccProjectTopLevelParentUniqueName8 = Crm.sln
+		SccProjectName8 = DykBits.Crm
+		SccLocalPath8 = DykBits.Crm
+		SccProjectUniqueName9 = DykBits.Crm.Data\\DykBits.Crm.Data.csproj
+		SccProjectTopLevelParentUniqueName9 = Crm.sln
+		SccProjectName9 = DykBits.Crm.Data
+		SccLocalPath9 = DykBits.Crm.Data
+		SccProjectUniqueName10 = DykBits.Crm.Server\\DykBits.Crm.Server.csproj
+		SccProjectTopLevelParentUniqueName10 = Crm.sln
+		SccProjectName10 = DykBits.Crm.Server
+		SccLocalPath10 = DykBits.Crm.Server
+		SccProjectUniqueName11 = CrmTest\\CrmTest.csproj
+		SccProjectTopLevelParentUniqueName11 = Crm.sln
+		SccProjectName11 = CrmTest
+		SccLocalPath11 = CrmTest
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 11
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://home.dykbits.net:9443/tfs/crm
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CrmDb\\CrmDb.sqlproj
+		SccProjectTopLevelParentUniqueName1 = Crm.sln
+		SccProjectName1 = CrmDb
+		SccLocalPath1 = CrmDb
+		SccProjectUniqueName2 = CrmTest\\CrmTest.csproj
+		SccProjectTopLevelParentUniqueName2 = Crm.sln
+		SccProjectName2 = CrmTest
+		SccLocalPath2 = CrmTest
+		SccProjectUniqueName3 = DykBits.Crm.Core\\DykBits.Crm.Core.csproj
+		SccProjectTopLevelParentUniqueName3 = Crm.sln
+		SccProjectName3 = DykBits.Crm.Core
+		SccLocalPath3 = DykBits.Crm.Core
+		SccProjectUniqueName4 = DykBits.Crm.Data.Common\\DykBits.Crm.Data.Common.csproj
+		SccProjectTopLevelParentUniqueName4 = Crm.sln
+		SccProjectName4 = DykBits.Crm.Data.Common
+		SccLocalPath4 = DykBits.Crm.Data.Common
+		SccProjectUniqueName5 = DykBits.Crm.Data\\DykBits.Crm.Data.csproj
+		SccProjectTopLevelParentUniqueName5 = Crm.sln
+		SccProjectName5 = DykBits.Crm.Data
+		SccLocalPath5 = DykBits.Crm.Data
+		SccProjectUniqueName6 = DykBits.Crm.ProjectTypes\\DykBits.Crm.Dictionaries.csproj
+		SccProjectTopLevelParentUniqueName6 = Crm.sln
+		SccProjectName6 = DykBits.Crm.ProjectTypes
+		SccLocalPath6 = DykBits.Crm.ProjectTypes
+		SccProjectUniqueName7 = DykBits.Crm.Server\\DykBits.Crm.Server.csproj
+		SccProjectTopLevelParentUniqueName7 = Crm.sln
+		SccProjectName7 = DykBits.Crm.Server
+		SccLocalPath7 = DykBits.Crm.Server
+		SccProjectUniqueName8 = DykBits.Crm.UI\\DykBits.Crm.UI.csproj
+		SccProjectTopLevelParentUniqueName8 = Crm.sln
+		SccProjectName8 = DykBits.Crm.UI
+		SccLocalPath8 = DykBits.Crm.UI
+		SccProjectUniqueName9 = DykBits.Crm\\DykBits.Crm.csproj
+		SccProjectTopLevelParentUniqueName9 = Crm.sln
+		SccProjectName9 = DykBits.Crm
+		SccLocalPath9 = DykBits.Crm
+	EndGlobalSection
+EndGlobal

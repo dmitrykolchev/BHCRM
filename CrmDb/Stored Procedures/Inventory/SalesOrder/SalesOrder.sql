@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[SalesOrder]
+(
+	[Id] TIdentifier not null primary key identity, 
+	[State] TState not null,
+	[FileAs] TName not null,
+	[Number] TCode not null,
+	[DocumentDate] date not null,
+	[OrganizationId] TIdentifier not null,
+	[StoragePlaceId] TIdentifier not null,
+	[BudgetId] TIdentifier null,
+	[BudgetItemGroupId] TIdentifier null,
+	[BudgetItemId] TIdentifier null,
+	[CustomerId] TIdentifier not null,
+	[TotalCost] TMoney not null default(0),
+	[TotalPrice] TMoney not null default(0),
+    [Comments] nvarchar(max) null, 
+    [Created] datetime not null, 
+    [CreatedBy] int not null, 
+    [Modified] datetime not null, 
+    [ModifiedBy] int not null, 
+    [RowVersion] rowversion not null, 
+    CONSTRAINT [FK_SalesOrder_Organization] FOREIGN KEY ([OrganizationId]) REFERENCES [Account]([Id]), 
+    CONSTRAINT [FK_SalesOrder_StoragePlace] FOREIGN KEY ([StoragePlaceId]) REFERENCES [StoragePlace]([Id]), 
+    CONSTRAINT [FK_SalesOrder_Account] FOREIGN KEY ([CustomerId]) REFERENCES [Account]([Id]), 
+    CONSTRAINT [FK_SalesOrder_Budget] FOREIGN KEY ([BudgetId]) REFERENCES [Budget]([Id]), 
+    CONSTRAINT [FK_SalesOrder_BudgetItemGroup] FOREIGN KEY ([BudgetItemGroupId]) REFERENCES [BudgetItemGroup]([Id]), 
+    CONSTRAINT [FK_SalesOrder_BudgetItem] FOREIGN KEY ([BudgetItemId]) REFERENCES [BudgetItem]([Id])
+)

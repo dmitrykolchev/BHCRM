@@ -1,0 +1,54 @@
+﻿<local:DataWindowBase
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+        x:Class="DykBits.Crm.UI.DocumentSelectorWindow"
+        xmlns:crm ="http://www.dykbits.net/wpf/crm"
+        xmlns:local="clr-namespace:DykBits.Crm.UI"
+        WindowState="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PersistentData.State, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        Left="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PersistentData.Left, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+        Top="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PersistentData.Top, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+        Width="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PersistentData.Width, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+        Height="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PersistentData.Height, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+        Title="Выберите запись из списка">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.Default}" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.CloseWindow}" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed" />
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <dxdo:DockLayoutManager Grid.Row="1">
+            <dxdo:LayoutGroup Caption="LayoutRoot" BorderThickness="0" GroupBorderStyle="Group">
+                <dxdo:LayoutPanel Caption="Panel1" AllowDock="False" AllowHide="False" AllowClose="False" FloatOnDoubleClick="False" AllowMove="False" AllowRename="False" AllowRestore="False" AllowFloat="False" AllowDrag="False" AllowContextMenu="False" ShowCloseButton="False" ShowControlBox="False" ShowMaximizeButton="False" ShowPinButton="False" ShowRestoreButton="False" ShowCaption="False" ShowCaptionImage="False" BorderThickness="0" ShowBorder="False">
+                    <ContentPresenter Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:DocumentSelectorWindow}}, Path=DataControl}" />
+                </dxdo:LayoutPanel>
+            </dxdo:LayoutGroup>
+            <dxdo:DockLayoutManager.AutoHideGroups>
+                <dxdo:AutoHideGroup DockType="Right" AutoHideSize="300,300" x:Name="rightGroup">
+                    <dxdo:LayoutPanel FloatOnDoubleClick="False" AllowClose="False" ItemWidth="300" x:Name="filterPanel" Caption="Фильтр" 
+                                      CaptionImage="/DykBits.Crm.Core;component/Images/16x16/Filter.png" 
+                                      Visibility="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:DocumentSelectorWindow},Mode=FindAncestor},Path=FilterViewVisibility}">
+                        <ContentPresenter Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:DocumentSelectorWindow}}, Path=FilterView}" />
+                    </dxdo:LayoutPanel>
+                </dxdo:AutoHideGroup>
+            </dxdo:DockLayoutManager.AutoHideGroups>
+        </dxdo:DockLayoutManager>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Style="{StaticResource crmButton}" Content="Добавить" Margin="4" IsDefault="True" Command="{x:Static crm:CrmApplicationCommands.Default}" />
+            <Button Style="{StaticResource crmButton}" Content="Закрыть" Margin="4" IsCancel="True" Command="{x:Static crm:CrmApplicationCommands.CloseWindow}" />
+        </StackPanel>
+    </Grid>
+</local:DataWindowBase>

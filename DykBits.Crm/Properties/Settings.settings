@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DykBits.Crm.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ApplicationTheme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Office2013</Value>
+    </Setting>
+    <Setting Name="RemoteConnectionString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=net.tcp://bhw-112.bh.local:38734/DykBits.DataService/DocumentService/;Integrated Security=true;</Value>
+    </Setting>
+    <Setting Name="EndpointIdentity" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">d.kolchev@bh.local</Value>
+    </Setting>
+    <Setting Name="BlobServiceBaseAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">net.tcp://bhw-112.bh.local:38733/DykBits.BlobSvc/BlobService/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Payroll]
+(
+	[Id] TIdentifier not null primary key identity, 
+	[State] TState not null,
+	[FileAs] TName not null,
+	[Number] TCode not null,
+	[DocumentDate] date not null,
+	[OrganizationId] TIdentifier not null,
+	[OperatingBudgetId] TIdentifier not null,
+	[SalaryBudgetItemId] TIdentifier not null,
+	[TaxBudgetItemId] TIdentifier not null,
+	[CashingBudgetItemId] TIdentifier not null,
+	[ExtraCostRateId] TIdentifier not null,
+	[CalculationStage] int not null default(1),
+    [Comments] nvarchar(max) null, 
+    [Created] datetime not null, 
+    [CreatedBy] int not null, 
+    [Modified] datetime not null, 
+    [ModifiedBy] int not null, 
+    [RowVersion] rowversion not null, 
+    CONSTRAINT [FK_Payroll_Organization] FOREIGN KEY ([OrganizationId]) REFERENCES [Account]([Id]), 
+    CONSTRAINT [FK_Payroll_SalaryBudgetItem] FOREIGN KEY ([SalaryBudgetItemId]) REFERENCES [BudgetItem]([Id]), 
+    CONSTRAINT [FK_Payroll_TaxBudgetItem] FOREIGN KEY ([TaxBudgetItemId]) REFERENCES [BudgetItem]([Id]), 
+    CONSTRAINT [FK_Payroll_CashingBudgetItem] FOREIGN KEY ([CashingBudgetItemId]) REFERENCES [BudgetItem]([Id]), 
+    CONSTRAINT [FK_Payroll_OperatingBudget] FOREIGN KEY ([OperatingBudgetId]) REFERENCES [OperatingBudget]([Id]), 
+    CONSTRAINT [FK_Payroll_ExtraCostRate] FOREIGN KEY ([ExtraCostRateId]) REFERENCES [ExtraCostRate]([Id])
+)

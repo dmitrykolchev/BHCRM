@@ -1,0 +1,73 @@
+﻿<crm:EditorControlBase 
+        x:Class="DykBits.Crm.UI.EmployeeDetailsEditorControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:crm ="http://www.dykbits.net/wpf/crm"
+        mc:Ignorable="d" 
+        d:DesignHeight="600" d:DesignWidth="800" UseLayoutRounding="True" TextOptions.TextFormattingMode="Display"
+        CommonFields="None"
+        Grid.IsSharedSizeScope="True">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="12"/>
+
+            <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="96"/>
+
+            <ColumnDefinition Width="12"/>
+
+            <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="96"/>
+        </Grid.ColumnDefinitions>
+        <Label Style="{StaticResource crmLabel}" Content="Дата рождения:" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3"/>
+        <dxe:DateEdit Style="{StaticResource crmDateEdit}" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="3" EditValue="{Binding BirthDate}" />
+        <Label Style="{StaticResource crmLabel}" Content="Пол:" Grid.Column="1" Grid.Row="4" />
+        <ComboBox Style="{StaticResource crmComboBox}" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="3" SelectedIndex="{Binding Gender}">
+            <ComboBoxItem>(не указан)</ComboBoxItem>
+            <ComboBoxItem>муж.</ComboBoxItem>
+            <ComboBoxItem>жен.</ComboBoxItem>
+        </ComboBox>
+
+        <Label Style="{StaticResource crmLabel}" Content="Ассистент:" Grid.Column="1" Grid.Row="5"/>
+        <TextBox Style="{StaticResource crmTextBox}" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="9" Text="{Binding Assistant}"/>
+        <Label Style="{StaticResource crmLabel}" Content="Телефон ассистента:" Grid.Column="1" Grid.Row="6"/>
+        <TextBox Style="{StaticResource crmTextBox}" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="3" Text="{Binding AssistantPhone}"/>
+        <Label Style="{StaticResource crmLabel}" Content="Пользователь:" Grid.Column="1" Grid.Row="7"/>
+        <crm:DocumentPicker Grid.Column="3" Grid.Row="7" Grid.ColumnSpan="9" SelectedValue="{Binding UserId}" DataSource="User" />
+
+    </Grid>
+</crm:EditorControlBase>

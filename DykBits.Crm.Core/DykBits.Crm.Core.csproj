@@ -1,0 +1,900 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B40605BB-DB90-41B0-8B02-6C90005E36A5}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DykBits.Crm</RootNamespace>
+    <AssemblyName>DykBits.Crm.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Charts.v14.2.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.CodeParser.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Data.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Images.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Images.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Office.v14.2.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Pdf.v14.2.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.PivotGrid.v14.2.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Printing.v14.2.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.RichEdit.v14.2.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Snap.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Snap.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Snap.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Snap.v14.2.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Sparkline.v14.2.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.SpellChecker.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.SpellChecker.v14.2.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Spreadsheet.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Spreadsheet.v14.2.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Utils.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Controls.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Controls.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Core.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v14.2.Extensions">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Core.v14.2.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Docking.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Docking.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Grid.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Grid.v14.2.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v14.2.Extensions">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Grid.v14.2.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Layout.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Layout.v14.2.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.LayoutControl.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.LayoutControl.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Mvvm.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.NavBar.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.NavBar.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.PivotGrid.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.PivotGrid.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Printing.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Printing.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.PropertyGrid.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.PropertyGrid.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Ribbon.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Ribbon.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.RichEdit.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.RichEdit.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Scheduler.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Scheduler.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.SpellChecker.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.SpellChecker.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.DXStyle.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.DXStyle.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.LightGray.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.LightGray.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisDark.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.MetropolisDark.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisLight.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.MetropolisLight.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Black.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.Office2007Black.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Blue.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.Office2007Blue.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Silver.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.Office2007Silver.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Black.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.Office2010Black.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Blue.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.Office2010Blue.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Silver.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.Office2010Silver.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2013.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.Office2013.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Seven.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.Seven.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.TouchlineDark.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.TouchlineDark.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.VS2010.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.VS2010.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.XtraScheduler.v14.2.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationManager.cs" />
+    <Compile Include="BinaryToImageConverter.cs" />
+    <Compile Include="BooleanToInt32Converter.cs" />
+    <Compile Include="BooleanToTextConverter.cs" />
+    <Compile Include="ColorToBrushConverter.cs" />
+    <Compile Include="ColorToImageConverter.cs" />
+    <Compile Include="ColorToValueConverter.cs" />
+    <Compile Include="DataViewType.cs" />
+    <Compile Include="Data\BindingEx.cs" />
+    <Compile Include="Data\DataAdapterCollection.cs" />
+    <Compile Include="Data\DataAdapterExtensions.cs" />
+    <Compile Include="Data\DataExport.cs" />
+    <Compile Include="Data\DataGridListView.cs" />
+    <Compile Include="Data\ReferenceBinding.cs" />
+    <Compile Include="Data\ViewDataProvider.cs" />
+    <Compile Include="Data\DatePeriod.cs" />
+    <Compile Include="Data\DatePeriods.cs" />
+    <Compile Include="Data\SigninData.cs" />
+    <Compile Include="Data\StateListExtension.cs" />
+    <Compile Include="Data\UserAccess.cs" />
+    <Compile Include="Data\UABinding.cs" />
+    <Compile Include="DependencyObjectExtensions.cs" />
+    <Compile Include="DocumentIdConverter.cs" />
+    <Compile Include="DocumentReportManager.cs" />
+    <Compile Include="DocumentTypeConverter.cs" />
+    <Compile Include="DynamicProxy.cs" />
+    <Compile Include="DynamicProxy`1.cs" />
+    <Compile Include="ErrorLogService.cs" />
+    <Compile Include="ExceptionInformation.cs" />
+    <Compile Include="ExceptionTranslatorService.cs" />
+    <Compile Include="FileNameToIconConverter.cs" />
+    <Compile Include="IDataView.cs" />
+    <Compile Include="IDynamicProxy.cs" />
+    <Compile Include="IExceptionTranslatorService.cs" />
+    <Compile Include="Input\CommandHandlerAttribute.cs" />
+    <Compile Include="Input\CrmApplicationCommands.cs" />
+    <Compile Include="Input\StandardCommandHandler.cs" />
+    <Compile Include="Input\UICommand.cs" />
+    <Compile Include="Input\UICommandConverter.cs" />
+    <Compile Include="InteropServices\ComTypes\ILockBytes.cs" />
+    <Compile Include="InteropServices\ComTypes\IStorage.cs" />
+    <Compile Include="InteropServices\ComTypes\LockBytesImpl.cs" />
+    <Compile Include="InteropServices\ComTypes\ManagedIStream.cs" />
+    <Compile Include="ListSourceExtension.cs" />
+    <Compile Include="MessageBoxService.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="NullToVisibilityConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Shell.cs" />
+    <Compile Include="StateConverter.cs" />
+    <Compile Include="StatusInfoChangedEventArgs.cs" />
+    <Compile Include="TypeResolver.cs" />
+    <Compile Include="UI\CommandLocker.cs" />
+    <Compile Include="UI\DataWindowBase.cs" />
+    <Compile Include="UI\HiddenSummaryTemplateSelector.cs" />
+    <Compile Include="UI\IDataWindow.cs" />
+    <Compile Include="UI\LogonWindow.xaml.cs">
+      <DependentUpon>LogonWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NotificationWindow.xaml.cs">
+      <DependentUpon>NotificationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReportSelectorControl.xaml.cs">
+      <DependentUpon>ReportSelectorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReportWindow.xaml.cs">
+      <DependentUpon>ReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DataGridWindow.xaml.cs">
+      <DependentUpon>DataGridWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SelectorGridControl.cs" />
+    <Compile Include="UI\StandardGridColumn.cs" />
+    <Compile Include="UI\StandardGridColumnSetter.cs" />
+    <Compile Include="UI\StandardGridControl.cs" />
+    <Compile Include="UI\StandardResources.cs" />
+    <Compile Include="UI\StandardSummaryItem.cs" />
+    <Compile Include="UI\StandardTableView.cs" />
+    <Compile Include="UI\SystemIcons.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\UIAction.cs" />
+    <Compile Include="UI\UIActionCollection.cs" />
+    <Compile Include="UI\AddressBox.cs" />
+    <Compile Include="UI\AddressControl.xaml.cs">
+      <DependentUpon>AddressControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AllCategoriesControl.xaml.cs">
+      <DependentUpon>AllCategoriesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ApplicationImages.cs" />
+    <Compile Include="UI\AttachmentList.cs" />
+    <Compile Include="UI\CategoryListBox.cs" />
+    <Compile Include="UI\CustomRowSelectionBehavior.cs" />
+    <Compile Include="UI\DataGridControlBase.cs" />
+    <Compile Include="UI\DataComboBox.cs" />
+    <Compile Include="UI\DataGridControlState.cs" />
+    <Compile Include="UI\DataSourceChangedEventArgs.cs" />
+    <Compile Include="UI\DataViewControlBase.cs" />
+    <Compile Include="UI\DataViewFilterContentControl.cs" />
+    <Compile Include="UI\DataViewFilterControl.cs" />
+    <Compile Include="UI\DateTimeConverter.cs" />
+    <Compile Include="UI\DocumentStateChangedEventArgs.cs" />
+    <Compile Include="UI\DocumentStateChangingEventArgs.cs" />
+    <Compile Include="UI\DocumentPicker.cs" />
+    <Compile Include="UI\DocumentPropertiesControl.xaml.cs">
+      <DependentUpon>DocumentPropertiesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentSelectorWindow.xaml.cs">
+      <DependentUpon>DocumentSelectorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DropDownSelector.cs" />
+    <Compile Include="UI\DropDownSelectorItem.cs" />
+    <Compile Include="UI\DropDownSelectorSeparator.cs" />
+    <Compile Include="UI\EditorWindow.cs" />
+    <Compile Include="UI\ExceptionInformationDetailsForm.xaml.cs">
+      <DependentUpon>ExceptionInformationDetailsForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ExceptionInformationForm.xaml.cs">
+      <DependentUpon>ExceptionInformationForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FileGroupDescriptorHelper.cs" />
+    <Compile Include="UI\IActionProvider.cs" />
+    <Compile Include="UI\IControlWithLayout.cs" />
+    <Compile Include="UI\IDetailsControl.cs" />
+    <Compile Include="UI\IDialogControl.cs" />
+    <Compile Include="UI\ImageBox.cs" />
+    <Compile Include="UI\MonthEdit.cs" />
+    <Compile Include="UI\MonthEditButton.cs" />
+    <Compile Include="UI\MonthEditItem.cs" />
+    <Compile Include="UI\MonthEditRepeatButton.cs" />
+    <Compile Include="UI\MonthPicker.cs" />
+    <Compile Include="UI\NativeMethods.cs" />
+    <Compile Include="UI\PeriodSelectorControl.xaml.cs">
+      <DependentUpon>PeriodSelectorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RepositionPopupBehavior.cs" />
+    <Compile Include="UI\RequestFilterDataEventArgs.cs" />
+    <Compile Include="UI\RequiredFieldAdorner.cs" />
+    <Compile Include="UI\SchedulerControlBase.cs" />
+    <Compile Include="UI\TabbedEditorWindow.xaml.cs">
+      <DependentUpon>TabbedEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ExternalEditorButton.cs" />
+    <Compile Include="UI\DialogBase.cs" />
+    <Compile Include="UI\EditorControlBase.cs" />
+    <Compile Include="UI\EmptyView.xaml.cs">
+      <DependentUpon>EmptyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ICommandTarget.cs" />
+    <Compile Include="UI\IExternalEditor.cs" />
+    <Compile Include="UI\ImageWithPlaceHolder.cs" />
+    <Compile Include="UI\MapItButton.cs" />
+    <Compile Include="UI\MasterDetailsControlBase.cs" />
+    <Compile Include="UI\ModalWindow.xaml.cs">
+      <DependentUpon>ModalWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NavigationView.xaml.cs">
+      <DependentUpon>NavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PersonNameBox.cs" />
+    <Compile Include="UI\AddressData.cs" />
+    <Compile Include="UI\PersonNameControl.xaml.cs">
+      <DependentUpon>PersonNameControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PersonNameData.cs" />
+    <Compile Include="UI\SelectorDialogBox.xaml.cs">
+      <DependentUpon>SelectorDialogBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\StateBarControl.cs" />
+    <Compile Include="UI\StateSelectorControl.cs" />
+    <Compile Include="UI\UICategory.cs" />
+    <Compile Include="UI\UniformPanel.cs" />
+    <Compile Include="UI\UserControlDialogBox.cs" />
+    <Compile Include="UI\PresentationExtension.cs" />
+    <Compile Include="UI\PresentationExtensionType.cs" />
+    <Compile Include="UI\PresentationExtensionTypeCollection.cs" />
+    <Compile Include="UI\Utils.cs" />
+    <Compile Include="UI\Validator.cs" />
+    <Compile Include="UI\WaitCursor.cs" />
+    <Compile Include="UI\WindowData.cs" />
+    <Compile Include="UI\WindowDataCollection.cs" />
+    <Compile Include="UserConverter.cs" />
+    <Compile Include="PresentationManager.cs" />
+    <Compile Include="PresentationManagerCollection.cs" />
+    <Compile Include="PresentationNode.cs" />
+    <Compile Include="PresentationNodeCollection.cs" />
+    <Compile Include="WindowManager.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\DykBits.Crm.Data.Employee.datasource" />
+    <None Include="Properties\DataSources\DykBits.Crm.Data.Organization.datasource" />
+    <None Include="Properties\DataSources\DykBits.Crm.Data.ProjectType.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\SchedulerControlStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\AddressControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\AllCategoriesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DocumentPropertiesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DocumentSelectorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ExceptionInformationDetailsForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ExceptionInformationForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\LogonWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\NotificationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PeriodSelectorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ReportSelectorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Resources\BuiltInControls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DataGridWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\TabbedEditorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\EmptyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ModalWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\NavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PersonNameControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Resources\CommonControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\DataGridControlStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\SelectorDialogBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Contacts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Dictionaries.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Properties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\Contacts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\Dictionaries.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\NewItem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\Properties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\SaveAndClose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MapIt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\removereference.png" />
+    <Resource Include="Images\pickreference.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\ExportExcel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\Actions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Backstage\Exit.png" />
+    <Resource Include="Images\Backstage\open.png" />
+    <Resource Include="Images\Backstage\Options.png" />
+    <Resource Include="Images\Backstage\save.png" />
+    <Resource Include="Images\Backstage\saveas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Theme.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\AddRecord.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\EditRecord.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\DeleteRecord.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\placeholder.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\Filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DykBits.Crm.Data\DykBits.Crm.Data.csproj">
+      <Project>{ec5a6c6d-7063-43ca-a338-9f061592fd4c}</Project>
+      <Name>DykBits.Crm.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Remote\DykBits.Crm.Remote.csproj">
+      <Project>{4aa05467-a1d3-401a-959c-8cac84c3b941}</Project>
+      <Name>DykBits.Crm.Remote</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Services\DykBits.Crm.Services.csproj">
+      <Project>{1ba66118-22ff-4006-9e6b-a0cfab0fbad8}</Project>
+      <Name>DykBits.Crm.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Xml\DykBits.Xml.csproj">
+      <Project>{a4305687-4c8b-4f30-a502-9501415e4d75}</Project>
+      <Name>DykBits.Xml</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\ExpandAllBlocks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\CollapseAllBlocks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\ExpandAllBlocks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\CollapseAllBlocks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\SortUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\SortDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\SortDown.png" />
+    <Resource Include="Images\32x32\SortUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\SortDialog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\SortDialog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\DataForm.png" />
+    <Resource Include="Images\16x16\View.png" />
+    <Resource Include="Images\16x16\ViewCollection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\DataForm.png" />
+    <Resource Include="Images\32x32\Folder.png" />
+    <Resource Include="Images\32x32\View.png" />
+    <Resource Include="Images\32x32\ViewCollection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\NewItem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\ExportExcel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\SaveAndClose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Actions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\HighImportance.png" />
+    <Resource Include="Images\16x16\LowImportance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\PhoneCall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\RecordNext.png" />
+    <Resource Include="Images\16x16\RecordPrevious.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\MailMessage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\MeetingRequest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\IncomingDirection.png" />
+    <Resource Include="Images\16x16\OutgoingDirection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\Calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\NewMailMessage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\ChangeState.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\ChangeState.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\AccountSettings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\AccountSettings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\Finance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Finance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Print.png" />
+    <Resource Include="Images\16x16\PrintPreview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\Print.png" />
+    <Resource Include="Images\32x32\PrintPreview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\TableStyleClear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\TableStyleClear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\SubdocumentOpen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\SubdocumentOpen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\DatabaseSqlServer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\DocumentIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\MoveDownSection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\MoveUpSection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\WindowClose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\Notification.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Notification.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\AddGroup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\PrintPreviewAndPrint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\PrintPreviewAndPrint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\Report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\CustomFlag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\GroupRow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Accepted.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\TotalSum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Rejected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Submitted.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Draft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\EditText.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\Storehouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Storehouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\We-icon64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\CheckBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\ClearAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Attachment.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,78 @@
+﻿<crm:EditorControlBase 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:crm ="http://www.dykbits.net/wpf/crm"
+    xmlns:data="clr-namespace:DykBits.Crm.Data;assembly=DykBits.Crm.Entities"
+    xmlns:local="clr-namespace:DykBits.Crm"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    x:Class="DykBits.Crm.UI.VenueEditorControl"
+    mc:Ignorable="d" 
+    d:DesignHeight="600" d:DesignWidth="800" UseLayoutRounding="True" TextOptions.TextFormattingMode="Display"
+    Grid.IsSharedSizeScope="True" CommonFields="None">
+    <crm:EditorControlBase.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <crm:DocumentIdConverter x:Key="idConverter" />
+        </ResourceDictionary>
+    </crm:EditorControlBase.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="12"/>
+
+            <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="96"/>
+
+            <ColumnDefinition Width="12"/>
+
+            <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="96"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Style="{StaticResource crmLabel}" Content="Тип (основной):" Grid.Column="1" Grid.Row="0" />
+        <crm:DataComboBox Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="3" SelectedValue="{Binding PrimaryVenueTypeId}" DataSource="VenueType" IsNullable="True" />
+
+        <Label Style="{StaticResource crmLabel}" Content="Тип (доп.):" Grid.Column="7" Grid.Row="0" />
+        <crm:DataComboBox Grid.Column="9" Grid.Row="0" Grid.ColumnSpan="3" SelectedValue="{Binding SecondaryVenueTypeId}" DataSource="VenueType" IsNullable="True" />
+        
+        <Label Style="{StaticResource crmLabel}" Content="Расположение:" Grid.Column="1" Grid.Row="1" />
+        <crm:DataComboBox Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3" SelectedValue="{Binding VenuePlaceId}" DataSource="VenuePlace" IsNullable="True" />
+        <Label Style="{StaticResource crmLabel}" Content="Кейтеринг:" Grid.Column="7" Grid.Row="1" />
+        <crm:DataComboBox Grid.Column="9" Grid.Row="1" Grid.ColumnSpan="3" SelectedValue="{Binding CateringTypeId}" DataSource="CateringType" IsNullable="True" />
+
+        <Label Style="{StaticResource crmLabel}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="12" Foreground="Gray" Margin="0" Content="Сезон"/>
+        
+        <CheckBox Style="{StaticResource crmCheckBox}" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3" Content="Лето" IsChecked="{Binding Summer}" />
+        <CheckBox Style="{StaticResource crmCheckBox}" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="3" Content="Зима" IsChecked="{Binding Winter}" />
+        
+        <Label Style="{StaticResource crmLabel}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="12" Foreground="Gray" Margin="0" Content="Максимальное число гостей"/>
+
+        <Label Style="{StaticResource crmLabel}" Content="Банкет:" Grid.Column="1" Grid.Row="5" />
+        <dxe:TextEdit Style="{StaticResource crmNumeric}" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3" EditValueType="{x:Type sys:Int32}" EditValue="{Binding MaximumNumberOfGuestsForBanquet}" DisplayFormatString="#,##0" HorizontalContentAlignment="Right" />
+        <Label Style="{StaticResource crmLabel}" Content="Фуршет:" Grid.Column="7" Grid.Row="5" />
+        <dxe:TextEdit Style="{StaticResource crmNumeric}" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="3" EditValueType="{x:Type sys:Int32}" EditValue="{Binding MaximumNumberOfGuestsForReception}" DisplayFormatString="#,##0" HorizontalContentAlignment="Right" />
+
+    </Grid>
+</crm:EditorControlBase>

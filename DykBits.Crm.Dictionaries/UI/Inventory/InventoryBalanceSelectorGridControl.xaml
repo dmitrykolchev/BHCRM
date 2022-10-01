@@ -1,0 +1,86 @@
+﻿<crm:SelectorGridControl x:Class="DykBits.Crm.UI.Inventory.InventoryBalanceSelectorGridControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:crm="http://www.dykbits.net/wpf/crm"
+        xmlns:data="clr-namespace:DykBits.Crm.Data;assembly=DykBits.Crm.Entities"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+        xmlns:local="clr-namespace:DykBits.Crm"
+        xmlns:lui="clr-namespace:DykBits.Crm.UI"
+        DataSourceType="{x:Type data:InventoryBalance}"
+        mc:Ignorable="d" 
+        d:DesignHeight="600" d:DesignWidth="800" TextOptions.TextFormattingMode="Display" UseLayoutRounding="True">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <local:ServiceLevelValueConverter x:Key="serviceLevelConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <crm:DataGridControlBase.GridView>
+        <crm:StandardGridControl x:Name="grid" AutoExpandAllGroups="True">
+            <dxg:GridControl.View>
+                <dxg:TableView AllowMoveColumnToDropArea="True" AllowEditing="False" AutoWidth="True" UseAnimationWhenExpanding="False" CellValueChanging="TableView_CellValueChanging"
+                               UseLightweightTemplates="None">
+                    <dxg:TableView.DataRowTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <ContentPresenter x:Name="defaultRowPresenter" Content="{Binding}" ContentTemplate="{Binding View.DefaultDataRowTemplate}"/>
+                                <TextBlock x:Name="previewText" MaxHeight="48" Foreground="Gray" Text="{Binding Path=DataContext.Comments, Mode=OneWay}" 
+                                           Margin="24,2,4,2" TextWrapping="Wrap" TextTrimming="CharacterEllipsis">
+                                    <TextBlock.ToolTip>
+                                        <ToolTip>
+                                            <ToolTip.Content>
+                                                <TextBlock Text="{Binding Path=DataContext.Comments, Mode=OneWay}" TextWrapping="Wrap" MaxWidth="600" />
+                                            </ToolTip.Content>
+                                        </ToolTip>
+                                    </TextBlock.ToolTip>
+                                </TextBlock>
+                            </StackPanel>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding Path=DataContext.Comments}" Value="{x:Null}">
+                                    <Setter TargetName="previewText" Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </dxg:TableView.DataRowTemplate>
+                </dxg:TableView>
+            </dxg:GridControl.View>
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn x:Name="columnId" crm:StandardGridColumn.Column="Id" />
+                <dxg:GridColumn x:Name="columnIcon" crm:StandardGridColumn.Column="Icon" />
+                <dxg:GridColumn x:Name="columnSelected" Header="" FixedWidth="True" Width="24" AllowResizing="False" Binding="{Binding Selected, Mode=TwoWay}" AllowEditing="True" crm:StandardGridColumn.Column="IsCheckBox" />
+                <dxg:GridColumn x:Name="columnAbstractProductId" Header="Базовая номенклатура" Width="200" Binding="{crm:ReferenceBinding AbstractProductId, ClassName=AbstractProduct}" AllowSorting="True" AllowGrouping="True" GroupIndex="0" />
+                <dxg:GridColumn x:Name="columnFileAs" crm:StandardGridColumn.Column="FileAs" GroupInterval="Alphabetical" />
+                <dxg:GridColumn x:Name="columnProductCategoryId" Header="Категория" Width="100" Binding="{crm:ReferenceBinding ProductСategoryId, ClassName=ProductСategory}" AllowSorting="True" AllowGrouping="True" />
+                <dxg:GridColumn x:Name="columnProductSubcategoryId" Header="Подкатегория" Width="100" Binding="{crm:ReferenceBinding ProductSubcategoryId, ClassName=ProductSubcategory}" AllowSorting="True" AllowGrouping="True" />
+                <dxg:GridColumn x:Name="columnUnitOfMeasureId" Header="Ед. изм." Width="100" Binding="{crm:ReferenceBinding UnitOfMeasureId, ClassName=UnitOfMeasure.Code}" />
+                <dxg:GridColumn x:Name="columnAmountInStock" Header="Остаток" Width="100" Binding="{Binding Path=AmountInStock, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Integer" />
+                <dxg:GridColumn x:Name="columnListPrice" Header="Цена" Width="100" Binding="{Binding Path=ListPrice, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnCost" Header="Себестоимость" Width="100" Binding="{Binding Path=Cost, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+            </dxg:GridControl.Columns>
+        </crm:StandardGridControl>
+    </crm:DataGridControlBase.GridView>
+    <crm:DataGridControlBase.FilterView>
+        <crm:DataViewFilterControl DocumentType="{x:Type data:Product}" x:Name="filterControl">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Организация" />
+                <crm:DocumentPicker DataSource="Organization" SelectedValue="{crm:BindingEx OrganizationId}" />
+                <Label Content="Место хранения" />
+                <crm:DataComboBox DataSource="StoragePlace" SelectedValue="{crm:BindingEx StoragePlaceId}" />
+                <Label Content="Базовый" />
+                <crm:DocumentPicker DataSource="AbstractProduct" SelectedValue="{crm:BindingEx AbstractProductId}" />
+                <Label Content="Тип" />
+                <crm:DataComboBox DataSource="ProductType" SelectedValue="{crm:BindingEx ProductTypeId}" />
+                <Label Content="Категория" />
+                <crm:DataComboBox DataSource="ProductCategory" SelectedValue="{crm:BindingEx ProductCategoryId}" />
+                <Label Content="Подкатегория" />
+                <crm:DataComboBox DataSource="ProductSubcategory" SelectedValue="{crm:BindingEx ProductSubcategoryId}" />
+            </StackPanel>
+        </crm:DataViewFilterControl>
+    </crm:DataGridControlBase.FilterView>
+</crm:SelectorGridControl>

@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="DykBits.Crm.UI.CashFlow.AdvanceReportGridControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"  
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:local="clr-namespace:DykBits.Crm.UI.CashFlow"
+    xmlns:crm="http://www.dykbits.net/wpf/crm"
+    mc:Ignorable="d" 
+    d:DesignHeight="400" d:DesignWidth="800">
+    <UserControl.Resources>
+        <local:MoneyOperationDirectionConverter x:Key="directionConverter" />
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.AddRow}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.EditRow}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.DeleteRow}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.RefreshDetails}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+    </UserControl.CommandBindings>
+    <UserControl.InputBindings>
+        <KeyBinding Command="{x:Static crm:CrmApplicationCommands.EditRow}" Key="Enter" />
+        <KeyBinding Command="{x:Static crm:CrmApplicationCommands.DeleteRow}" Key="Delete" />
+    </UserControl.InputBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <dxb:BarManager AllowQuickCustomization="False" AllowHotCustomization="False" AllowCustomization="False">
+            <dxb:BarManager.Bars>
+                <dxb:Bar ShowDragWidget="False" UseWholeRow="True">
+                    <dxb:Bar.DockInfo>
+                        <dxb:BarDockInfo ContainerType="Top"/>
+                    </dxb:Bar.DockInfo>
+                    <dxb:Bar.Items>
+                        <dxb:BarButtonItem x:Name="itemAdd" Content="Добавить" Glyph="/DykBits.Crm.Core;component/Images/16x16/NewItem.png" BarItemDisplayMode="ContentAndGlyph" 
+                                                       Command="{x:Static crm:CrmApplicationCommands.AddRow}" />
+                        <dxb:BarButtonItem x:Name="itemEdit" Content="Изменить"  Glyph="/DykBits.Crm.Core;component/Images/16x16/Open.png" BarItemDisplayMode="ContentAndGlyph" 
+                                                       Command="{x:Static crm:CrmApplicationCommands.EditRow}" />
+                        <dxb:BarItemSeparator />
+                        <dxb:BarButtonItem x:Name="itemDelete" Content="Удалить" Glyph="/DykBits.Crm.Core;component/Images/16x16/DeleteRecord.png" BarItemDisplayMode="ContentAndGlyph"
+                                                       Command="{x:Static crm:CrmApplicationCommands.DeleteRow}" />
+                        <dxb:BarItemSeparator />
+                        <dxb:BarButtonItem x:Name="itemRefresh" Content="Обновить" Glyph="/DykBits.Crm.Core;component/Images/16x16/Refresh.png" BarItemDisplayMode="ContentAndGlyph"
+                                                       Command="{x:Static crm:CrmApplicationCommands.RefreshDetails}" />
+                    </dxb:Bar.Items>
+                </dxb:Bar>
+            </dxb:BarManager.Bars>
+        </dxb:BarManager>
+        <dxg:GridControl x:Name="grid" ShowBorder="True" Grid.Row="1" MouseDoubleClick="grid_MouseDoubleClick">
+            <dxg:GridControl.View>
+                <crm:StandardTableView AllowMoveColumnToDropArea="False" ShowTotalSummary="True" ShowGroupPanel="False" />
+            </dxg:GridControl.View>
+            <dxg:GridControl.TotalSummary>
+                <crm:StandardSum Field="Value" />
+                <crm:StandardSum Field="VATValue" />
+            </dxg:GridControl.TotalSummary>
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn x:Name="columnId" crm:StandardGridColumn.Column="Id" />
+                <dxg:GridColumn x:Name="columnIcon" crm:StandardGridColumn.Column="Icon" />
+                <dxg:GridColumn x:Name="columnState" crm:StandardGridColumn.Column="State" />
+                <dxg:GridColumn x:Name="columnNumber" crm:StandardGridColumn.Column="Number" />
+                <dxg:GridColumn x:Name="columnDocumentDate" crm:StandardGridColumn.Column="DocumentDate" />
+                <dxg:GridColumn x:Name="columnAccountId" Header="Контрагент" Width="200" Binding="{crm:ReferenceBinding AccountId, ClassName=Account}" />
+                <dxg:GridColumn x:Name="columnMoneyOperationTypeId" Header="Тип операции" Width="100" Binding="{crm:ReferenceBinding MoneyOperationTypeId, ClassName=MoneyOperationType}" />
+                <dxg:GridColumn x:Name="columnMoneyOperationDirection" Header="Направление" Width="100" Binding="{Binding MoneyOperationDirection, Converter={StaticResource directionConverter}}" />
+                <dxg:GridColumn x:Name="columnValue" Header="Сумма" Width="150" Visible="True" Binding="{Binding Value, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnVATValue" Header="НДС" Width="150" Visible="True" Binding="{Binding VATValue, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnCreated" crm:StandardGridColumn.Column="Created" />
+                <dxg:GridColumn x:Name="columnCreatedBy" crm:StandardGridColumn.Column="CreatedBy" />
+                <dxg:GridColumn x:Name="columnModified" crm:StandardGridColumn.Column="Modified" />
+                <dxg:GridColumn x:Name="columnModifiedBy" crm:StandardGridColumn.Column="ModifiedBy" />
+            </dxg:GridControl.Columns>
+        </dxg:GridControl>
+    </Grid>
+</UserControl>

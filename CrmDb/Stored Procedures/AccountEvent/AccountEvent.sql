@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[AccountEvent]
+(
+	[Id] TIdentifier not null primary key identity, 
+	[State] TState not null,
+	[FileAs] TName not null,
+	[AccountEventTypeId] TIdentifier not null,
+	[AccountEventDirectionId] TIdentifier not null,
+	[Importance] TIdentifier not null default(2),
+	[EventStart] datetime not null,
+	[EventEnd] datetime not null,
+	[AccountId] TIdentifier not null,
+	[ContactId] TIdentifier not null,
+	[ServiceRequestId] TIdentifier null,
+	[EmployeeId] TIdentifier not null,
+    [Comments] nvarchar(max) null, 
+    [Created] datetime not null, 
+    [CreatedBy] int not null, 
+    [Modified] datetime not null, 
+    [ModifiedBy] int not null, 
+    [RowVersion] rowversion not null, 
+    CONSTRAINT [FK_AccountEvent_AccountEventType] FOREIGN KEY ([AccountEventTypeId]) REFERENCES [dbo].[AccountEventType]([Id]), 
+    CONSTRAINT [FK_AccountEvent_Account] FOREIGN KEY ([AccountId]) REFERENCES [dbo].[Account]([Id]), 
+    CONSTRAINT [FK_AccountEvent_Contact] FOREIGN KEY ([ContactId]) REFERENCES [dbo].[Employee]([Id]), 
+    CONSTRAINT [FK_AccountEvent_Employee] FOREIGN KEY ([EmployeeId]) REFERENCES [dbo].[Employee]([Id]), 
+    CONSTRAINT [FK_AccountEvent_AccountEventDirection] FOREIGN KEY ([AccountEventDirectionId]) REFERENCES [dbo].[AccountEventDirection]([Id]), 
+    CONSTRAINT [FK_AccountEvent_ServiceRequest] FOREIGN KEY ([ServiceRequestId]) REFERENCES [dbo].[ServiceRequest]([Id])
+)

@@ -1,0 +1,33 @@
+﻿<crm:DataGridControlBase
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:crm="http://www.dykbits.net/wpf/crm"
+        xmlns:data="clr-namespace:DykBits.Crm.Data;assembly=DykBits.Crm.Entities"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+        x:Class="DykBits.Crm.UI.AccountEventTemplateGridControl" 
+        DataSourceType="{x:Type data:AccountEventTemplateView}"
+        mc:Ignorable="d" 
+        d:DesignHeight="600" d:DesignWidth="800" TextOptions.TextFormattingMode="Display" UseLayoutRounding="True">
+    <crm:DataGridControlBase.GridView>
+        <crm:StandardGridControl x:Name="gridView">
+            <dxg:GridControl.View>
+                <crm:StandardTableView />
+            </dxg:GridControl.View>
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn x:Name="columnId" crm:StandardGridColumn.Column="Id" />
+                <dxg:GridColumn x:Name="columnIcon" crm:StandardGridColumn.Column="Icon" />
+                <dxg:GridColumn x:Name="columnState" crm:StandardGridColumn.Column="State" />
+                <dxg:GridColumn x:Name="columnAccountEventTypeId" Header="Тип события" Width="200" Binding="{crm:ReferenceBinding AccountEventTypeId, ClassName=AccountEventType}" />
+                <dxg:GridColumn x:Name="columnFileAs" crm:StandardGridColumn.Column="FileAs" Header="Тема" />
+                <dxg:GridColumn x:Name="columnCreated" crm:StandardGridColumn.Column="Created" />
+                <dxg:GridColumn x:Name="columnCreatedBy" crm:StandardGridColumn.Column="CreatedBy" />
+                <dxg:GridColumn x:Name="columnModified" crm:StandardGridColumn.Column="Modified" />
+                <dxg:GridColumn x:Name="columnModifiedBy" crm:StandardGridColumn.Column="ModifiedBy" />
+            </dxg:GridControl.Columns>
+        </crm:StandardGridControl>
+    </crm:DataGridControlBase.GridView>
+</crm:DataGridControlBase>

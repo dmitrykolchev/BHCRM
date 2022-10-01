@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="BusinessCard" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="cardBorder" BorderThickness="1" BorderBrush="#A5ACB5" Background="#F4F7FA" Width="260" Height="160" Margin="4">
+                        <StackPanel Orientation="Vertical">
+                            <Border BorderThickness="0,0,0,1" BorderBrush="#A5ACB5" Background="#F0F0F0" x:Name="cardTitle">
+                                <TextBlock Text="Jamie D. Sutton" Margin="8,0,8,2" />
+                            </Border>
+                            <StackPanel Orientation="Horizontal">
+                                <Border BorderThickness="0" BorderBrush="#A5ACB5" Margin="4">
+                                    <Image Source="../DXB2.jpg" Width="71" Height="71" VerticalAlignment="Top">
+                                        <Image.Effect>
+                                            <DropShadowEffect Color="Black" BlurRadius="10" Opacity="0.3" ShadowDepth="2" />
+                                        </Image.Effect>
+                                    </Image>
+                                </Border>
+                                <StackPanel Orientation="Vertical" Margin="4">
+                                    <TextBlock Text="Jamie D. Sutton" FontWeight="Bold" FontSize="14" />
+                                    <TextBlock Text="Wired Technologies" TextTrimming="CharacterEllipsis" FontSize="11"/>
+                                    <TextBlock FontSize="11"><Italic>Sales manager</Italic></TextBlock>
+                                    <TextBlock></TextBlock>
+                                    <TextBlock FontFamily="Segoe UI" FontSize="11"><Run Foreground="#3399FF">+7 (903) 578-3828</Run><Run Text="  " /><Run Foreground="Gray">Mobile</Run></TextBlock>
+                                    <TextBlock FontFamily="Segoe UI" FontSize="11"><Run Foreground="#3399FF">+7 (495) 717-8388</Run><Run Text="  " /><Run Foreground="Gray">Work</Run></TextBlock>
+                                    <TextBlock FontFamily="Segoe UI" FontSize="11"><Run Foreground="#3399FF">Jamie.Sutton@avicom.ru</Run></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                        <Border.Effect>
+                            <DropShadowEffect Color="Black" BlurRadius="6" Opacity="0.3" ShadowDepth="3" />
+                        </Border.Effect>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="cardBorder" Property="BorderBrush" Value="#2A8DD4" />
+                            <Setter TargetName="cardTitle" Property="Background" Value="#CDE6F7" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

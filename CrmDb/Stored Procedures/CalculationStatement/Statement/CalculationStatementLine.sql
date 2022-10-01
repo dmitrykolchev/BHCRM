@@ -1,0 +1,20 @@
+﻿CREATE TABLE [dbo].[CalculationStatementLine]
+(
+	[CalculationStatementLineId] int not null identity primary key,
+	[CalculationStatementSectionId] int not null,
+	[CalculationStatementId] TIdentifier not null,
+	[OrdinalPosition] int not null,
+	[ProductId] TIdentifier null,
+	[FileAs] TName not null,
+	[Comments] nvarchar(1024) null,
+	[StartTime] datetime null,
+	[EndTime] datetime null,
+	[AmountPerGuest] TAmount null,
+	[Amount] TAmount not null,
+	[Factor] TAmount not null default(1),
+	[Price] TMoney not null,
+	[Cost] TMoney not null, 
+    CONSTRAINT [FK_CalculationStatementLine_Section] FOREIGN KEY ([CalculationStatementSectionId]) REFERENCES [CalculationStatementSection]([CalculationStatementSectionId]), 
+    CONSTRAINT [FK_CalculationStatementLine_CalculationStatement] FOREIGN KEY ([CalculationStatementId]) REFERENCES [CalculationStatement]([Id]), 
+    CONSTRAINT [FK_CalculationStatementLine_Product] FOREIGN KEY ([ProductId]) REFERENCES [Product]([Id]), 
+)

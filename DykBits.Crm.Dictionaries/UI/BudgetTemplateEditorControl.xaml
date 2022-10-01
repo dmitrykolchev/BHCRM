@@ -1,0 +1,121 @@
+﻿<crm:EditorControlBase 
+    xmlns:crm ="http://www.dykbits.net/wpf/crm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxgt="http://schemas.devexpress.com/winfx/2008/xaml/grid/themekeys"
+    xmlns:core="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"  
+    xmlns:local="clr-namespace:DykBits.Crm"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    x:Class="DykBits.Crm.UI.BudgetTemplateEditorControl"
+    mc:Ignorable="d" 
+    d:DesignHeight="600" d:DesignWidth="800" Grid.IsSharedSizeScope="True" CommonFields="Attachments">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="rowStyle" BasedOn="{StaticResource {dxgt:GridRowThemeKey ResourceKey=RowStyle, ThemeName={x:Static core:ThemeManager.ApplicationThemeName}}}" TargetType="{x:Type dxg:GridRowContent}">
+                <Setter Property="FontWeight" Value="{Binding Path=Row.Level, Converter={local:BudgetLevelValueConverter MaxValue=2}}" />
+            </Style>
+            <crm:UICommand x:Key="CreateTemplateCopy" Text="CreateTemplateCopy" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.AddRow}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.DeleteRow}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{StaticResource CreateTemplateCopy}" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed" />
+    </UserControl.CommandBindings>
+    <crm:EditorControlBase.Actions>
+        <crm:UIAction Text="Создать копию шаблона ПРС" Command="{StaticResource CreateTemplateCopy}" />
+    </crm:EditorControlBase.Actions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0"/>
+
+            <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="96"/>
+
+            <ColumnDefinition Width="12"/>
+
+            <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="96"/>
+        </Grid.ColumnDefinitions>
+        <Label Style="{StaticResource crmLabel}" Grid.Row="0" Grid.Column="1">Наименование:</Label>
+        <TextBox Style="{StaticResource crmTextBox}" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="9" Text="{crm:BindingEx FileAs}"/>
+        <Label Style="{StaticResource crmLabel}" Grid.Row="1" Grid.Column="1">Форма обслуживания:</Label>
+        <ComboBox Style="{StaticResource crmComboBox}"  Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" SelectedValue="{crm:BindingEx ServiceRequestTypeId}" ItemsSource="{crm:ListSource ServiceRequestType}" DisplayMemberPath="FileAs" SelectedValuePath="Id" />
+        <Label Style="{StaticResource crmLabel}" Grid.Row="1" Grid.Column="7">Уровень обслуживания:</Label>
+        <ComboBox Style="{StaticResource crmComboBox}"  Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="3" SelectedValue="{crm:BindingEx ServiceLevelId}" ItemsSource="{crm:ListSource ServiceLevel}" DisplayMemberPath="FileAs" SelectedValuePath="Id" />
+        <Label Style="{StaticResource crmLabel}" Grid.Row="2" Grid.Column="1">Расчет на (чел):</Label>
+        <dxe:TextEdit Style="{StaticResource crmNumeric}" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" EditValueType="{x:Type sys:Int32}" EditValue="{crm:BindingEx AmountOfPersons}" DisplayFormatString="#,##0" HorizontalContentAlignment="Right" />
+        <Label Style="{StaticResource crmLabel}" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="1">Продолжительность:</Label>
+        <dxe:TextEdit Style="{StaticResource crmNumeric}" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="3" EditValueType="{x:Type sys:Int32}" EditValue="{crm:BindingEx EventDuration}" DisplayFormatString="#,##0" HorizontalContentAlignment="Right" />
+        <dxb:BarManager Grid.Row="3" Grid.ColumnSpan="12" AllowQuickCustomization="False" AllowHotCustomization="False" AllowCustomization="False" Visibility="Collapsed">
+            <dxb:BarManager.Items>
+                <dxb:BarButtonItem x:Name="itemAdd" Content="Добавить" Glyph="/DykBits.Crm.Core;component/Images/16x16/AddRecord.png" 
+                                   Command="{x:Static crm:CrmApplicationCommands.AddRow}" />
+                <dxb:BarButtonItem x:Name="itemDelete" Content="Удалить" Glyph="/DykBits.Crm.Core;component/Images/16x16/DeleteRecord.png" BarItemDisplayMode="ContentAndGlyph"
+                                   Command="{x:Static crm:CrmApplicationCommands.DeleteRow}" />
+            </dxb:BarManager.Items>
+            <dxb:BarManager.Bars>
+                <dxb:Bar ShowDragWidget="False" UseWholeRow="True">
+                    <dxb:Bar.DockInfo>
+                        <dxb:BarDockInfo ContainerType="Top"/>
+                    </dxb:Bar.DockInfo>
+                    <dxb:Bar.ItemLinks>
+                        <dxb:BarButtonItemLink BarItemName="itemAdd" BarItemDisplayMode="ContentAndGlyph" />
+                        <dxb:BarItemLinkSeparator />
+                        <dxb:BarButtonItemLink BarItemName="itemDelete" />
+                    </dxb:Bar.ItemLinks>
+                </dxb:Bar>
+            </dxb:BarManager.Bars>
+        </dxb:BarManager>
+        <dxg:GridControl x:Name="gridBudget" ItemsSource="{Binding Items}" IsFilterEnabled="False" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="12">
+            <dxg:GridControl.Bands>
+                <dxg:GridControlBand Header="">
+                    <dxg:GridColumn Header="Id" Binding="{Binding Id, Mode=OneWay}" Visible="False" Width="10" />
+                    <dxg:GridColumn Header="Статья" Width="500" Binding="{Binding FileAs, Mode=OneWay}" />
+                </dxg:GridControlBand>
+                <dxg:GridControlBand Header="Норматив">
+                    <dxg:GridColumn Header="Сумма" Width="200" Binding="{Binding StandardValue, Mode=TwoWay}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:ButtonEditSettings DisplayFormat="#,##0.00"  HorizontalContentAlignment="Right" AllowDefaultButton="False" IsTextEditable="False">
+                                <dxe:ButtonEditSettings.Buttons>
+                                    <dxe:ButtonInfo ClickMode="Release" GlyphKind="Regular" Click="StandardCell_Click"/>
+                                </dxe:ButtonEditSettings.Buttons>
+                            </dxe:ButtonEditSettings>
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn Header="%" Width="50" Binding="{Binding StandardPercentage, Mode=OneWay}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:TextEditSettings DisplayFormat="P0" HorizontalContentAlignment="Right" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+                </dxg:GridControlBand>
+            </dxg:GridControl.Bands>
+            <dxg:GridControl.View>
+                <dxg:TreeListView KeyFieldName="Id" ParentFieldName="ParentId" AutoWidth="True" AllowEditing="True" RowStyle="{DynamicResource rowStyle}" 
+                                  UseLightweightTemplates="None"
+                                  ShowingEditor="TreeListView_ShowingEditor" AutoExpandAllNodes="True" />
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+    </Grid>
+</crm:EditorControlBase>

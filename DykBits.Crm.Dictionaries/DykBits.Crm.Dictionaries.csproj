@@ -1,0 +1,2107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D0A7D363-76A7-4118-8E67-37CCC2A7B496}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DykBits.Crm</RootNamespace>
+    <AssemblyName>DykBits.Crm.Dictionaries</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Charts.v14.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.CodeParser.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v14.2">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Data.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Images.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Images.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Office.v14.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Pdf.v14.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.PivotGrid.v14.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Printing.v14.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.RichEdit.v14.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Snap.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Snap.v14.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Sparkline.v14.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.SpellChecker.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.SpellChecker.v14.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Utils.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Charts.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Charts.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Controls.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Controls.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v14.2">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Core.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v14.2.Extensions">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Core.v14.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Docking.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Docking.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Grid.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Grid.v14.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v14.2.Extensions">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Grid.v14.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Layout.v14.2.Core">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Layout.v14.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.LayoutControl.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.LayoutControl.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v14.2">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Mvvm.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.NavBar.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.NavBar.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.PivotGrid.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.PivotGrid.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Printing.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Printing.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.PropertyGrid.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.PropertyGrid.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.ReportDesigner.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.ReportDesigner.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Ribbon.v14.2">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Ribbon.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.RichEdit.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.RichEdit.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Scheduler.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Scheduler.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.SpellChecker.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.SpellChecker.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.DXStyle.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.DXStyle.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.LightGray.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.LightGray.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisDark.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.MetropolisDark.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisLight.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.MetropolisLight.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Black.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.Office2007Black.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Blue.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.Office2007Blue.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Silver.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.Office2007Silver.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Black.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.Office2010Black.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Blue.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.Office2010Blue.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Silver.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.Office2010Silver.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2013.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.Office2013.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Seven.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.Seven.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.TouchlineDark.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.TouchlineDark.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.VS2010.v14.2">
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Themes.VS2010.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v14.2.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.XtraScheduler.v14.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Interactivity">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountEventDirectionConverter.cs" />
+    <Compile Include="CalculationStatementStateConverter.cs" />
+    <Compile Include="EstimatesTemplateLevelValueConverter.cs" />
+    <Compile Include="AccountEventTypeConverter.cs" />
+    <Compile Include="ImportanceConverter.cs" />
+    <Compile Include="ProductIdToImageConverter.cs" />
+    <Compile Include="ProjectTaskStatusConverter.cs" />
+    <Compile Include="Reports\ReportFolder.cs" />
+    <Compile Include="TimeSpanConverter.cs" />
+    <Compile Include="ProductIdToCategoryConverter.cs" />
+    <Compile Include="ServiceLevelValueConverter.cs" />
+    <Compile Include="SimpleAccountTypeValueConverter.cs" />
+    <Compile Include="BudgetLevelValueConverter.cs" />
+    <Compile Include="UI\AccessRightEditorControl.xaml.cs">
+      <DependentUpon>AccessRightEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccessRightGridControl.xaml.cs">
+      <DependentUpon>AccessRightGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountChangeAccessControl.xaml.cs">
+      <DependentUpon>AccountChangeAccessControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountEventDirectionGridControl.xaml.cs">
+      <DependentUpon>AccountEventDirectionGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountEventSchedulerControl.xaml.cs">
+      <DependentUpon>AccountEventSchedulerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountEventGridControl.xaml.cs">
+      <DependentUpon>AccountEventGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountEventEditorControl.xaml.cs">
+      <DependentUpon>AccountEventEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountSelectorGridControl.xaml.cs">
+      <DependentUpon>AccountSelectorGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BeverageSelectorGridControl.xaml.cs">
+      <DependentUpon>BeverageSelectorGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BeverageMiscGridControl.xaml.cs">
+      <DependentUpon>BeverageMiscGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BeveragePackGridControl.xaml.cs">
+      <DependentUpon>BeveragePackGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BeverageSubtypeGridControl.xaml.cs">
+      <DependentUpon>BeverageSubtypeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BeverageTypeGridControl.xaml.cs">
+      <DependentUpon>BeverageTypeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BudgetGridControl.xaml.cs">
+      <DependentUpon>BudgetGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BudgetItemLinkEditorControl.xaml.cs">
+      <DependentUpon>BudgetItemLinkEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BudgetItemLinkGridControl.xaml.cs">
+      <DependentUpon>BudgetItemLinkGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalculationDetailsEditorControlBase.cs" />
+    <Compile Include="UI\CalculationEditorControlBeveragesGrid.xaml.cs">
+      <DependentUpon>CalculationEditorControlBeveragesGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalculationEditorControlMenuGrid.xaml.cs">
+      <DependentUpon>CalculationEditorControlMenuGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalculationEditorControlWorkPlanGrid.xaml.cs">
+      <DependentUpon>CalculationEditorControlWorkPlanGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalculationEditorControlGrid.xaml.cs">
+      <DependentUpon>CalculationEditorControlGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalculationStatementEditorControl.xaml.cs">
+      <DependentUpon>CalculationStatementEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalculationStatementGridControl.xaml.cs">
+      <DependentUpon>CalculationStatementGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalculationStatementTemplateEditorControl.xaml.cs">
+      <DependentUpon>CalculationStatementTemplateEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalculationStatementTemplateGridControl.xaml.cs">
+      <DependentUpon>CalculationStatementTemplateGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\CreditIssueReturnEditorControl.xaml.cs">
+      <DependentUpon>CreditIssueReturnEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\CreditReturnEditorControl.xaml.cs">
+      <DependentUpon>CreditReturnEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\CreditReturnGridControl.xaml.cs">
+      <DependentUpon>CreditReturnGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\AdvanceReportGridControl.xaml.cs">
+      <DependentUpon>AdvanceReportGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\AdvanceUserControl.xaml.cs">
+      <DependentUpon>AdvanceUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\CreditIssueUserControl.xaml.cs">
+      <DependentUpon>CreditIssueUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\CreditUserControl.xaml.cs">
+      <DependentUpon>CreditUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\MoneyOperationDirectionConverter.cs" />
+    <Compile Include="UI\CashFlow\AdvanceReportEditorControl.xaml.cs">
+      <DependentUpon>AdvanceReportEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\MoneyOperationEditorControl.xaml.cs">
+      <DependentUpon>MoneyOperationEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\MoneyOperationGridControl.xaml.cs">
+      <DependentUpon>MoneyOperationGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\AdvanceItemGridControl.xaml.cs">
+      <DependentUpon>AdvanceItemGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\MoneyOperationReportByOperationTypeGridControl.xaml.cs">
+      <DependentUpon>MoneyOperationReportByOperationTypeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\MoneyOperationTypeConverter.cs" />
+    <Compile Include="UI\CashFlow\MoneyOperationTypeGridControl.xaml.cs">
+      <DependentUpon>MoneyOperationTypeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\PaymentInUserControl.xaml.cs">
+      <DependentUpon>PaymentInUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\PaymentOutUserControl.xaml.cs">
+      <DependentUpon>PaymentOutUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\SalaryUserControl.xaml.cs">
+      <DependentUpon>SalaryUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CashFlow\TransferUserControl.xaml.cs">
+      <DependentUpon>TransferUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Configuration\PresentationNodeEditorControl.xaml.cs">
+      <DependentUpon>PresentationNodeEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Configuration\PresentationNodeGridControl.xaml.cs">
+      <DependentUpon>PresentationNodeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DataQueryEditorControl.xaml.cs">
+      <DependentUpon>DataQueryEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DataQueryGridControl.xaml.cs">
+      <DependentUpon>DataQueryGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DishCookingMethodGridControl.xaml.cs">
+      <DependentUpon>DishCookingMethodGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DishCourseGridControl.xaml.cs">
+      <DependentUpon>DishCourseGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DishDietGridControl.xaml.cs">
+      <DependentUpon>DishDietGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DishIngredientGridControl.xaml.cs">
+      <DependentUpon>DishIngredientGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DishOccasionGridControl.xaml.cs">
+      <DependentUpon>DishOccasionGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DishServingGridControl.xaml.cs">
+      <DependentUpon>DishServingGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BeverageSubtypeEditorControl.xaml.cs">
+      <DependentUpon>BeverageSubtypeEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DishSubtypeEditorControl.xaml.cs">
+      <DependentUpon>DishSubtypeEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DishSubtypeGridControl.xaml.cs">
+      <DependentUpon>DishSubtypeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DishTypeGridControl.xaml.cs">
+      <DependentUpon>DishTypeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DishWorldGridControl.xaml.cs">
+      <DependentUpon>DishWorldGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentAccessControlListByDocumentEditorControl.xaml.cs">
+      <DependentUpon>DocumentAccessControlListByDocumentEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentAccessControlListEditorControl.xaml.cs">
+      <DependentUpon>DocumentAccessControlListEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentAccessControlListGridControl.xaml.cs">
+      <DependentUpon>DocumentAccessControlListGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentReportEditorControl.xaml.cs">
+      <DependentUpon>DocumentReportEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentReportGridControl.xaml.cs">
+      <DependentUpon>DocumentReportGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentStateEntryEditorControl.xaml.cs">
+      <DependentUpon>DocumentStateEntryEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentTransitionEditorControl.xaml.cs">
+      <DependentUpon>DocumentTransitionEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentTypeEntryEditorControl.xaml.cs">
+      <DependentUpon>DocumentTypeEntryEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmployeeSalaryEditorControl.xaml.cs">
+      <DependentUpon>EmployeeSalaryEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ErrorInformationEditorControl.xaml.cs">
+      <DependentUpon>ErrorInformationEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ErrorInformationGridControl.xaml.cs">
+      <DependentUpon>ErrorInformationGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalculationStatementTemplateAddSectionControl.xaml.cs">
+      <DependentUpon>CalculationStatementTemplateAddSectionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ErrorMessageEditorControl.xaml.cs">
+      <DependentUpon>ErrorMessageEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ErrorMessageGridControl.xaml.cs">
+      <DependentUpon>ErrorMessageGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EstimatesDocumentAddGroupControl.xaml.cs">
+      <DependentUpon>EstimatesDocumentAddGroupControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EstimatesDocumentEditorControl.xaml.cs">
+      <DependentUpon>EstimatesDocumentEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EstimatesDocumentGridControl.xaml.cs">
+      <DependentUpon>EstimatesDocumentGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ExtraCostRateEditorControl.xaml.cs">
+      <DependentUpon>ExtraCostRateEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductCostStatementEditorControl.xaml.cs">
+      <DependentUpon>ProductCostStatementEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductCostStatementGridControl.xaml.cs">
+      <DependentUpon>ProductCostStatementGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductPriceGridControl.xaml.cs">
+      <DependentUpon>ProductPriceGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reports\InvoiceByBudgetItemGridControl.xaml.cs">
+      <DependentUpon>InvoiceByBudgetItemGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reports\CreditMoneyOperationGridControl.xaml.cs">
+      <DependentUpon>CreditMoneyOperationGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reports\InvoicePaymentByContragentGridControl.xaml.cs">
+      <DependentUpon>InvoicePaymentByContragentGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reports\InvoiceByContragentGridControl.xaml.cs">
+      <DependentUpon>InvoiceByContragentGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ServiceCostGridControl.xaml.cs">
+      <DependentUpon>ServiceCostGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VATRateEditorControl.xaml.cs">
+      <DependentUpon>VATRateEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TaxRateEditorControl.xaml.cs">
+      <DependentUpon>TaxRateEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TaxRateGridControl.xaml.cs">
+      <DependentUpon>TaxRateGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Inventory\InventoryBalanceGridControl.xaml.cs">
+      <DependentUpon>InventoryBalanceGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Inventory\InventoryBalanceSelectorGridControl.xaml.cs">
+      <DependentUpon>InventoryBalanceSelectorGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Inventory\ReturnStatementEditorControl.xaml.cs">
+      <DependentUpon>ReturnStatementEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Inventory\ReturnStatementGridControl.xaml.cs">
+      <DependentUpon>ReturnStatementGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Operations\OperatingBudgetCreateControl.xaml.cs">
+      <DependentUpon>OperatingBudgetCreateControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Operations\OperatingBudgetDocumentSelectorControl.xaml.cs">
+      <DependentUpon>OperatingBudgetDocumentSelectorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Operations\OperatingBudgetEditorControl.xaml.cs">
+      <DependentUpon>OperatingBudgetEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Operations\OperatingBudgetGridControl.xaml.cs">
+      <DependentUpon>OperatingBudgetGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Operations\OperatingCalculationEditorControl.xaml.cs">
+      <DependentUpon>OperatingCalculationEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Operations\OperatingCalculationGridControl.xaml.cs">
+      <DependentUpon>OperatingCalculationGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Operations\PayrollEditorControl.xaml.cs">
+      <DependentUpon>PayrollEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductFilterControl.xaml.cs">
+      <DependentUpon>ProductFilterControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductSelectorGridControl.xaml.cs">
+      <DependentUpon>ProductSelectorGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EstimatesTemplateEditorControl.xaml.cs">
+      <DependentUpon>EstimatesTemplateEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EstimatesTemplateGridControl.xaml.cs">
+      <DependentUpon>EstimatesTemplateGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BudgetTemplateSelectorControl.xaml.cs">
+      <DependentUpon>BudgetTemplateSelectorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EstimatesTemplateSelectorControl.xaml.cs">
+      <DependentUpon>EstimatesTemplateSelectorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ExtraCostRateGridControl.xaml.cs">
+      <DependentUpon>ExtraCostRateGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectMemberBatchChangerControl.xaml.cs">
+      <DependentUpon>ProjectMemberBatchChangerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectTaskStatusEditorControl.xaml.cs">
+      <DependentUpon>ProjectTaskStatusEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MasterMenuGridControl.xaml.cs">
+      <DependentUpon>MasterMenuGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MasterMenuEditorControl.xaml.cs">
+      <DependentUpon>MasterMenuEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BeverageGridControl.xaml.cs">
+      <DependentUpon>BeverageGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BeverageEditorControl.xaml.cs">
+      <DependentUpon>BeverageEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MasterMenuSelectorGridControl.xaml.cs">
+      <DependentUpon>MasterMenuSelectorGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PriceMarginEditorControl.xaml.cs">
+      <DependentUpon>PriceMarginEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PriceMarginGridControl.xaml.cs">
+      <DependentUpon>PriceMarginGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectTaskStatusGridControl.xaml.cs">
+      <DependentUpon>ProjectTaskStatusGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectTaskStatusReportControl.xaml.cs">
+      <DependentUpon>ProjectTaskStatusReportControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectTaskTemplateEditorControl.xaml.cs">
+      <DependentUpon>ProjectTaskTemplateEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectTaskTemplateGridControl.xaml.cs">
+      <DependentUpon>ProjectTaskTemplateGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectTemplateEditorControl.xaml.cs">
+      <DependentUpon>ProjectTemplateEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectTemplateGridControl.xaml.cs">
+      <DependentUpon>ProjectTemplateGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectTemplateSelectorControl.xaml.cs">
+      <DependentUpon>ProjectTemplateSelectorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reports\CashFlowGridControl.xaml.cs">
+      <DependentUpon>CashFlowGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reports\BalanceGridControl.xaml.cs">
+      <DependentUpon>BalanceGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reports\ConsolidatedInventoryGridControl.xaml.cs">
+      <DependentUpon>ConsolidatedInventoryGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reports\ProfitLossGridControl.xaml.cs">
+      <DependentUpon>ProfitLossGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reports\ConsolidatedBudgetGridControl.xaml.cs">
+      <DependentUpon>ConsolidatedBudgetGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SeasonGridControl.xaml.cs">
+      <DependentUpon>SeasonGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SizeOfServiceRequestEditorControl.xaml.cs">
+      <DependentUpon>SizeOfServiceRequestEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VATRateGridControl.xaml.cs">
+      <DependentUpon>VATRateGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ResourceScheduleGridControl.xaml.cs">
+      <DependentUpon>ResourceScheduleGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BudgetEditorControl.xaml.cs">
+      <DependentUpon>BudgetEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountEventTemplateGridControl.xaml.cs">
+      <DependentUpon>AccountEventTemplateGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountEventTypeGridControl.xaml.cs">
+      <DependentUpon>AccountEventTypeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ContactGroupGridControl.xaml.cs">
+      <DependentUpon>ContactGroupGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CateringTypeGridControl.xaml.cs">
+      <DependentUpon>CateringTypeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountEventTemplateEditorControl.xaml.cs">
+      <DependentUpon>AccountEventTemplateEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BudgetItemGroupEditorControl.xaml.cs">
+      <DependentUpon>BudgetItemGroupEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VenueGridControl.xaml.cs">
+      <DependentUpon>VenueGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VenueEditorControl.xaml.cs">
+      <DependentUpon>VenueEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountLegalEditorControl.xaml.cs">
+      <DependentUpon>AccountLegalEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountDetailsEditorControl.xaml.cs">
+      <DependentUpon>AccountDetailsEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountByMarketingProgramViewGridControl.xaml.cs">
+      <DependentUpon>AccountByMarketingProgramViewGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountGroupGridControl.xaml.cs">
+      <DependentUpon>AccountGroupGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VenuePlaceGridControl.xaml.cs">
+      <DependentUpon>VenuePlaceGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VenueTypeGridControl.xaml.cs">
+      <DependentUpon>VenueTypeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BusinessActivityTypeGridControl.xaml.cs">
+      <DependentUpon>BusinessActivityTypeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ContactByMarketingProgramViewGridControl.xaml.cs">
+      <DependentUpon>ContactByMarketingProgramViewGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentTransitionGridControl.xaml.cs">
+      <DependentUpon>DocumentTransitionGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentStateEntryGridControl.xaml.cs">
+      <DependentUpon>DocumentStateEntryGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentViewEntryGridControl.xaml.cs">
+      <DependentUpon>DocumentViewEntryGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TradeMarkEditorControl.xaml.cs">
+      <DependentUpon>TradeMarkEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TradeMarkGridControl.xaml.cs">
+      <DependentUpon>TradeMarkGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentEmployeeAccessRightEditorControl.xaml.cs">
+      <DependentUpon>DocumentEmployeeAccessRightEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentEmployeeAccessRightGridControl.xaml.cs">
+      <DependentUpon>DocumentEmployeeAccessRightGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PersonNameSuggestor.cs" />
+    <Compile Include="UI\SizeOfServiceRequestGridControl.xaml.cs">
+      <DependentUpon>SizeOfServiceRequestGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MarketingProgramTypeGridControl.xaml.cs">
+      <DependentUpon>MarketingProgramTypeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ApplicationRoleEditorControl.xaml.cs">
+      <DependentUpon>ApplicationRoleEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AplicationRoleGridControl.xaml.cs">
+      <DependentUpon>AplicationRoleGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountEditorControl.xaml.cs">
+      <DependentUpon>AccountEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GLAccountGridControl.xaml.cs">
+      <DependentUpon>GLAccountGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MarketingProgramTypeEditorControl.xaml.cs">
+      <DependentUpon>MarketingProgramTypeEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReasonEditorControl.xaml.cs">
+      <DependentUpon>ReasonEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReasonTypeGridControl.xaml.cs">
+      <DependentUpon>ReasonTypeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReasonTypeEditorControl.xaml.cs">
+      <DependentUpon>ReasonTypeEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentTypeEntryGridControl.xaml.cs">
+      <DependentUpon>DocumentTypeEntryGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Inventory\WriteoffStatementEditorControl.xaml.cs">
+      <DependentUpon>WriteoffStatementEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Inventory\InventoryStatementEditorControl.xaml.cs">
+      <DependentUpon>InventoryStatementEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Inventory\WriteoffStatementGridControl.xaml.cs">
+      <DependentUpon>WriteoffStatementGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PriceListGridControl.xaml.cs">
+      <DependentUpon>PriceListGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectTaskEditorControl.xaml.cs">
+      <DependentUpon>ProjectTaskEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectMemberEditorControl.xaml.cs">
+      <DependentUpon>ProjectMemberEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectTaskGridControl.xaml.cs">
+      <DependentUpon>ProjectTaskGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectMemberGridControl.xaml.cs">
+      <DependentUpon>ProjectMemberGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CostCenterEditorControl.xaml.cs">
+      <DependentUpon>CostCenterEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PriceListEditorControl.xaml.cs">
+      <DependentUpon>PriceListEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Inventory\InventoryStatementGridControl.xaml.cs">
+      <DependentUpon>InventoryStatementGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Inventory\SalesOrderEditorControl.xaml.cs">
+      <DependentUpon>SalesOrderEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Inventory\SalesOrderGridControl.xaml.cs">
+      <DependentUpon>SalesOrderGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DivisionEditorControl.xaml.cs">
+      <DependentUpon>DivisionEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UnitOfMeasureClassEditorControl.xaml.cs">
+      <DependentUpon>UnitOfMeasureClassEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\StoragePlaceEditorControl.xaml.cs">
+      <DependentUpon>StoragePlaceEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DivisionGridControl.xaml.cs">
+      <DependentUpon>DivisionGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UserGridControl.xaml.cs">
+      <DependentUpon>UserGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SalesInvoiceEditorControl.xaml.cs">
+      <DependentUpon>SalesInvoiceEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SalesInvoiceGridControl.xaml.cs">
+      <DependentUpon>SalesInvoiceGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PurchaseInvoiceGridControl.xaml.cs">
+      <DependentUpon>PurchaseInvoiceGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountGridControl.xaml.cs">
+      <DependentUpon>AccountGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectMemberRoleGridControl.xaml.cs">
+      <DependentUpon>ProjectMemberRoleGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PurchaseInvoiceEditorControl.xaml.cs">
+      <DependentUpon>PurchaseInvoiceEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ServiceRequestEditorControl.xaml.cs">
+      <DependentUpon>ServiceRequestEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ServiceRequestTypeEditorControl.xaml.cs">
+      <DependentUpon>ServiceRequestTypeEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ServiceRequestTypeGridControl.xaml.cs">
+      <DependentUpon>ServiceRequestTypeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ServiceRequestGridControl.xaml.cs">
+      <DependentUpon>ServiceRequestGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentNumberingRuleGridControl.xaml.cs">
+      <DependentUpon>DocumentNumberingRuleGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ServiceLevelGridControl.xaml.cs">
+      <DependentUpon>ServiceLevelGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ItemColorGridControl.xaml.cs">
+      <DependentUpon>ItemColorGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CountryGridControl.xaml.cs">
+      <DependentUpon>CountryGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Inventory\PurchaseOrderGridControl.xaml.cs">
+      <DependentUpon>PurchaseOrderGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ContractGridControl.xaml.cs">
+      <DependentUpon>ContractGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ContractEditorControl.xaml.cs">
+      <DependentUpon>ContractEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Inventory\PurchaseOrderEditorControl.xaml.cs">
+      <DependentUpon>PurchaseOrderEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LeadChangeStateExtension.cs" />
+    <Compile Include="UI\LeadConvertControl.xaml.cs">
+      <DependentUpon>LeadConvertControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AbstractProductGridControl.xaml.cs">
+      <DependentUpon>AbstractProductGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AbstractProductEditorControl.xaml.cs">
+      <DependentUpon>AbstractProductEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ItemColorEditorControl.xaml.cs">
+      <DependentUpon>ItemColorEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentNumberingRuleEditorControl.xaml.cs">
+      <DependentUpon>DocumentNumberingRuleEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UserEditorControl.xaml.cs">
+      <DependentUpon>UserEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\StoragePlaceGridControl.xaml.cs">
+      <DependentUpon>StoragePlaceGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BankAccountGridControl.xaml.cs">
+      <DependentUpon>BankAccountGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountTypeGridControl.xaml.cs">
+      <DependentUpon>AccountTypeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BudgetTemplateLineEditorControl.xaml.cs">
+      <DependentUpon>BudgetTemplateLineEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ContactDetailsEditorControl.xaml.cs">
+      <DependentUpon>ContactDetailsEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ContactEditorControl.xaml.cs">
+      <DependentUpon>ContactEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ContactGridControl.xaml.cs">
+      <DependentUpon>ContactGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BudgetTemplateGridControl.xaml.cs">
+      <DependentUpon>BudgetTemplateGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BudgetTemplateEditorControl.xaml.cs">
+      <DependentUpon>BudgetTemplateEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductEditorControl.xaml.cs">
+      <DependentUpon>ProductEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductGridControl.xaml.cs">
+      <DependentUpon>ProductGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductSubcategoryEditorControl.xaml.cs">
+      <DependentUpon>ProductSubcategoryEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductSubcategoryGridControl.xaml.cs">
+      <DependentUpon>ProductSubcategoryGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductCategoryGridControl.xaml.cs">
+      <DependentUpon>ProductCategoryGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BankAccountEditorControl.xaml.cs">
+      <DependentUpon>BankAccountEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UnitOfMeasureClassGridControl.xaml.cs">
+      <DependentUpon>UnitOfMeasureClassGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UnitOfMeasureEditorControl.xaml.cs">
+      <DependentUpon>UnitOfMeasureEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UnitOfMeasureGridControl.xaml.cs">
+      <DependentUpon>UnitOfMeasureGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CostCenterGridControl.xaml.cs">
+      <DependentUpon>CostCenterGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectEditorControl.xaml.cs">
+      <DependentUpon>ProjectEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectGridControl.xaml.cs">
+      <DependentUpon>ProjectGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OpportunityEditorControl.xaml.cs">
+      <DependentUpon>OpportunityEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OpportunityTypeGridControl.xaml.cs">
+      <DependentUpon>OpportunityTypeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReasonGridControl.xaml.cs">
+      <DependentUpon>ReasonGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OpportunityGridControl.xaml.cs">
+      <DependentUpon>OpportunityGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmployeeDetailsEditorControl.xaml.cs">
+      <DependentUpon>EmployeeDetailsEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LeadEditorControl.xaml.cs">
+      <DependentUpon>LeadEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LeadGridControl.xaml.cs">
+      <DependentUpon>LeadGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectTypeEditorControl.xaml.cs">
+      <DependentUpon>ProjectTypeEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmployeeEditorControl.xaml.cs">
+      <DependentUpon>EmployeeEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmployeeGridControl.xaml.cs">
+      <DependentUpon>EmployeeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BudgetItemGroupGridControl.xaml.cs">
+      <DependentUpon>BudgetItemGroupGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BudgetItemEditorControl.xaml.cs">
+      <DependentUpon>BudgetItemEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BudgetItemGridControl.xaml.cs">
+      <DependentUpon>BudgetItemGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\IndustryGridControl.xaml.cs">
+      <DependentUpon>IndustryGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LeadSourceGridControl.xaml.cs">
+      <DependentUpon>LeadSourceGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OrganizationEditorControl.xaml.cs">
+      <DependentUpon>OrganizationEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OrganizationGridControl.xaml.cs">
+      <DependentUpon>OrganizationGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PositionGridControl.xaml.cs">
+      <DependentUpon>PositionGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SimpleEditorControl.xaml.cs">
+      <DependentUpon>SimpleEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectTypeGridControl.xaml.cs">
+      <DependentUpon>ProjectTypeGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="UI\RegionGridControl.xaml.cs">
+      <DependentUpon>RegionGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\_AAAControl.xaml.cs">
+      <DependentUpon>_AAAControl.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BudgetReport.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CalculationStatementTemplateReport.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CalculationStatementScheduleReport.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CalculationStatementReport.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EstimatesDocumentExternalReport.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EstimatesDocumentInternalReportWODesc.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EstimatesDocumentInternalReport.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalesOrderReport.rdlc" />
+    <EmbeddedResource Include="Reports\PurchaseOrderReport.rdlc" />
+    <None Include="Properties\DataSources\DykBits.Crm.Data.BudgetReport.datasource" />
+    <None Include="Properties\DataSources\DykBits.Crm.Data.CalculationStatementReport.datasource" />
+    <None Include="Properties\DataSources\DykBits.Crm.Data.CalculationStatementReportItem.datasource" />
+    <None Include="Properties\DataSources\DykBits.Crm.Data.CalculationStatementTemplateReport.datasource" />
+    <None Include="Properties\DataSources\DykBits.Crm.Data.CalculationStatementTemplateReportItem.datasource" />
+    <None Include="Properties\DataSources\DykBits.Crm.Data.EstimatesDocumentReport.datasource" />
+    <None Include="Properties\DataSources\DykBits.Crm.Data.Reports.PurchaseOrderReport.datasource" />
+    <None Include="Properties\DataSources\DykBits.Crm.Data.Reports.PurchaseOrderReportItem.datasource" />
+    <None Include="Properties\DataSources\DykBits.Crm.Data.Reports.SalesOrderReport.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="UI\AccessRightEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccessRightGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountChangeAccessControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\AccountEventDirectionGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountEventSchedulerControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountEventGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountEventEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountSelectorGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BeverageSelectorGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\BeverageMiscGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BeveragePackGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BeverageSubtypeGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BeverageTypeGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BudgetGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BudgetItemLinkEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BudgetItemLinkGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CalculationEditorControlBeveragesGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CalculationEditorControlMenuGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CalculationEditorControlWorkPlanGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CalculationEditorControlGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CalculationStatementEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CalculationStatementGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CalculationStatementTemplateEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CalculationStatementTemplateGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CashFlow\CreditIssueReturnEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CashFlow\CreditReturnEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CashFlow\CreditReturnGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CashFlow\AdvanceReportGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CashFlow\AdvanceUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CashFlow\CreditIssueUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CashFlow\CreditUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CashFlow\AdvanceReportEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CashFlow\MoneyOperationEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CashFlow\MoneyOperationGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CashFlow\AdvanceItemGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CashFlow\MoneyOperationReportByOperationTypeGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CashFlow\MoneyOperationTypeGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CashFlow\PaymentInUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CashFlow\PaymentOutUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CashFlow\SalaryUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CashFlow\TransferUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Configuration\PresentationNodeEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Configuration\PresentationNodeGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DataQueryEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DataQueryGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DishCookingMethodGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DishCourseGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DishDietGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DishIngredientGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DishOccasionGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DishServingGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BeverageSubtypeEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DishSubtypeEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DishSubtypeGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DishTypeGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DishWorldGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DocumentAccessControlListByDocumentEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DocumentAccessControlListEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DocumentAccessControlListGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DocumentReportEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DocumentReportGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DocumentStateEntryEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DocumentTransitionEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DocumentTypeEntryEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\EmployeeSalaryEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ErrorInformationEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ErrorInformationGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CalculationStatementTemplateAddSectionControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ErrorMessageEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ErrorMessageGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\EstimatesDocumentAddGroupControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\EstimatesDocumentEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\EstimatesDocumentGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ExtraCostRateEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductCostStatementEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductCostStatementGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductPriceGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Reports\InvoiceByBudgetItemGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Reports\CreditMoneyOperationGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Reports\InvoicePaymentByContragentGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Reports\InvoiceByContragentGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ServiceCostGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\VATRateEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\TaxRateEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\TaxRateGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Inventory\InventoryBalanceGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Inventory\InventoryBalanceSelectorGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Inventory\ReturnStatementEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Inventory\ReturnStatementGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Operations\OperatingBudgetCreateControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Operations\OperatingBudgetDocumentSelectorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Operations\OperatingBudgetEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Operations\OperatingBudgetGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Operations\OperatingCalculationEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Operations\OperatingCalculationGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Operations\PayrollEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProductFilterControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProductSelectorGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\EstimatesTemplateEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\EstimatesTemplateGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BudgetTemplateSelectorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\EstimatesTemplateSelectorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ExtraCostRateGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProjectMemberBatchChangerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProjectTaskStatusEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\MasterMenuGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\MasterMenuEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\BeverageGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\BeverageEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\MasterMenuSelectorGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PriceMarginEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PriceMarginGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProjectTaskStatusGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProjectTaskStatusReportControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProjectTaskTemplateEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProjectTaskTemplateGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProjectTemplateEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProjectTemplateGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProjectTemplateSelectorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Reports\CashFlowGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Reports\BalanceGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Reports\ConsolidatedInventoryGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Reports\ProfitLossGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Reports\ConsolidatedBudgetGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\SeasonGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\SizeOfServiceRequestEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\VATRateGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ResourceScheduleGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\BudgetEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountEventTemplateGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountEventTypeGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ContactGroupGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CateringTypeGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountEventTemplateEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\BudgetItemGroupEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\VenueGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\VenueEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountLegalEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountDetailsEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountByMarketingProgramViewGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountGroupGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\VenuePlaceGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\VenueTypeGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\BusinessActivityTypeGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ContactByMarketingProgramViewGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DocumentTransitionGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DocumentStateEntryGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DocumentViewEntryGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\TradeMarkEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\TradeMarkGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DocumentEmployeeAccessRightEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DocumentEmployeeAccessRightGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\SizeOfServiceRequestGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\MarketingProgramTypeGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ApplicationRoleEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AplicationRoleGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\GLAccountGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\MarketingProgramTypeEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ReasonEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ReasonTypeGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ReasonTypeEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DocumentTypeEntryGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Inventory\WriteoffStatementEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Inventory\InventoryStatementEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Inventory\WriteoffStatementGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\PriceListGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProjectTaskEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProjectMemberEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProjectTaskGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProjectMemberGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CostCenterEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\PriceListEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Inventory\InventoryStatementGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Inventory\SalesOrderEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Inventory\SalesOrderGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DivisionEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UnitOfMeasureClassEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\StoragePlaceEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DivisionGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UserGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\SalesInvoiceEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\SalesInvoiceGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\PurchaseInvoiceGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProjectMemberRoleGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\PurchaseInvoiceEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ServiceRequestEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ServiceRequestTypeEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ServiceRequestTypeGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ServiceRequestGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DocumentNumberingRuleGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ServiceLevelGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ItemColorGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CountryGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Inventory\PurchaseOrderGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ContractGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ContractEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Inventory\PurchaseOrderEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\LeadConvertControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\AbstractProductGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AbstractProductEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ItemColorEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DocumentNumberingRuleEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UserEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\StoragePlaceGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\BankAccountGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountTypeGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BudgetTemplateLineEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ContactDetailsEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ContactEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ContactGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BudgetTemplateGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\BudgetTemplateEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductSubcategoryEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductSubcategoryGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProductCategoryGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\BankAccountEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UnitOfMeasureClassGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UnitOfMeasureEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UnitOfMeasureGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CostCenterGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProjectEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProjectGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\OpportunityEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\OpportunityTypeGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ReasonGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\OpportunityGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\EmployeeDetailsEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Resources\BusinessCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Resources\CommonControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\LeadEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\LeadGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ProjectTypeEditorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\EmployeeEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\EmployeeGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BudgetItemGroupGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BudgetItemEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BudgetItemGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\IndustryGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\LeadSourceGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\OrganizationEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\OrganizationGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PositionGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Resources\CustomControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\SimpleEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProjectTypeGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\RegionGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\_AAAControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DykBits.Crm.Budget.DataAdapters\DykBits.Crm.Budget.DataAdapters.csproj">
+      <Project>{eb716d64-e696-43c7-9128-9c97393e199c}</Project>
+      <Name>DykBits.Crm.Budget.DataAdapters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Budget.Entities\DykBits.Crm.Budget.Entities.csproj">
+      <Project>{abcd3dd5-c5d0-4b2c-8b25-02a043b11e51}</Project>
+      <Name>DykBits.Crm.Budget.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Core\DykBits.Crm.Core.csproj">
+      <Project>{b40605bb-db90-41b0-8b02-6c90005e36a5}</Project>
+      <Name>DykBits.Crm.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.DataAdapters\DykBits.Crm.DataAdapters.csproj">
+      <Project>{c8e01892-8c37-437f-a79d-342b88bb4c77}</Project>
+      <Name>DykBits.Crm.DataAdapters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Data\DykBits.Crm.Data.csproj">
+      <Project>{ec5a6c6d-7063-43ca-a338-9f061592fd4c}</Project>
+      <Name>DykBits.Crm.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Entities\DykBits.Crm.Entities.csproj">
+      <Project>{73a8c4a7-fb5d-40ea-8cad-b1df2cbb96bd}</Project>
+      <Name>DykBits.Crm.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Remote\DykBits.Crm.Remote.csproj">
+      <Project>{4aa05467-a1d3-401a-959c-8cac84c3b941}</Project>
+      <Name>DykBits.Crm.Remote</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Services\DykBits.Crm.Services.csproj">
+      <Project>{1ba66118-22ff-4006-9e6b-a0cfab0fbad8}</Project>
+      <Name>DykBits.Crm.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Xml\DykBits.Xml.csproj">
+      <Project>{a4305687-4c8b-4f30-a502-9501415e4d75}</Project>
+      <Name>DykBits.Xml</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AllowBrowse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AllowGet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AllowDeleteAll.png" />
+    <Resource Include="Images\AllowDeleteOwn.png" />
+    <Resource Include="Images\AllowEditAll.png" />
+    <Resource Include="Images\AllowEditOwn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AllowChangeState.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

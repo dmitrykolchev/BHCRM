@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="848c50bd-98ac-4590-a211-3be26a510f1f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://bhw-112.bh.local:38734/DykBits.DataService/DocumentService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="documentservice.wsdl" MetadataType="Wsdl" ID="7488ed04-dafb-4ca8-9f60-006b4f5d34ef" SourceId="1" SourceUrl="net.tcp://bhw-112.bh.local:38734/DykBits.DataService/DocumentService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="f416b316-90c7-4ed9-8946-70e69c48990a" SourceId="1" SourceUrl="net.tcp://bhw-112.bh.local:38734/DykBits.DataService/DocumentService/mex" />
+    <MetadataFile FileName="documentservice.xsd" MetadataType="Schema" ID="24d7aa84-0fcb-40bd-8719-88c21ae5eee3" SourceId="1" SourceUrl="net.tcp://bhw-112.bh.local:38734/DykBits.DataService/DocumentService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="c6eab022-749f-461c-89bc-2e3a7a35013d" SourceId="1" SourceUrl="net.tcp://bhw-112.bh.local:38734/DykBits.DataService/DocumentService/mex" />
+    <MetadataFile FileName="DykBits.DataService.xsd" MetadataType="Schema" ID="b19ec992-0ebc-414f-bf2c-495aa5d3d451" SourceId="1" SourceUrl="net.tcp://bhw-112.bh.local:38734/DykBits.DataService/DocumentService/mex" />
+    <MetadataFile FileName="Message.xsd" MetadataType="Schema" ID="68881ffb-f945-4e5f-b72e-0416ed2cab7c" SourceId="1" SourceUrl="net.tcp://bhw-112.bh.local:38734/DykBits.DataService/DocumentService/mex" />
+    <MetadataFile FileName="DykBits.Crm.Data.xsd" MetadataType="Schema" ID="a2e9c523-ffab-4dbc-8172-248ff9da9cd8" SourceId="1" SourceUrl="net.tcp://bhw-112.bh.local:38734/DykBits.DataService/DocumentService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

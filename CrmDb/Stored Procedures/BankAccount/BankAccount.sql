@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[BankAccount]
+(
+	[Id] TIdentifier not null primary key identity,
+	[State] TState not null,
+	[FileAs] TName not null,
+	[AccountId] TIdentifier not null,
+	[CashAccount] bit not null default(0),
+	[Bank] TName null,
+	[Address] nvarchar(256) null,
+	[Account] TCode null,
+	[SWIFT] TCode null,
+	[ABA] TCode null,
+	[BIC] TCode null,
+	[IBAN] TCode null,
+	[IntermediaryBank] TName null,
+	[IntermediaryAddress] nvarchar(256) null,
+	[IntermediaryAccount] TCode null,
+	[IntermediarySWIFT] TCode null,
+	[IntermediaryABA] TCode null,
+    [Comments] nvarchar(max) null, 
+    [Created] datetime not null, 
+    [CreatedBy] int not null, 
+    [Modified] datetime not null, 
+    [ModifiedBy] int not null, 
+    [RowVersion] rowversion not null, 
+    CONSTRAINT [FK_BankAccount_Account] FOREIGN KEY ([AccountId]) REFERENCES [dbo].[Account]([Id])
+)

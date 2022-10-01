@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EC5A6C6D-7063-43CA-A338-9F061592FD4C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DykBits.Crm</RootNamespace>
+    <AssemblyName>DykBits.Crm.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Accumulator`1.cs" />
+    <Compile Include="Data\AttachmentItem.cs" />
+    <Compile Include="Data\BlobServiceConnectionManager.cs" />
+    <Compile Include="Data\CustomIdentityVerifier.cs" />
+    <Compile Include="Data\DataItemBase.cs" />
+    <Compile Include="Data\ColumnAttribute.cs" />
+    <Compile Include="Data\SqlProcedureManager.cs" />
+    <Compile Include="Data\SqlProcedureType.cs" />
+    <Compile Include="Data\LocalConnectionManager.cs" />
+    <Compile Include="Data\DataAdapterBase`1.cs" />
+    <Compile Include="Data\DataAdapterCore`1.cs" />
+    <Compile Include="Data\DataHelper.cs" />
+    <Compile Include="Data\DataItem.cs" />
+    <Compile Include="Data\DataItemType.cs" />
+    <Compile Include="Data\DataItemView.cs" />
+    <Compile Include="Data\DataValidationException.cs" />
+    <Compile Include="Data\DbValueConverter.cs" />
+    <Compile Include="Data\DetailDataItem.cs" />
+    <Compile Include="Data\DetailDataItemCollection.cs" />
+    <Compile Include="Data\DocumentManager.cs" />
+    <Compile Include="Data\DocumentMetadata.cs" />
+    <Compile Include="Data\DocumentMetadataCollection.cs" />
+    <Compile Include="Data\DocumentMetadataList.cs" />
+    <Compile Include="Data\DocumentNumberInfo.cs" />
+    <Compile Include="Data\DocumentOperationCompleteEventArgs.cs" />
+    <Compile Include="Data\DocumentRecordCollection.cs" />
+    <Compile Include="Data\DocumentState.cs" />
+    <Compile Include="Data\DocumentStateCollection.cs" />
+    <Compile Include="Data\DocumentTransitionTemplate.cs" />
+    <Compile Include="Data\DocumentTransitionTemplateCollection.cs" />
+    <Compile Include="Data\Filter.cs" />
+    <Compile Include="Data\HierarchicalList`1.cs" />
+    <Compile Include="Data\IAccessRight.cs" />
+    <Compile Include="Data\IApplicationRole.cs" />
+    <Compile Include="Data\IAttachmentItem.cs" />
+    <Compile Include="Data\IConnectionManager.cs" />
+    <Compile Include="Data\ICurrentUser.cs" />
+    <Compile Include="Data\IDataAdapter.cs" />
+    <Compile Include="Data\IDataAdapter`2.cs" />
+    <Compile Include="Data\IDatabaseContext.cs" />
+    <Compile Include="Data\IDataItem.cs" />
+    <Compile Include="Data\IDataItem.Extensions.cs" />
+    <Compile Include="Data\IDataQuery.cs" />
+    <Compile Include="Data\IDataQueryManager.cs" />
+    <Compile Include="Data\IDocumentAccessControlList.cs" />
+    <Compile Include="Data\IDocumentReportInfo.cs" />
+    <Compile Include="Data\IEmployeeInfo.cs" />
+    <Compile Include="Data\IErrorInformation.cs" />
+    <Compile Include="Data\IGenericRight.cs" />
+    <Compile Include="Data\INumberedDataItem.cs" />
+    <Compile Include="Data\ISelectableDataItem.cs" />
+    <Compile Include="Data\ItemId.cs" />
+    <Compile Include="Data\ItemKey.cs" />
+    <Compile Include="Data\IViewDataAdapter.cs" />
+    <Compile Include="Data\ListManager.cs" />
+    <Compile Include="Data\NotifyDataObject.cs" />
+    <Compile Include="Data\NotifyDataObjectProperty.cs" />
+    <Compile Include="Data\NotifyDataObjectPropertyStore.cs" />
+    <Compile Include="Data\NotifyObject.cs" />
+    <Compile Include="Data\NumberedDataItem.cs" />
+    <Compile Include="Data\NumberedDataItemView.cs" />
+    <Compile Include="Data\ObservableCollectionWithRefresh.cs" />
+    <Compile Include="Data\RemoteConnectionStringBuilder.cs" />
+    <Compile Include="Data\ReportDataSourceConverter.cs" />
+    <Compile Include="Data\ReportDataSourceAttribute.cs" />
+    <Compile Include="Data\SecurityManager.cs" />
+    <Compile Include="Data\SimpleDataItemView.cs" />
+    <Compile Include="Data\SqlHelper.cs" />
+    <Compile Include="Data\TableAttribute.cs" />
+    <Compile Include="Data\Unset.cs" />
+    <Compile Include="Data\ViewDataAdapterBase`1.cs" />
+    <Compile Include="Data\ViewDataAdapterCore`1.cs" />
+    <Compile Include="Data\ViewDataManager.cs" />
+    <Compile Include="Data\ViewMetadata.cs" />
+    <Compile Include="Data\ViewMetadataBase.cs" />
+    <Compile Include="Data\ViewMetadataCollection.cs" />
+    <Compile Include="Data\XmlDataAdapterBase`1.cs" />
+    <Compile Include="Data\IViewDataAdapter`1.cs" />
+    <Compile Include="Data\XmlSerializableDataItem.cs" />
+    <Compile Include="Data\XmlViewDataAdapterBase`1.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\RemoteServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ImageHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DykBits.Crm.Services\DykBits.Crm.Services.csproj">
+      <Project>{1ba66118-22ff-4006-9e6b-a0cfab0fbad8}</Project>
+      <Name>DykBits.Crm.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.DataService.GzipEncoder\DykBits.DataService.GzipEncoder.csproj">
+      <Project>{28addd39-3cd3-47bf-aa3e-89a6067f8c46}</Project>
+      <Name>DykBits.DataService.GzipEncoder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Xml\DykBits.Xml.csproj">
+      <Project>{a4305687-4c8b-4f30-a502-9501415e4d75}</Project>
+      <Name>DykBits.Xml</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Service References\RemoteServices\documentservice.wsdl" />
+    <None Include="Service References\RemoteServices\documentservice.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RemoteServices\DykBits.Crm.RemoteServices.DownloadBlobResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RemoteServices\DykBits.Crm.RemoteServices.UploadBlobResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RemoteServices\Message1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RemoteServices\service1.wsdl" />
+    <None Include="Service References\RemoteServices\service21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\RemoteServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RemoteServices\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RemoteServices\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RemoteServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

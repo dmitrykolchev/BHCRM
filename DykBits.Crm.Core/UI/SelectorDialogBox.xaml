@@ -1,0 +1,134 @@
+﻿<local:DataWindowBase x:Class="DykBits.Crm.UI.SelectorDialogBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxbh="http://schemas.devexpress.com/winfx/2008/xaml/bars/internal"
+        xmlns:local="clr-namespace:DykBits.Crm.UI"
+        xmlns:crm ="http://www.dykbits.net/wpf/crm"
+        WindowState="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PersistentData.State, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        Left="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PersistentData.Left, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+        Top="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PersistentData.Top, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+        Width="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PersistentData.Width, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+        Height="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PersistentData.Height, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+        Title="SelectorDialogBox" TextOptions.TextFormattingMode="Display" UseLayoutRounding="True">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dykbits.Crm.Core;component/UI/Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.Create}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.Open}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.Refresh}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.Properties}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.ViewFilter}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.SortAscending}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.SortDescending}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.ExpandAllGroups}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.CollapseAllGroups}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.OK}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.Cancel}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.Default}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.SaveLayout}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.RestoreLayout}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.ResetLayout}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.RecreatePresentation}" CanExecute="CommandBinding_CanExecute"  Executed="CommandBinding_Executed" />
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <dxb:BarManager x:Name="barManager">
+            <dxb:BarManager.Items>
+                <dxb:BarButtonItem x:Name="barButtonNew" Content="Создать" 
+                                   LargeGlyph="/DykBits.Crm.Core;component/Images/32x32/NewItem.png" 
+                                   Glyph="/DykBits.Crm.Core;component/Images/16x16/NewItem.png" 
+                                   RibbonStyle="Large" 
+                                   Command="{x:Static crm:CrmApplicationCommands.Create}" />
+                <dxb:BarButtonItem x:Name="barButtonOpen" Content="Открыть" 
+                                   LargeGlyph="/DykBits.Crm.Core;component/Images/32x32/Open.png" 
+                                   Glyph="/DykBits.Crm.Core;component/Images/16x16/Open.png" 
+                                   RibbonStyle="Large"
+                                   Command="{x:Static crm:CrmApplicationCommands.Open}"/>
+                <dxb:BarButtonItem x:Name="barButtonRefresh" Content="Обновить" 
+                                   LargeGlyph="/DykBits.Crm.Core;component/Images/32x32/Refresh.png" 
+                                   Glyph="/DykBits.Crm.Core;component/Images/16x16/Refresh.png" 
+                                   RibbonStyle="Large"
+                                   Command="{x:Static crm:CrmApplicationCommands.Refresh}" />
+                <dxb:BarButtonItem x:Name="barButtonProperties" Content="Свойства" 
+                                   Glyph="/DykBits.Crm.Core;component/Images/16x16/Properties.png" 
+                                   Command="{x:Static crm:CrmApplicationCommands.Properties}"/>
+                <dxb:BarCheckItem x:Name="barCheckViewFilter" Content="Фильтр" Glyph="/DykBits.Crm.Core;component/Images/16x16/Filter.png" 
+                                  Command="{x:Static crm:CrmApplicationCommands.ViewFilter}" />
+                <dxb:BarButtonItem x:Name="barButtonSortAscending" Content="От меньшего к большему" 
+                                   LargeGlyph="/DykBits.Crm.Core;component/Images/32x32/SortUp.png" 
+                                   Glyph="/DykBits.Crm.Core;component/Images/16x16/SortUp.png" 
+                                   RibbonStyle="SmallWithoutText" Command="{x:Static crm:CrmApplicationCommands.SortAscending}"/>
+                <dxb:BarButtonItem x:Name="barButtonSortDescending" Content="От большего к меньшему" 
+                                   LargeGlyph="/DykBits.Crm.Core;component/Images/32x32/SortDown.png" 
+                                   Glyph="/DykBits.Crm.Core;component/Images/16x16/SortDown.png" 
+                                   RibbonStyle="SmallWithoutText" Command="{x:Static crm:CrmApplicationCommands.SortDescending}"/>
+                <dxb:BarButtonItem x:Name="barButtonExpandAllGroups" Content="Развернуть все группы" 
+                                   LargeGlyph="/DykBits.Crm.Core;component/Images/32x32/ExpandAllBlocks.png" 
+                                   Glyph="/DykBits.Crm.Core;component/Images/16x16/ExpandAllBlocks.png" 
+                                   RibbonStyle="SmallWithoutText" Command="{x:Static crm:CrmApplicationCommands.ExpandAllGroups}"/>
+                <dxb:BarButtonItem x:Name="barButtonCollapseAllGroups" Content="Свернуть все группы" 
+                                   LargeGlyph="/DykBits.Crm.Core;component/Images/32x32/CollapseAllBlocks.png" 
+                                   Glyph="/DykBits.Crm.Core;component/Images/16x16/CollapseAllBlocks.png" 
+                                   RibbonStyle="SmallWithoutText" Command="{x:Static crm:CrmApplicationCommands.CollapseAllGroups}"/>
+                <dxb:BarButtonItem x:Name="barButtonResetLayout" Content="Сброс настроек" 
+                                   LargeGlyph="/DykBits.Crm.Core;component/Images/32x32/TableStyleClear.png" 
+                                   Glyph="/DykBits.Crm.Core;component/Images/16x16/TableStyleClear.png" 
+                                   RibbonStyle="Large" Command="{x:Static crm:CrmApplicationCommands.ResetLayout}"/>
+            </dxb:BarManager.Items>
+            <dxb:BarManager.Bars>
+                <dxb:Bar x:Name="barMainMenu" Caption="Основной" GlyphSize="Small" >
+                    <dxb:Bar.DockInfo>
+                        <dxb:BarDockInfo ContainerType="Top" Row="0" />
+                    </dxb:Bar.DockInfo>
+                    <dxb:Bar.ItemLinks>
+                        <dxb:BarButtonItemLink BarItemName="barButtonNew" />
+                        <dxb:BarButtonItemLink BarItemName="barButtonOpen" />
+                        <dxb:BarItemLinkSeparator />
+                        <dxb:BarButtonItemLink BarItemName="barButtonRefresh"/>
+                        <dxb:BarButtonItemLink BarItemName="barButtonProperties"/>
+                        <dxb:BarCheckItemLink BarItemName="barCheckViewFilter"/>
+                        <dxb:BarItemLinkSeparator />
+                        <dxb:BarButtonItemLink BarItemName="barButtonSortAscending" />
+                        <dxb:BarButtonItemLink BarItemName="barButtonSortDescending" />
+                        <dxb:BarButtonItemLink BarItemName="barButtonExpandAllGroups" />
+                        <dxb:BarButtonItemLink BarItemName="barButtonCollapseAllGroups" />
+                        <dxb:BarItemLinkSeparator />
+                        <dxb:BarButtonItemLink BarItemName="barButtonResetLayout" />
+                    </dxb:Bar.ItemLinks>
+                </dxb:Bar>
+            </dxb:BarManager.Bars>
+        </dxb:BarManager>
+        <dxdo:DockLayoutManager Grid.Row="1">
+            <dxdo:LayoutGroup Caption="LayoutRoot" BorderThickness="0" GroupBorderStyle="Group">
+                <dxdo:LayoutPanel Caption="Panel1" AllowDock="False" AllowHide="False" AllowClose="False" FloatOnDoubleClick="False" AllowMove="False" AllowRename="False" AllowRestore="False" AllowFloat="False" AllowDrag="False" AllowContextMenu="False" ShowCloseButton="False" ShowControlBox="False" ShowMaximizeButton="False" ShowPinButton="False" ShowRestoreButton="False" ShowCaption="False" ShowCaptionImage="False" BorderThickness="0" ShowBorder="False">
+                    <ContentPresenter Grid.Row="1" x:Name="gridContainer" />
+                </dxdo:LayoutPanel>
+            </dxdo:LayoutGroup>
+            <dxdo:DockLayoutManager.AutoHideGroups>
+                <dxdo:AutoHideGroup DockType="Right" AutoHideSize="300,300" x:Name="rightGroup">
+                    <dxdo:LayoutPanel FloatOnDoubleClick="False" AllowClose="False" ItemWidth="300" x:Name="filterPanel" Caption="Фильтр" 
+                                      CaptionImage="/DykBits.Crm.Core;component/Images/16x16/Filter.png"
+                                      Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:SelectorDialogBox,Mode=FindAncestor},Path=FilterViewVisibility}">
+                        <ContentPresenter Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:SelectorDialogBox}}, Path=FilterView}" />
+                    </dxdo:LayoutPanel>
+                </dxdo:AutoHideGroup>
+            </dxdo:DockLayoutManager.AutoHideGroups>
+        </dxdo:DockLayoutManager>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Style="{StaticResource crmButton}" IsDefault="True" Content="OK" Margin="4" Command="{x:Static crm:CrmApplicationCommands.OK}" />
+            <Button Style="{StaticResource crmButton}" IsCancel="True" Content="Отмена" Margin="4,4,0,4" Command="{x:Static crm:CrmApplicationCommands.Cancel}" />
+        </StackPanel>
+    </Grid>
+</local:DataWindowBase>

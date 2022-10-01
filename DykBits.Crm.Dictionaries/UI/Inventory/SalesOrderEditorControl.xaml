@@ -1,0 +1,117 @@
+﻿<crm:MasterDetailsControlBase  x:Class="DykBits.Crm.UI.Inventory.SalesOrderEditorControl"
+            xmlns:crm ="http://www.dykbits.net/wpf/crm"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+            xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+            xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"  
+            mc:Ignorable="d" 
+            d:DesignHeight="600" d:DesignWidth="800" Grid.IsSharedSizeScope="True">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <crm:DocumentIdConverter x:Key="idConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <crm:MasterDetailsControlBase.Master>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0"/>
+
+                <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="96"/>
+
+                <ColumnDefinition Width="12"/>
+
+                <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="96"/>
+            </Grid.ColumnDefinitions>
+            <Label Style="{StaticResource crmLabel}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1">№ / Дата:</Label>
+            <TextBox Style="{StaticResource crmTextBox}" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Text="{crm:BindingEx Number}" />
+            <dxe:DateEdit Style="{StaticResource crmDateEdit}" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" EditValue="{crm:BindingEx DocumentDate}" />
+
+            <Label Style="{StaticResource crmLabel}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1">Организация:</Label>
+            <crm:DocumentPicker x:Name="docOrganization" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" SelectedValue="{crm:BindingEx OrganizationId}" DataSource="Organization" />
+            <Label Style="{StaticResource crmLabel}" Grid.Row="1" Grid.Column="7">Место хранения:</Label>
+            <crm:DataComboBox Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="3" SelectedValue="{crm:BindingEx StoragePlaceId}" DataSource="StoragePlace" IsNullable="False" />
+            <Label Style="{StaticResource crmLabel}" Grid.Row="4" Grid.Column="1">Смета:</Label>
+            <crm:DocumentPicker x:Name="docBudget" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="3" DataSource="Budget" SelectedValue="{crm:BindingEx BudgetIdUI}" RequestFilterData="DocumentPicker_RequestFilterData" />
+            <Label Style="{StaticResource crmLabel}" Grid.Row="4" Grid.Column="7">Покупатель:</Label>
+            <crm:DocumentPicker Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="3" DataSource="Account" SelectedValue="{crm:BindingEx CustomerId}" RequestFilterData="DocumentPicker_RequestFilterData_1" />
+            
+            <Label Style="{StaticResource crmLabel}" Grid.Row="5" Grid.Column="1">Раздел:</Label>
+            <crm:DataComboBox Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3" SelectedValue="{crm:BindingEx BudgetItemGroupIdUI}" ItemsSource="{Binding BudgetItemGroups}" IsNullable="True" />
+            <Label Style="{StaticResource crmLabel}" Grid.Row="5" Grid.Column="7">Статья:</Label>
+            <crm:DataComboBox Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="3" SelectedValue="{crm:BindingEx BudgetItemIdUI}" ItemsSource="{Binding BudgetItems}" IsNullable="True" />
+        </Grid>
+    </crm:MasterDetailsControlBase.Master>
+    <crm:MasterDetailsControlBase.Details>
+        <dxg:GridControl ShowBorder="True" Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="11" ItemsSource="{Binding Lines}" x:Name="grid">
+            <dxg:GridControl.TotalSummary>
+                <crm:StandardSum Field="RowData.Row.TotalCost" />
+                <crm:StandardSum Field="RowData.Row.TotalPrice" />
+            </dxg:GridControl.TotalSummary>
+            <dxg:GridControl.View>
+                <dxg:TableView AllowMoveColumnToDropArea="True" AllowEditing="True" AutoWidth="True" ShowGroupPanel="False" ShowTotalSummary="True" />
+            </dxg:GridControl.View>
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn Header="Наименование" Binding="{Binding ProductId, Converter={StaticResource idConverter}, ConverterParameter=Product}" Width="300" />
+                <dxg:GridColumn Header="Категория" Binding="{Binding ProductCategoryId, Converter={StaticResource idConverter}, ConverterParameter=ProductCategory}" Width="200" />
+                <dxg:GridColumn Header="Ед. изм." Binding="{Binding UnitOfMeasureId, Converter={StaticResource idConverter}, ConverterParameter=UnitOfMeasure.Code}" Width="75" />
+                <dxg:GridColumn Header="Кол-во" Binding="{Binding Amount, Mode=TwoWay}" Width="100" >
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings DisplayFormat="#,##0.####" MaskType="Numeric" Mask="#,###,##0.####" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn Header="Цена" Binding="{Binding Price, Mode=TwoWay}" Width="100">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings MaskType="Numeric" DisplayFormat="#,##0.00##" Mask="#,###,##0.00##" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn Header="Сумма" Binding="{Binding TotalPrice, Mode=OneWay}" Width="150">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings DisplayFormat="#,##0.00" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn Header="Себестоимость" Binding="{Binding Cost, Mode=OneWay}" Width="100">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings MaskType="Numeric" DisplayFormat="#,##0.00##" Mask="#,###,##0.00##" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn Header="Сумма (себестоимость)" Binding="{Binding TotalCost, Mode=OneWay}" Width="150">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings DisplayFormat="#,##0.00"/>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+            </dxg:GridControl.Columns>
+        </dxg:GridControl>
+    </crm:MasterDetailsControlBase.Details>
+</crm:MasterDetailsControlBase>

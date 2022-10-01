@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DykBits.Crm.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DykBits.Crm.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ItemKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ItemKey" nillable="true" type="tns:ItemKey" />
+  <xs:complexType name="DocumentNumberInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileAs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FormattedNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentNumberInfo" nillable="true" type="tns:DocumentNumberInfo" />
+</xs:schema>

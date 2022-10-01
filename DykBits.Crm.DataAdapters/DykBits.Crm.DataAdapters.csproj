@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C8E01892-8C37-437F-A79D-342B88BB4C77}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DykBits.Crm</RootNamespace>
+    <AssemblyName>DykBits.Crm.DataAdapters</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\AbstractProductDataAdapter.cs" />
+    <Compile Include="Data\AbstractProductDataAdapterProxy.cs" />
+    <Compile Include="Data\AccessRightDataAdapter.cs" />
+    <Compile Include="Data\AccessRightDataAdapterProxy.cs" />
+    <Compile Include="Data\AccountByMarketingProgramViewDataAdapter.cs" />
+    <Compile Include="Data\AccountByMarketingProgramViewDataAdapterProxy.cs" />
+    <Compile Include="Data\AccountDataAdapter.cs" />
+    <Compile Include="Data\AccountDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\AccountDataAdapterProxy.cs" />
+    <Compile Include="Data\AccountEventDataAdapter.cs" />
+    <Compile Include="Data\AccountEventDataAdapterProxy.cs" />
+    <Compile Include="Data\AccountEventDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\AccountEventDirectionDataAdapter.cs" />
+    <Compile Include="Data\AccountEventDirectionDataAdapterProxy.cs" />
+    <Compile Include="Data\AccountEventTemplateDataAdapter.cs" />
+    <Compile Include="Data\AccountEventTemplateDataAdapterProxy.cs" />
+    <Compile Include="Data\AccountEventTypeDataAdapter.cs" />
+    <Compile Include="Data\AccountEventTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\AccountGroupDataAdapter.cs" />
+    <Compile Include="Data\AccountGroupDataAdapterProxy.cs" />
+    <Compile Include="Data\AccountTypeDataAdapter.cs" />
+    <Compile Include="Data\AccountTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\AdvanceItemDataAdapter.cs" />
+    <Compile Include="Data\ApplicationRoleDataAdapter.cs" />
+    <Compile Include="Data\ApplicationRoleDataAdapterProxy.cs" />
+    <Compile Include="Data\BalanceSheetLineDataAdapter.cs" />
+    <Compile Include="Data\BankAccountDataAdapter.cs" />
+    <Compile Include="Data\BankAccountDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\BankAccountDataAdapterProxy.cs" />
+    <Compile Include="Data\BeverageDataAdapter.cs" />
+    <Compile Include="Data\BeverageDataAdapterProxy.cs" />
+    <Compile Include="Data\BeverageDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\BeverageMiscDataAdapter.cs" />
+    <Compile Include="Data\BeverageMiscDataAdapterProxy.cs" />
+    <Compile Include="Data\BeveragePackDataAdapter.cs" />
+    <Compile Include="Data\BeveragePackDataAdapterProxy.cs" />
+    <Compile Include="Data\BeverageSubtypeDataAdapter.cs" />
+    <Compile Include="Data\BeverageSubtypeDataAdapterProxy.cs" />
+    <Compile Include="Data\BeverageSubtypeDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\BeverageTypeDataAdapter.cs" />
+    <Compile Include="Data\BeverageTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\BudgetDataAdapter.cs" />
+    <Compile Include="Data\BudgetDataAdapterProxy.cs" />
+    <Compile Include="Data\BudgetDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\BudgetItemDataAdapter.cs" />
+    <Compile Include="Data\BudgetItemDataAdapterProxy.cs" />
+    <Compile Include="Data\BudgetItemDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\BudgetItemGroupDataAdapter.cs" />
+    <Compile Include="Data\BudgetItemGroupDataAdapterProxy.cs" />
+    <Compile Include="Data\BudgetItemGroupTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\BudgetItemLinkDataAdapter.cs" />
+    <Compile Include="Data\BudgetItemLinkDataAdapterProxy.cs" />
+    <Compile Include="Data\BudgetItemLinkDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\BudgetTemplateDataAdapter.cs" />
+    <Compile Include="Data\BudgetTemplateDataAdapterProxy.cs" />
+    <Compile Include="Data\BudgetTemplateDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\BusinessActivityTypeDataAdapter.cs" />
+    <Compile Include="Data\BusinessActivityTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\CalculationStageDataAdapter.cs" />
+    <Compile Include="Data\CalculationStageDataAdapterProxy.cs" />
+    <Compile Include="Data\CategoryDataAdapter.cs" />
+    <Compile Include="Data\CategoryDataAdapterProxy.cs" />
+    <Compile Include="Data\CateringTypeDataAdapter.cs" />
+    <Compile Include="Data\CateringTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\ConsolidatedAccrualLineDataAdapter.cs" />
+    <Compile Include="Data\ConsolidatedBudgetLineDataAdapter.cs" />
+    <Compile Include="Data\ConsolidatedInventoryOperationLineDataAdapter.cs" />
+    <Compile Include="Data\ConsolidatedMoneyOperationLineDataAdapter.cs" />
+    <Compile Include="Data\ConsolidatedOperatingBudgetLineDataAdapter.cs" />
+    <Compile Include="Data\ContactByMarketingProgramViewDataAdapter.cs" />
+    <Compile Include="Data\ContactByMarketingProgramViewDataAdapterProxy.cs" />
+    <Compile Include="Data\ContactDataAdapter.cs" />
+    <Compile Include="Data\ContactDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\ContactDataAdapterProxy.cs" />
+    <Compile Include="Data\ContactGroupDataAdapter.cs" />
+    <Compile Include="Data\ContactGroupDataAdapterProxy.cs" />
+    <Compile Include="Data\ContactRoleDataAdapter.cs" />
+    <Compile Include="Data\ContactRoleDataAdapterProxy.cs" />
+    <Compile Include="Data\ContractDataAdapter.cs" />
+    <Compile Include="Data\ContractDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\ContractDataAdapterProxy.cs" />
+    <Compile Include="Data\CostCenterDataAdapter.cs" />
+    <Compile Include="Data\CostCenterDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\CostCenterDataAdapterProxy.cs" />
+    <Compile Include="Data\CountryDataAdapter.cs" />
+    <Compile Include="Data\CountryDataAdapterProxy.cs" />
+    <Compile Include="Data\CreditMoneyOperationDataAdapter.cs" />
+    <Compile Include="Data\CurrentUserDataAdapter.cs" />
+    <Compile Include="Data\CurrentUserDataAdapter.Extensions.cs" />
+    <Compile Include="Data\CurrentUserDataAdapterProxy.cs" />
+    <Compile Include="Data\CurrentUserDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\DataQueryDataAdapter.cs" />
+    <Compile Include="Data\DataQueryDataAdapterProxy.cs" />
+    <Compile Include="Data\DishCookingMethodDataAdapter.cs" />
+    <Compile Include="Data\DishCookingMethodDataAdapterProxy.cs" />
+    <Compile Include="Data\DishCourseDataAdapter.cs" />
+    <Compile Include="Data\DishCourseDataAdapterProxy.cs" />
+    <Compile Include="Data\DishDietDataAdapter.cs" />
+    <Compile Include="Data\DishDietDataAdapterProxy.cs" />
+    <Compile Include="Data\DishIngredientDataAdapter.cs" />
+    <Compile Include="Data\DishIngredientDataAdapterProxy.cs" />
+    <Compile Include="Data\DishOccasionDataAdapter.cs" />
+    <Compile Include="Data\DishOccasionDataAdapterProxy.cs" />
+    <Compile Include="Data\DishServingDataAdapter.cs" />
+    <Compile Include="Data\DishServingDataAdapterProxy.cs" />
+    <Compile Include="Data\DishSubtypeDataAdapter.cs" />
+    <Compile Include="Data\DishSubtypeDataAdapterProxy.cs" />
+    <Compile Include="Data\DishSubtypeDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\DishTypeDataAdapter.cs" />
+    <Compile Include="Data\DishTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\DishWorldDataAdapter.cs" />
+    <Compile Include="Data\DishWorldDataAdapterProxy.cs" />
+    <Compile Include="Data\DivisionDataAdapter.cs" />
+    <Compile Include="Data\DivisionDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\DivisionDataAdapterProxy.cs" />
+    <Compile Include="Data\DocumentAccessControlListDataAdapter.cs" />
+    <Compile Include="Data\DocumentAccessControlListDataAdapter.Extensions.cs" />
+    <Compile Include="Data\DocumentAccessControlListDataAdapterProxy.cs" />
+    <Compile Include="Data\DocumentAccessControlListDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\DocumentAccessTypeDataAdapter.cs" />
+    <Compile Include="Data\DocumentAccessTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\DocumentEmployeeAccessRightDataAdapter.cs" />
+    <Compile Include="Data\DocumentEmployeeAccessRightDataAdapterProxy.cs" />
+    <Compile Include="Data\DocumentEmployeeAccessRightDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\DocumentNumberingRuleDataAdapter.cs" />
+    <Compile Include="Data\DocumentNumberingRuleDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\DocumentNumberingRuleDataAdapterProxy.cs" />
+    <Compile Include="Data\DocumentPropertyMetadataDataAdapter.cs" />
+    <Compile Include="Data\DocumentPropertyMetadataDataAdapterProxy.cs" />
+    <Compile Include="Data\DocumentReportDataAdapter.cs" />
+    <Compile Include="Data\DocumentReportDataAdapterProxy.cs" />
+    <Compile Include="Data\DocumentReportDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\DocumentStateEntryDataAdapter.cs" />
+    <Compile Include="Data\DocumentStateEntryDataAdapterProxy.cs" />
+    <Compile Include="Data\DocumentStateEntryDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\DocumentStateLogDataAdapter.cs" />
+    <Compile Include="Data\DocumentStateLogDataAdapterProxy.cs" />
+    <Compile Include="Data\DocumentTransitionDataAdapter.cs" />
+    <Compile Include="Data\DocumentTransitionDataAdapterProxy.cs" />
+    <Compile Include="Data\DocumentTransitionDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\DocumentTypeEntryDataAdapter.cs" />
+    <Compile Include="Data\DocumentTypeEntryDataAdapterProxy.cs" />
+    <Compile Include="Data\DocumentTypeEntryDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\DocumentViewEntryDataAdapter.cs" />
+    <Compile Include="Data\DocumentViewEntryDataAdapterProxy.cs" />
+    <Compile Include="Data\EmployeeDataAdapter.cs" />
+    <Compile Include="Data\EmployeeDataAdapter.Extensions.cs" />
+    <Compile Include="Data\EmployeeDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\EmployeeDataAdapterProxy.cs" />
+    <Compile Include="Data\ErrorInformationDataAdapter.cs" />
+    <Compile Include="Data\ErrorInformationDataAdapterProxy.cs" />
+    <Compile Include="Data\ErrorMessageDataAdapter.cs" />
+    <Compile Include="Data\ErrorMessageDataAdapterProxy.cs" />
+    <Compile Include="Data\EstimatesDocumentDataAdapter.cs" />
+    <Compile Include="Data\EstimatesDocumentDataAdapterProxy.cs" />
+    <Compile Include="Data\EstimatesDocumentDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\EstimatesTemplateDataAdapter.cs" />
+    <Compile Include="Data\EstimatesTemplateDataAdapterProxy.cs" />
+    <Compile Include="Data\ExtraCostRateDataAdapter.cs" />
+    <Compile Include="Data\ExtraCostRateDataAdapterProxy.cs" />
+    <Compile Include="Data\Finance\BalanceItemDataAdapterProxy.cs" />
+    <Compile Include="Data\Finance\CashFlowItemDataAdapterProxy.cs" />
+    <Compile Include="Data\Finance\ProfitLossItemDataAdapterProxy.cs" />
+    <Compile Include="Data\GLAccountDataAdapter.cs" />
+    <Compile Include="Data\GLAccountDataAdapterProxy.cs" />
+    <Compile Include="Data\ImportanceDataAdapter.cs" />
+    <Compile Include="Data\ImportanceDataAdapterProxy.cs" />
+    <Compile Include="Data\IndustryDataAdapter.cs" />
+    <Compile Include="Data\IndustryDataAdapterProxy.cs" />
+    <Compile Include="Data\InventoryBalanceDataAdapter.cs" />
+    <Compile Include="Data\InventoryBalanceDataAdapterProxy.cs" />
+    <Compile Include="Data\InventoryBalanceDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\InventoryStatementDataAdapter.cs" />
+    <Compile Include="Data\InventoryStatementDataAdapterProxy.cs" />
+    <Compile Include="Data\InventoryStatementDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\InvoiceByBudgetItemItemDataAdapter.cs" />
+    <Compile Include="Data\InvoicePaymentByContragentItemDataAdapter.cs" />
+    <Compile Include="Data\InvoiceByContragentItemDataAdapter.cs" />
+    <Compile Include="Data\ItemColorDataAdapter.cs" />
+    <Compile Include="Data\ItemColorDataAdapterProxy.cs" />
+    <Compile Include="Data\LeadDataAdapter.cs" />
+    <Compile Include="Data\LeadDataAdapterProxy.cs" />
+    <Compile Include="Data\LeadDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\LeadSourceDataAdapter.cs" />
+    <Compile Include="Data\LeadSourceDataAdapterProxy.cs" />
+    <Compile Include="Data\LocalDatabaseContext.cs" />
+    <Compile Include="Data\MarketingProgramTypeDataAdapter.cs" />
+    <Compile Include="Data\MarketingProgramTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\MasterMenuDataAdapter.cs" />
+    <Compile Include="Data\MasterMenuDataAdapterProxy.cs" />
+    <Compile Include="Data\MasterMenuDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\MoneyOperationDataAdapter.cs" />
+    <Compile Include="Data\MoneyOperationDataAdapterProxy.cs" />
+    <Compile Include="Data\MoneyOperationDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\MoneyOperationReportByOperationTypeDataAdapter.cs" />
+    <Compile Include="Data\MoneyOperationTypeDataAdapter.cs" />
+    <Compile Include="Data\MoneyOperationTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\OperatingBudgetDataAdapter.cs" />
+    <Compile Include="Data\OperatingBudgetDataAdapterProxy.cs" />
+    <Compile Include="Data\OperatingBudgetDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\OperatingCalculationDataAdapter.cs" />
+    <Compile Include="Data\OperatingCalculationDataAdapterProxy.cs" />
+    <Compile Include="Data\OperatingCalculationDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\OpportunityDataAdapter.cs" />
+    <Compile Include="Data\OpportunityDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\OpportunityDataAdapterProxy.cs" />
+    <Compile Include="Data\OpportunityTypeDataAdapter.cs" />
+    <Compile Include="Data\OpportunityTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\OrganizationDataAdapter.cs" />
+    <Compile Include="Data\OrganizationDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\OrganizationDataAdapterProxy.cs" />
+    <Compile Include="Data\PayrollDataAdapter.cs" />
+    <Compile Include="Data\PayrollDataAdapterProxy.cs" />
+    <Compile Include="Data\PayrollDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\PositionDataAdapter.cs" />
+    <Compile Include="Data\PositionDataAdapterProxy.cs" />
+    <Compile Include="Data\PresentationNodeApplicationRoleDataAdapter.cs" />
+    <Compile Include="Data\PresentationNodeDataAdapter.cs" />
+    <Compile Include="Data\PresentationNodeDataAdapterProxy.cs" />
+    <Compile Include="Data\PresentationNodeDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\PresentationNodeTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\PriceListDataAdapter.cs" />
+    <Compile Include="Data\PriceListDataAdapterProxy.cs" />
+    <Compile Include="Data\PriceListDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\PriceMarginDataAdapter.cs" />
+    <Compile Include="Data\PriceMarginDataAdapterProxy.cs" />
+    <Compile Include="Data\ProductCategoryDataAdapter.cs" />
+    <Compile Include="Data\ProductCategoryDataAdapterProxy.cs" />
+    <Compile Include="Data\ProductCostStatementDataAdapter.cs" />
+    <Compile Include="Data\ProductCostStatementDataAdapterProxy.cs" />
+    <Compile Include="Data\ProductCostStatementDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\ProductDataAdapter.cs" />
+    <Compile Include="Data\ProductDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\ProductDataAdapterProxy.cs" />
+    <Compile Include="Data\ProductSubcategoryDataAdapter.cs" />
+    <Compile Include="Data\ProductSubcategoryDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\ProductSubcategoryDataAdapterProxy.cs" />
+    <Compile Include="Data\ProductTypeDataAdapter.cs" />
+    <Compile Include="Data\ProductTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\ProjectDataAdapter.cs" />
+    <Compile Include="Data\ProjectDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\ProjectDataAdapterProxy.cs" />
+    <Compile Include="Data\ProjectMemberDataAdapter.cs" />
+    <Compile Include="Data\ProjectMemberDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\ProjectMemberDataAdapterProxy.cs" />
+    <Compile Include="Data\ProjectMemberRoleDataAdapter.cs" />
+    <Compile Include="Data\ProjectMemberRoleDataAdapterProxy.cs" />
+    <Compile Include="Data\ProjectTaskDataAdapter.cs" />
+    <Compile Include="Data\ProjectTaskDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\ProjectTaskDataAdapterProxy.cs" />
+    <Compile Include="Data\ProjectTaskStatusDataAdapter.cs" />
+    <Compile Include="Data\ProjectTaskStatusDataAdapterProxy.cs" />
+    <Compile Include="Data\ProjectTaskTemplateDataAdapter.cs" />
+    <Compile Include="Data\ProjectTaskTemplateDataAdapterProxy.cs" />
+    <Compile Include="Data\ProjectTaskTemplateDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\ProjectTemplateDataAdapter.cs" />
+    <Compile Include="Data\ProjectTemplateDataAdapterProxy.cs" />
+    <Compile Include="Data\ProjectTemplateDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\ProjectTypeDataAdapter.cs" />
+    <Compile Include="Data\ProjectTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\PurchaseInvoiceDataAdapter.cs" />
+    <Compile Include="Data\PurchaseInvoiceDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\PurchaseInvoiceDataAdapterProxy.cs" />
+    <Compile Include="Data\PurchaseOrderDataAdapter.cs" />
+    <Compile Include="Data\PurchaseOrderDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\PurchaseOrderDataAdapterProxy.cs" />
+    <Compile Include="Data\ReasonDataAdapter.cs" />
+    <Compile Include="Data\ReasonDataAdapterProxy.cs" />
+    <Compile Include="Data\ReasonTypeDataAdapter.cs" />
+    <Compile Include="Data\ReasonTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\RegionDataAdapter.cs" />
+    <Compile Include="Data\RegionDataAdapterProxy.cs" />
+    <Compile Include="Data\RelationTypeDataAdapter.cs" />
+    <Compile Include="Data\RelationTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\ReminderDataAdapter.cs" />
+    <Compile Include="Data\ReminderDataAdapterProxy.cs" />
+    <Compile Include="Data\RemoteDatabaseContext.cs" />
+    <Compile Include="Data\ReturnStatementDataAdapter.cs" />
+    <Compile Include="Data\ReturnStatementDataAdapterProxy.cs" />
+    <Compile Include="Data\ReturnStatementDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\SalesInvoiceDataAdapter.cs" />
+    <Compile Include="Data\SalesInvoiceDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\SalesInvoiceDataAdapterProxy.cs" />
+    <Compile Include="Data\SalesOrderDataAdapter.cs" />
+    <Compile Include="Data\SalesOrderDataAdapterProxy.cs" />
+    <Compile Include="Data\SalesOrderDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\SeasonDataAdapter.cs" />
+    <Compile Include="Data\SeasonDataAdapterProxy.cs" />
+    <Compile Include="Data\SecuritySchemeDataAdapter.cs" />
+    <Compile Include="Data\SecuritySchemeDataAdapterProxy.cs" />
+    <Compile Include="Data\ServiceLevelDataAdapter.cs" />
+    <Compile Include="Data\ServiceLevelDataAdapterProxy.cs" />
+    <Compile Include="Data\ServiceRequestDataAdapter.cs" />
+    <Compile Include="Data\ServiceRequestDataAdapter.Extensions.cs" />
+    <Compile Include="Data\ServiceRequestDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\ServiceRequestDataAdapterProxy.cs" />
+    <Compile Include="Data\ServiceRequestTypeDataAdapter.cs" />
+    <Compile Include="Data\ServiceRequestTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\SizeOfServiceRequestDataAdapter.cs" />
+    <Compile Include="Data\SizeOfServiceRequestDataAdapterProxy.cs" />
+    <Compile Include="Data\StoragePlaceDataAdapter.cs" />
+    <Compile Include="Data\StoragePlaceDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\StoragePlaceDataAdapterProxy.cs" />
+    <Compile Include="Data\TaxRateDataAdapter.cs" />
+    <Compile Include="Data\TaxRateDataAdapterProxy.cs" />
+    <Compile Include="Data\TradeMarkDataAdapter.cs" />
+    <Compile Include="Data\TradeMarkDataAdapterProxy.cs" />
+    <Compile Include="Data\UnitOfMeasureClassDataAdapter.cs" />
+    <Compile Include="Data\UnitOfMeasureClassDataAdapterProxy.cs" />
+    <Compile Include="Data\UnitOfMeasureDataAdapter.cs" />
+    <Compile Include="Data\UnitOfMeasureDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\UnitOfMeasureDataAdapterProxy.cs" />
+    <Compile Include="Data\UserDataAdapter.cs" />
+    <Compile Include="Data\UserDataAdapterProxy.cs" />
+    <Compile Include="Data\UserDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\UserNotificationDataAdapter.cs" />
+    <Compile Include="Data\UserNotificationDataAdapterProxy.cs" />
+    <Compile Include="Data\UserNotificationDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\VATRateDataAdapter.cs" />
+    <Compile Include="Data\VATRateDataAdapterProxy.cs" />
+    <Compile Include="Data\VenueDataAdapter.cs" />
+    <Compile Include="Data\VenueDataAdapterProxy.cs" />
+    <Compile Include="Data\VenueDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\VenuePlaceDataAdapter.cs" />
+    <Compile Include="Data\VenuePlaceDataAdapterProxy.cs" />
+    <Compile Include="Data\VenueTypeDataAdapter.cs" />
+    <Compile Include="Data\VenueTypeDataAdapterProxy.cs" />
+    <Compile Include="Data\WriteoffStatementDataAdapter.cs" />
+    <Compile Include="Data\WriteoffStatementDataAdapterProxy.cs" />
+    <Compile Include="Data\WriteoffStatementDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DykBits.Crm.Data\DykBits.Crm.Data.csproj">
+      <Project>{ec5a6c6d-7063-43ca-a338-9f061592fd4c}</Project>
+      <Name>DykBits.Crm.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Entities\DykBits.Crm.Entities.csproj">
+      <Project>{73a8c4a7-fb5d-40ea-8cad-b1df2cbb96bd}</Project>
+      <Name>DykBits.Crm.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Remote\DykBits.Crm.Remote.csproj">
+      <Project>{4aa05467-a1d3-401a-959c-8cac84c3b941}</Project>
+      <Name>DykBits.Crm.Remote</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Services\DykBits.Crm.Services.csproj">
+      <Project>{1ba66118-22ff-4006-9e6b-a0cfab0fbad8}</Project>
+      <Name>DykBits.Crm.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Xml\DykBits.Xml.csproj">
+      <Project>{a4305687-4c8b-4f30-a502-9501415e4d75}</Project>
+      <Name>DykBits.Xml</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

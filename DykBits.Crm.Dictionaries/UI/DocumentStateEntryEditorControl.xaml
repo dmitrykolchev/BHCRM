@@ -1,0 +1,74 @@
+﻿<crm:EditorControlBase x:Class="DykBits.Crm.UI.DocumentStateEntryEditorControl"
+    xmlns:crm ="http://www.dykbits.net/wpf/crm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    mc:Ignorable="d" 
+    d:DesignHeight="300" d:DesignWidth="800" Grid.IsSharedSizeScope="True">
+    <crm:EditorControlBase.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </crm:EditorControlBase.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0"/>
+
+            <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="96"/>
+
+            <ColumnDefinition Width="12"/>
+
+            <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="96"/>
+        </Grid.ColumnDefinitions>
+        <Label Style="{StaticResource crmLabel}" Grid.Row="0" Grid.Column="1" Content="Тип документа:" />
+        <crm:DataComboBox Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="9" SelectedValue="{crm:BindingEx DocumentTypeId}" DataSource="DocumentTypeEntry" IsNullable="False" />
+        <Label Style="{StaticResource crmLabel}" Grid.Row="1" Grid.Column="1" Content="Код:" />
+        <TextBox Style="{StaticResource crmTextBox}" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Text="{crm:BindingEx Code}"/>
+        <Label Style="{StaticResource crmLabel}" Grid.Row="1" Grid.Column="7" Content="Наименование:" />
+        <TextBox Style="{StaticResource crmTextBox}" Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="3" Text="{crm:BindingEx FileAs}"/>
+        <Label Style="{StaticResource crmLabel}" Grid.Row="2" Grid.Column="1" Content="Значение:" />
+        <dxe:TextEdit Style="{StaticResource crmNumeric}" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" EditValueType="{x:Type sys:Byte}" EditValue="{crm:BindingEx Value}" HorizontalContentAlignment="Right" DisplayFormatString="0" />
+        <Label Style="{StaticResource crmLabel}" Grid.Row="2" Grid.Column="7" Content="Сортировка:" />
+        <dxe:TextEdit Style="{StaticResource crmNumeric}" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="3" EditValueType="{x:Type sys:Int32}" EditValue="{crm:BindingEx OrdinalPosition}" HorizontalContentAlignment="Right" DisplayFormatString="0" />
+        
+        <Label Style="{StaticResource crmLabel}" Grid.Row="3" Grid.Column="1" Content="Изображение:" />
+        <crm:ImageBox Grid.Row="3" Grid.Column="3" ImageData="{crm:BindingEx OverlayImage}" Width="18" Height="18" Margin="2" Stretch="None" />
+        
+        <Button Grid.Row="3" Grid.Column="5" Height="22" Width="26" ToolTip="Удалить изображение" Click="Button_Click" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Button.Content>
+                <Image Source="/Dykbits.Crm.Core;component/Images/16x16/Delete.png" Stretch="None" />
+            </Button.Content>
+        </Button>
+    </Grid>
+</crm:EditorControlBase>

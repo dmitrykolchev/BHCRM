@@ -1,0 +1,971 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"  
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:ui="clr-namespace:DykBits.Crm.UI"
+    xmlns:crm="http://www.dykbits.net/wpf/crm"
+    xmlns:input="clr-namespace:DykBits.Crm.Input"
+    xmlns:core="clr-namespace:System;assembly=mscorlib"
+    xmlns:local="clr-namespace:DykBits.Crm">
+
+
+    <DrawingBrush x:Key="squiggleBrush" TileMode="Tile" Viewbox="0,0,4,4" ViewboxUnits="Absolute" Viewport="0,0,4,4" ViewportUnits="Absolute">
+        <DrawingBrush.Drawing>
+            <GeometryDrawing Geometry="M 0,2 L 1,1 3,3 4,2">
+                <GeometryDrawing.Pen>
+                    <Pen Brush="Red" Thickness="0.5" StartLineCap="Square" EndLineCap="Square"/>
+                </GeometryDrawing.Pen>
+            </GeometryDrawing>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <ControlTemplate x:Key="validationTemplate">
+        <StackPanel Orientation="Horizontal">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <AdornedElementPlaceholder x:Name="adorner"/>
+                <Polygon x:Name="toolTipCorner" Grid.ZIndex="2" Margin="0" Points="6,6 6,0 0,0" Fill="#FFDC000C" HorizontalAlignment="Right" VerticalAlignment="Top" IsHitTestVisible="True"/>
+                <Rectangle Height="4" Fill="{StaticResource squiggleBrush}" Margin="2,-5,20,1" VerticalAlignment="Bottom"/>
+            </Grid>
+            <Popup x:Name="placard" AllowsTransparency="True" PopupAnimation="Fade" Placement="Top" PlacementTarget="{Binding ElementName=toolTipCorner}" PlacementRectangle="10,-1,0,0">
+                <i:Interaction.Behaviors>
+                    <ui:RepositionPopupBehavior />
+                </i:Interaction.Behaviors>
+                <Popup.Style>
+                    <Style TargetType="{x:Type Popup}">
+                        <Style.Triggers>
+                            <!-- Shows Popup when mouse hovers over ToolTipCorner -->
+                            <DataTrigger Binding="{Binding ElementName=toolTipCorner, Path=IsMouseOver}" Value="True">
+                                <Setter Property="IsOpen" Value="True"/>
+                            </DataTrigger>
+                            <!-- Hides Popup when window is no longer active -->
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=IsActive}" Value="False">
+                                <Setter Property="IsOpen" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Popup.Style>
+                <Border x:Name="errorBorder" Background="#FFDC000C" Margin="0,0,8,8" Opacity="1" CornerRadius="4" IsHitTestVisible="False" MinHeight="24" MaxWidth="267">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.6" Direction="315" BlurRadius="4"/>
+                    </Border.Effect>
+                    <TextBlock Text="{Binding ElementName=adorner, Path=AdornedElement.(Validation.Errors).CurrentItem.ErrorContent}" Foreground="White" Margin="8,3,8,3" TextWrapping="Wrap"/>
+                </Border>
+            </Popup>
+        </StackPanel>
+    </ControlTemplate>
+
+    <Style x:Key="{x:Type ui:DialogBase}" TargetType="{x:Type ui:DialogBase}" BasedOn="{StaticResource {x:Type Window}}">
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:DialogBase}">
+                    <Border Background="{TemplateBinding Background}">
+                        <Grid Margin="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Border BorderThickness="1" BorderBrush="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
+                                <ContentPresenter Content="{TemplateBinding Content}" />
+                            </Border>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button x:Name="buttonOK" Content="OK" MinWidth="76" Height="23" Margin="4" IsDefault="True" Command="{x:Static input:CrmApplicationCommands.OK}" />
+                                <Button x:Name="buttonCancel" MinWidth="76" Height="23" Margin="4" IsCancel="True" Content="Отмена" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsCancelButtonVisible" Value="false">
+                            <Setter TargetName="buttonCancel" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="buttonOK" Property="IsCancel" Value="True" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ui:MapItButton}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:MapItButton}">
+                    <Button x:Name="Button_PART" Focusable="True">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical" Focusable="False">
+                                <Image Source="/Dykbits.Crm.Core;component/Images/MapIt.png" Height="32" Width="32"/>
+                                <TextBlock Text="Карты" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ui:StateBarControl}">
+        <Setter Property="Background" Value="#80F78A09" />
+        <Setter Property="BorderBrush" Value="LightGray" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Margin" Value="0,2,0,2" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:StateBarControl}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Label Content="{TemplateBinding Content}" Margin="6,0,6,0" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <SolidColorBrush x:Key="DocumentPicker.Static.Border" Color="#FFABAdB3"/>
+    <SolidColorBrush x:Key="DocumentPicker.MouseOver.Border" Color="#FF7EB4EA"/>
+    <SolidColorBrush x:Key="DocumentPicker.Focus.Border" Color="#FF569DE5"/>
+
+    <local:DocumentIdConverter x:Key="documentIdConverter" />
+
+    <Style x:Key="clearButton"  TargetType="{x:Type Button}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Margin" Value="8,0,0,0" />
+        <Setter Property="Cursor" Value="Arrow" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="part_Border" Background="Transparent">
+                        <Path x:Name="part_Path" Data="M0,0L7,7M7,0L0,7" Stroke="Black" Opacity="0.75" StrokeThickness="2" SnapsToDevicePixels="True" Margin="4,4,3,3" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="part_Border" Property="Background" Value="#203843C4" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ui:AddressBox}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:AddressBox}">
+                    <TextBox x:Name="TextBox_PART" IsReadOnly="True" Height="{TemplateBinding Height}" Text="{TemplateBinding Text}" Focusable="True" Margin="0"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ui:PersonNameBox}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource validationTemplate}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:PersonNameBox}">
+                    <TextBox x:Name="TextBox_PART" IsReadOnly="True" Height="{TemplateBinding Height}" Text="{TemplateBinding Text}" Focusable="True"
+                             Margin="0"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <DataTemplate x:Key="nullItemTemplate">
+        <TextBlock Text="(не указано)" Foreground="Gray" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="normalItemTemplate">
+        <TextBlock Text="{Binding FileAs}" />
+    </DataTemplate>
+
+    <Style TargetType="{x:Type ui:DataComboBox}">
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Padding" Value="4,3,4,0" />
+        <Setter Property="Margin" Value="0,2,0,2" />
+        <Setter Property="NullItemTemplate" Value="{StaticResource nullItemTemplate}" />
+        <Setter Property="ItemTemplate" Value="{StaticResource normalItemTemplate}" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource validationTemplate}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:DataComboBox}">
+                    <ComboBox x:Name="ComboBox_PART" IsEditable="False" Foreground="{TemplateBinding Foreground}" Background="{TemplateBinding Background}"
+                              Margin="0" Focusable="True" SelectedValuePath="Id" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ui:ExternalEditorButton}">
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:ExternalEditorButton}">
+                    <Button x:Name="Button_PART" Content="{TemplateBinding Content}" HorizontalContentAlignment="Left" Padding="6,2,6,2" VerticalContentAlignment="Center"
+                            Height="{TemplateBinding Height}"
+                            Margin="0" Focusable="True" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="categoryItemStyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}" >
+                    <ContentPresenter />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <local:ColorToBrushConverter x:Key="colorConverter" />
+
+    <DataTemplate x:Key="categoryListBoxItemTemplate">
+        <Border Background="{Binding Color, Converter={StaticResource colorConverter}}" 
+                                            BorderBrush="{Binding Color, Converter={StaticResource colorConverter}, ConverterParameter=Dark}" 
+                                            BorderThickness="1" Padding="4,2,4,2">
+            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" />
+        </Border>
+    </DataTemplate>
+
+    <Style TargetType="{x:Type ui:CategoryListBox}">
+        <Setter Property="ItemTemplate" Value="{StaticResource categoryListBoxItemTemplate}" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource categoryItemStyle}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <ui:UniformPanel IsItemsHost="True" Margin="1" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ui:ImageWithPlaceHolder}">
+        <Setter Property="BorderBrush" Value="{StaticResource DocumentPicker.Static.Border}"/>
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:ImageWithPlaceHolder}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Image x:Name="placeholder_PART" Stretch="UniformToFill" Source="/Dykbits.Crm.Core;component/Images/placeholder.jpg" Visibility="Collapsed" />
+                            <Image x:Name="image_PART" Stretch="UniformToFill"  Visibility="Visible" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="ImageData" Value="{x:Null}">
+                            <Setter TargetName="image_PART" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="placeholder_PART" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource DocumentPicker.Focus.Border}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DocumentPicker.MouseOver.Border}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ui:StateSelectorControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:StateSelectorControl}">
+                    <ListBox x:Name="ListBox_PART">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Path=State.Caption, Mode=OneWay}" IsChecked="{Binding IsSelected, Mode=TwoWay}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ui:DataViewFilterControl}">
+        <Setter Property="MinWidth" Value="240" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:DataViewFilterControl}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid Margin="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <ScrollViewer Grid.Row="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" x:Name="filterContainer" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <ContentPresenter Content="{TemplateBinding Content}" />
+                                    <GroupBox Header="Состояние" Grid.Row="1" x:Name="stateGroup">
+                                        <ui:StateSelectorControl DocumentType="{TemplateBinding DocumentType}"
+                                                                 MaxHeight="200" 
+                                                                 SelectedStates="{Binding States}"
+                                                                 Visibility="{TemplateBinding StateSelectorVisibility}"/>
+                                    </GroupBox>
+                                </Grid>
+                            </ScrollViewer>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button x:Name="buttonApply" Margin="4" MinWidth="86" Height="25" Command="{x:Static crm:CrmApplicationCommands.ApplyFilter}">Применить</Button>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="DocumentType" Value="{x:Null}">
+                            <Setter TargetName="stateGroup" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="FocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle StrokeDashArray="1 2" StrokeThickness="1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" Margin="2"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <LinearGradientBrush x:Key="ComboBox.Static.Background" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#FFF0F0F0" Offset="0.0"/>
+        <GradientStop Color="#FFE5E5E5" Offset="1.0"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="ComboBox.Static.Border" Color="#FFACACAC"/>
+    <SolidColorBrush x:Key="ComboBox.Static.Glyph" Color="#FF606060"/>
+
+    <LinearGradientBrush x:Key="ComboBox.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#FFECF4FC" Offset="0.0"/>
+        <GradientStop Color="#FFDCECFC" Offset="1.0"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="ComboBox.MouseOver.Border" Color="#FF7EB4EA"/>
+    <SolidColorBrush x:Key="ComboBox.MouseOver.Glyph" Color="#FF000000"/>
+
+    <LinearGradientBrush x:Key="ComboBox.Pressed.Background" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#FFDAECFC" Offset="0.0"/>
+        <GradientStop Color="#FFC4E0FC" Offset="1.0"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="ComboBox.Pressed.Border" Color="#FF569DE5"/>
+    <SolidColorBrush x:Key="ComboBox.Pressed.Glyph" Color="#FF000000"/>
+
+    <Style x:Key="DropDownSelectorToggleButton" TargetType="{x:Type ToggleButton}">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="ClickMode" Value="Press"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="templateRoot" 
+                            BorderBrush="{StaticResource ComboBox.Static.Border}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{StaticResource ComboBox.Static.Background}" SnapsToDevicePixels="true">
+                        <Border x:Name="splitBorder" BorderBrush="Transparent" BorderThickness="1" HorizontalAlignment="Right" Margin="0" SnapsToDevicePixels="true" 
+                                Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}">
+                            <Path x:Name="arrow" Data="F1 M 0,0 L 2.667,2.66665 L 5.3334,0 L 5.3334,-1.78168 L 2.6667,0.88501 L0,-1.78168 L0,0 Z" 
+                                  Fill="{StaticResource ComboBox.Static.Glyph}" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Fill" TargetName="arrow" Value="{StaticResource ComboBox.MouseOver.Glyph}"/>
+                        </Trigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{StaticResource ComboBox.MouseOver.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{StaticResource ComboBox.MouseOver.Border}"/>
+                        </MultiDataTrigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Fill" TargetName="arrow" Value="{StaticResource ComboBox.Pressed.Glyph}"/>
+                        </Trigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" Value="true"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{StaticResource ComboBox.Pressed.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{StaticResource ComboBox.Pressed.Border}"/>
+                        </MultiDataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <ControlTemplate x:Key="DropDownSelectorTemplate" TargetType="{x:Type ui:DropDownSelector}">
+        <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Width="0"/>
+            </Grid.ColumnDefinitions>
+            <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" 
+                   IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" 
+                   Margin="1" 
+                   PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" 
+                   Placement="Bottom">
+                <Themes:SystemDropShadowChrome x:Name="shadow" Color="Transparent" MaxHeight="{Binding MaxDropDownHeight, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}" MinWidth="{Binding ActualWidth, ElementName=templateRoot}">
+                    <Border x:Name="dropDownBorder" 
+                            BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" 
+                            BorderThickness="1" 
+                            Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <ScrollViewer x:Name="DropDownScrollViewer">
+                                <Grid x:Name="grid" RenderOptions.ClearTypeHint="Enabled">
+                                    <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
+                                        <Rectangle x:Name="opaqueRect" 
+                                               Fill="{Binding Background, ElementName=dropDownBorder}" 
+                                               Height="{Binding ActualHeight, ElementName=dropDownBorder}" 
+                                               Width="{Binding ActualWidth, ElementName=dropDownBorder}"/>
+                                    </Canvas>
+                                    <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Grid>
+                            </ScrollViewer>
+                        </Grid>
+                    </Border>
+                </Themes:SystemDropShadowChrome>
+            </Popup>
+            <ToggleButton x:Name="toggleButton" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}" Grid.ColumnSpan="2" 
+                            IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                            Style="{StaticResource DropDownSelectorToggleButton}" />
+
+            <ContentPresenter x:Name="contentPresenter"
+                              Content="{TemplateBinding SelectionBoxItem}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                              IsHitTestVisible="false" 
+                              UseLayoutRounding="True"
+                              Margin="{TemplateBinding Padding}" 
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="HasDropShadow" SourceName="PART_Popup" Value="true">
+                <Setter Property="Margin" TargetName="shadow" Value="0,0,5,5"/>
+                <Setter Property="Color" TargetName="shadow" Value="#71000000"/>
+            </Trigger>
+            <Trigger Property="HasItems" Value="false">
+                <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
+            </Trigger>
+            <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
+                <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
+                <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type ui:DropDownSelectorItem}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Padding" Value="4,2,4,2" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:DropDownSelectorItem}">
+                    <Border x:Name="itemBorder" Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <StackPanel Orientation="Horizontal" Margin="{TemplateBinding Padding}" >
+                            <CheckBox x:Name="checkBox" IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsSelected, Mode=TwoWay}" />
+                            <ContentPresenter />
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <DataTemplate x:Key="dropDownSelectorItemTemplate">
+        <TextBlock Text="{Binding FileAs}" />
+    </DataTemplate>
+
+    <Style TargetType="{x:Type ui:DropDownSelector}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+        <Setter Property="Background" Value="{StaticResource ComboBox.Static.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ComboBox.Static.Border}"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
+        <Setter Property="Padding" Value="6,3,6,3" />
+        <Setter Property="Height" Value="23" />
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="Template" Value="{StaticResource DropDownSelectorTemplate}" />
+        <Setter Property="ItemTemplate" Value="{StaticResource dropDownSelectorItemTemplate}" />
+    </Style>
+
+
+    <Style TargetType="{x:Type ui:DropDownSelectorSeparator}">
+        <Setter Property="Content" Value=" | " />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:DropDownSelectorSeparator}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter Content="{TemplateBinding Content}" 
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          Margin="{TemplateBinding Padding}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ui:DocumentPicker}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Margin" Value="0,2,0,2" />
+        <Setter Property="NullText" Value="(не указано)" />
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource validationTemplate}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:DocumentPicker}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <dxe:ButtonEdit x:Name="buttonEdit" IsTextEditable="False" Focusable="True"
+                                        NullText="{TemplateBinding NullText}" AllowDefaultButton="False"
+                                        EditValue="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Value}">
+                            <dxe:ButtonInfo x:Name="clearButton" GlyphKind="Cancel"/>
+                            <dxe:ButtonInfo x:Name="editButton" GlyphKind="Edit"/>
+                            <dxe:ButtonInfo x:Name="browseButton" GlyphKind="Regular"/>
+                        </dxe:ButtonEdit>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="SelectedValue" Value="{x:Null}">
+                            <Setter TargetName="clearButton" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="editButton" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="SelectedValue">
+                            <Trigger.Value>
+                                <core:Int32>0</core:Int32>
+                            </Trigger.Value>
+                            <Setter TargetName="clearButton" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="editButton" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="res_crmComments" TargetType="{x:Type TextBox}" >
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="Margin" Value="0,2,0,0" />
+        <Setter Property="Height" Value="Auto" />
+        <Setter Property="AcceptsReturn" Value="True" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+    </Style>
+
+    <local:StateConverter x:Key="stateConverter" />
+
+    <Style TargetType="{x:Type ui:EditorControlBase}">
+        <Setter Property="Comments" Value="{Binding Path=Comments, Mode=TwoWay}" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:EditorControlBase}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid Margin="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="12" />
+                                <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+                                <ColumnDefinition Width="12" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Row="1" Grid.ColumnSpan="4" x:Name="contentBorder">
+                                <ContentPresenter Content="{TemplateBinding Content}" />
+                            </Border>
+                            <TextBox x:Name="CommentsTextBox_Part" Grid.Row="2" Grid.ColumnSpan="4" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Comments, Mode=TwoWay}" Style="{StaticResource res_crmComments}" />
+                            <Button x:Name="AttachmentButton_Part" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="Вложения..." MinHeight="23" MinWidth="96" Margin="0,2,0,2" VerticalAlignment="Top" />
+                            <ui:AttachmentList x:Name="AttachmentList_Part" Grid.Row="3" Grid.Column="3" ItemsSource="{Binding Attachments}" MaxHeight="64" AllowDrop="True" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="CommonFields" Value="None">
+                            <Setter TargetName="contentBorder" Property="Grid.RowSpan" Value="3" />
+                            <Setter TargetName="CommentsTextBox_Part" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="AttachmentButton_Part" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="AttachmentList_Part" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="CommonFields" Value="Comments">
+                            <Setter TargetName="AttachmentButton_Part" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="AttachmentList_Part" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="CommonFields" Value="Attachments">
+                            <Setter TargetName="contentBorder" Property="Grid.RowSpan" Value="2" />
+                            <Setter TargetName="CommentsTextBox_Part" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ui:MasterDetailsControlBase}">
+        <Setter Property="Comments" Value="{Binding Path=Comments, Mode=TwoWay}" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:MasterDetailsControlBase}">
+                    <Border x:Name="root"  Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Border.Resources>
+                            <dxb:BarManager x:Key="defaultToolbar" AllowQuickCustomization="False" AllowHotCustomization="False" AllowCustomization="False">
+                                <dxb:BarManager.Items>
+                                    <dxb:BarButtonItem x:Name="itemAdd" Content="Добавить" Glyph="/DykBits.Crm.Core;component/Images/16x16/AddRecord.png" 
+                                                       Command="{x:Static crm:CrmApplicationCommands.AddRow}" />
+                                    <dxb:BarButtonItem x:Name="itemEdit" Content="Изменить"  Glyph="/DykBits.Crm.Core;component/Images/16x16/EditRecord.png" BarItemDisplayMode="ContentAndGlyph" 
+                                                       Command="{x:Static crm:CrmApplicationCommands.EditRow}" />
+                                    <dxb:BarButtonItem x:Name="itemDelete" Content="Удалить" Glyph="/DykBits.Crm.Core;component/Images/16x16/DeleteRecord.png" BarItemDisplayMode="ContentAndGlyph"
+                                                       Command="{x:Static crm:CrmApplicationCommands.DeleteRow}" />
+                                </dxb:BarManager.Items>
+                                <dxb:BarManager.Bars>
+                                    <dxb:Bar ShowDragWidget="False" UseWholeRow="True">
+                                        <dxb:Bar.DockInfo>
+                                            <dxb:BarDockInfo ContainerType="Top"/>
+                                        </dxb:Bar.DockInfo>
+                                        <dxb:Bar.ItemLinks>
+                                            <dxb:BarButtonItemLink BarItemName="itemAdd" BarItemDisplayMode="ContentAndGlyph" />
+                                            <dxb:BarButtonItemLink BarItemName="itemEdit" BarItemDisplayMode="ContentAndGlyph" />
+                                            <dxb:BarItemLinkSeparator />
+                                            <dxb:BarButtonItemLink BarItemName="itemDelete" />
+                                        </dxb:Bar.ItemLinks>
+                                    </dxb:Bar>
+                                </dxb:BarManager.Bars>
+                            </dxb:BarManager>
+                        </Border.Resources>
+                        <Grid Margin="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition x:Name="CommentsRow" Height="*"/>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="12" />
+                                <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+                                <ColumnDefinition Width="12" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <ContentPresenter Grid.Row="1" Grid.ColumnSpan="4" Content="{TemplateBinding Master}" />
+                            <ContentPresenter x:Name="toolbarContentPresenter" Grid.Row="2" Grid.ColumnSpan="4" Visibility="{TemplateBinding DetailsVisibility}" Content="{TemplateBinding DetailsToolbar}"  />
+                            <ContentPresenter Grid.Row="3" Grid.ColumnSpan="4" Content="{TemplateBinding Details}" Visibility="{TemplateBinding DetailsVisibility}" />
+                            <TextBox x:Name="CommentsTextBox_Part" Grid.Row="4" Grid.ColumnSpan="4" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Comments}" Style="{StaticResource res_crmComments}" />
+                            <Button x:Name="AttachmentButton_Part" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Content="Вложения..." MinHeight="23" MinWidth="96" Margin="0,2,0,2" VerticalAlignment="Top" />
+                            <ui:AttachmentList x:Name="AttachmentList_Part" Grid.Row="5" Grid.Column="3" ItemsSource="{Binding Attachments}" MaxHeight="64" AllowDrop="True" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="DetailsVisibility" Value="Collapsed">
+                            <Setter TargetName="CommentsTextBox_Part" Property="Grid.Row" Value="3" />
+                            <Setter TargetName="CommentsTextBox_Part" Property="Grid.RowSpan" Value="2" />
+                        </Trigger>
+                        <Trigger Property="CommonFields" Value="None">
+                            <Setter TargetName="CommentsRow" Property="Height" Value="Auto" />
+                            <Setter TargetName="CommentsTextBox_Part" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="AttachmentButton_Part" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="AttachmentList_Part" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="CommonFields" Value="Comments">
+                            <Setter TargetName="AttachmentButton_Part" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="AttachmentList_Part" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="CommonFields" Value="Attachments">
+                            <Setter TargetName="CommentsRow" Property="Height" Value="Auto" />
+                            <Setter TargetName="CommentsTextBox_Part" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <local:FileNameToIconConverter x:Key="fileNameToIconConverter" />
+
+    <ContextMenu x:Key="attachmentItemContextMenu">
+        <MenuItem Command="{x:Static crm:CrmApplicationCommands.OpenAttachment}" Header="Открыть" />
+        <MenuItem Command="{x:Static crm:CrmApplicationCommands.SaveAttachment}" Header="Сохранить..." />
+        <Separator />
+        <MenuItem Command="{x:Static crm:CrmApplicationCommands.DeleteAttachment}" Header="Удалить" />
+    </ContextMenu>
+
+    <ContextMenu x:Key="attachmentListContextMenu">
+        <MenuItem Command="{x:Static crm:CrmApplicationCommands.Paste}" Header="Вставить" />
+    </ContextMenu>
+
+    <DataTemplate x:Key="attachmentListItemTemplate">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="16" Margin="0" ContextMenu="{StaticResource attachmentItemContextMenu}" >
+            <StackPanel.ToolTip>
+                <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="4,4,4,4"/>
+            </StackPanel.ToolTip>
+            <Image Source="{Binding Name, Converter={StaticResource fileNameToIconConverter}, ConverterParameter=Small}" Stretch="None" Margin="2,0,2,0" />
+            <TextBlock Text="{Binding Name}" TextTrimming="CharacterEllipsis" MaxWidth="200" VerticalAlignment="Center" Margin="2,0,2,0"/>
+        </StackPanel>
+    </DataTemplate>
+
+    <Style TargetType="{x:Type ui:AttachmentList}">
+        <Setter Property="ContextMenu" Value="{StaticResource attachmentListContextMenu}" />
+        <Setter Property="AllowDrop" Value="True" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Margin" Value="0,2,0,2" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:AttachmentList}">
+                    <ListBox x:Name="ListBox_Part" ItemTemplate="{StaticResource attachmentListItemTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                             Focusable="True" AllowDrop="True" >
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ScrollContentPresenter}, Path=ActualWidth}" AllowDrop="True" />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
+                    <ControlTemplate.Triggers>
+                        <Trigger SourceName="ListBox_Part" Property="IsFocused" Value="True">
+                            <Setter TargetName="ListBox_Part" Property="BorderBrush" Value="#0072C6" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ui:ImageBox}">
+        <Setter Property="BorderBrush" Value="{StaticResource DocumentPicker.Static.Border}"/>
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:ImageBox}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Image x:Name="ImagePart" Stretch="{TemplateBinding Stretch}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Polygon x:Key="downArrow" Points="0.5,0.5 0.5,2.5 3.5,5.5 6.5,2.5 6.5,0.5 3.5,3.5" Stroke="#666666" Fill="#666666" StrokeLineJoin="Miter" RenderOptions.EdgeMode="Aliased">
+    </Polygon>
+
+    <Style TargetType="{x:Type ui:MonthPicker}">
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:MonthPicker}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox Grid.Column="0" Grid.ColumnSpan="2" Padding="2,4,0,0" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=FormattedText, Mode=OneWay}" IsReadOnly="True" />
+                            <Border Width="{DynamicResource {x:Static SystemParameters.ScrollWidthKey}}" Grid.Column="1">
+                                <ToggleButton x:Name="PART_PopupButton" IsChecked="{Binding ElementName=PART_Popup, Path=IsOpen}" Content="{StaticResource downArrow}" Margin="0,2,2,2" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                            </Border>
+                            <Popup x:Name="PART_Popup" StaysOpen="False">
+                                <Border Background="White">
+                                    <ui:MonthEdit x:Name="PART_MonthEdit" Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ActualWidth}" MinWidth="192" MinHeight="192" SelectedValue="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedValue, Mode=TwoWay}" />
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger SourceName="PART_PopupButton" Property="IsChecked" Value="True">
+                            <Setter TargetName="PART_Popup" Property="IsOpen" Value="True" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Color x:Key="SelectedBackgroundColor">#FF92C0E0</Color>
+    <Color x:Key="SelectedUnfocusedColor">#FFDDDDDD</Color>
+    <Color x:Key="ControlBorderColor">#80C3C3C3</Color>
+    <Color x:Key="ControlLightColor">Transparent</Color>
+    <Color x:Key="ControlMediumColor">#FFCDE6F7</Color>
+
+    <Style x:Key="cellButton" TargetType="ListBoxItem">
+        <Setter Property="Content" Value="{Binding CellText}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Border x:Name="Border">
+                        <Border.Background>
+                            <SolidColorBrush Color="{StaticResource ControlLightColor}" />
+                        </Border.Background>
+                        <ContentPresenter Content="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal" />
+                                <VisualState Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{StaticResource ControlMediumColor}" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="SelectionStates">
+                                <VisualState x:Name="Unselected" />
+                                <VisualState x:Name="Selected">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{StaticResource SelectedBackgroundColor}" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="SelectedUnfocused">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{StaticResource SelectedUnfocusedColor}" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="meRepeatButton" TargetType="{x:Type ui:MonthEditRepeatButton}" BasedOn="{StaticResource {x:Type RepeatButton}}">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+
+    <Style x:Key="meButton" TargetType="{x:Type ui:MonthEditButton}" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+
+    <Polygon x:Key="backArrow" Points="3.5,0.5 3.5,6.5 0.5,3.5" Stroke="#666666" Fill="#666666" StrokeLineJoin="Miter" RenderOptions.EdgeMode="Aliased">
+    </Polygon>
+    <Polygon x:Key="forwardArrow" Points="0.5,0.5 0.5,6.5 3.5,3.5" Stroke="#666666" Fill="#666666" StrokeLineJoin="Miter" RenderOptions.EdgeMode="Aliased">
+    </Polygon>
+
+    <Style TargetType="{x:Type ui:MonthEdit}">
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource ControlBorderColor}" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:MonthEdit}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="0" Background="#F0F0F0" Height="25" Margin="2">
+                                <Grid Margin="0,0,0,1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <ui:MonthEditRepeatButton x:Name="PART_ButtonDown" Style="{StaticResource meRepeatButton}" Grid.Column="0" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Content="{StaticResource backArrow}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="2" />
+                                    <ui:MonthEditButton x:Name="PART_Button" Style="{StaticResource meButton}" Grid.Column="1" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" />
+                                    <ui:MonthEditRepeatButton x:Name="PART_ButtonUp" Style="{StaticResource meRepeatButton}" Grid.Column="2" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Content="{StaticResource forwardArrow}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="2" />
+                                </Grid>
+                            </Border>
+                            <ListBox x:Name="PART_ListBox" Grid.Row="1" ItemContainerStyle="{StaticResource cellButton}" BorderThickness="0" >
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <UniformGrid Rows="3" Columns="4" IsItemsHost="True">
+                                        </UniformGrid>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListBox>
+                            <Button Grid.Row="2" Content="Очистить" Margin="6" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="72" MinHeight="23" Visibility="Collapsed" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ui:DataViewFilterContentControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:DataViewFilterContentControl}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter Content="{TemplateBinding Content}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

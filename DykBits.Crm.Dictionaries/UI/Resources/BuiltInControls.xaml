@@ -1,0 +1,109 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+                    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                    xmlns:crmui="clr-namespace:DykBits.Crm.UI"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <DrawingBrush x:Key="squiggleBrush" TileMode="Tile" Viewbox="0,0,4,4" ViewboxUnits="Absolute" Viewport="0,0,4,4" ViewportUnits="Absolute">
+        <DrawingBrush.Drawing>
+            <GeometryDrawing Geometry="M 0,2 L 1,1 3,3 4,2">
+                <GeometryDrawing.Pen>
+                    <Pen Brush="Red" Thickness="0.5" StartLineCap="Square" EndLineCap="Square"/>
+                </GeometryDrawing.Pen>
+            </GeometryDrawing>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+    
+    <ControlTemplate x:Key="validationTemplate2">
+        <StackPanel Orientation="Horizontal">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <AdornedElementPlaceholder x:Name="adorner"/>
+                <Polygon x:Name="toolTipCorner" Grid.ZIndex="2" Margin="0" Points="6,6 6,0 0,0" Fill="#FFDC000C" HorizontalAlignment="Right" VerticalAlignment="Top" IsHitTestVisible="True"/>
+                <Polyline Grid.ZIndex="3" Points="7,7 0,0" Margin="0" HorizontalAlignment="Right" StrokeThickness="2" StrokeEndLineCap="Round" StrokeStartLineCap="Round" Stroke="White" VerticalAlignment="Top" IsHitTestVisible="True"/>
+                <Rectangle Height="4" Fill="{StaticResource squiggleBrush}" Margin="2,-5,2,1" VerticalAlignment="Bottom"/>
+            </Grid>
+            <Popup x:Name="placard" AllowsTransparency="True" PopupAnimation="Fade" Placement="Top" PlacementTarget="{Binding ElementName=toolTipCorner}" PlacementRectangle="10,-1,0,0">
+                <i:Interaction.Behaviors>
+                    <crmui:RepositionPopupBehavior />
+                </i:Interaction.Behaviors>
+                <Popup.Style>
+                    <Style TargetType="{x:Type Popup}">
+                        <Style.Triggers>
+                            <!-- Shows Popup when TextBox has focus -->
+                            <DataTrigger Binding="{Binding ElementName=adorner, Path=AdornedElement.IsFocused}" Value="True">
+                                <Setter Property="IsOpen" Value="True"/>
+                            </DataTrigger>
+                            <!-- Shows Popup when mouse hovers over ToolTipCorner -->
+                            <DataTrigger Binding="{Binding ElementName=toolTipCorner, Path=IsMouseOver}" Value="True">
+                                <Setter Property="IsOpen" Value="True"/>
+                            </DataTrigger>
+                            <!-- Hides Popup when window is no longer active -->
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=IsActive}" Value="False">
+                                <Setter Property="IsOpen" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Popup.Style>
+                <Border x:Name="errorBorder" Background="#FFDC000C" Margin="0,0,8,8" Opacity="1" CornerRadius="4" IsHitTestVisible="False" MinHeight="24" MaxWidth="267">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.6" Direction="315" BlurRadius="4"/>
+                    </Border.Effect>
+                    <TextBlock Text="{Binding ElementName=adorner, Path=AdornedElement.(Validation.Errors).CurrentItem.ErrorContent}" Foreground="White" Margin="8,3,8,3" TextWrapping="Wrap"/>
+                </Border>
+            </Popup>
+        </StackPanel>
+    </ControlTemplate>
+
+    <Style x:Key="crmTextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Margin" Value="0,2,0,2" />
+        <Setter Property="Padding" Value="4,3,4,0" />
+    </Style>
+
+    <Style x:Key="crmComboBox" TargetType="{x:Type ComboBox}">
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Padding" Value="4,3,4,0" />
+        <Setter Property="Margin" Value="0,2,0,2" />
+    </Style>
+
+    <Style x:Key="crmLabel" TargetType="{x:Type Label}">
+        <Setter Property="Margin" Value="0,2,0,2" />
+        <Setter Property="Padding" Value="4" />
+    </Style>
+
+    <Style x:Key="crmCheckBox"  TargetType="{x:Type CheckBox}">
+        <Setter Property="Margin" Value="0,7,0,7" />
+    </Style>
+
+    <Style x:Key="crmComments" TargetType="{x:Type TextBox}" >
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="Margin" Value="0,2,0,0" />
+        <Setter Property="Height" Value="Auto" />
+        <Setter Property="AcceptsReturn" Value="True" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+    </Style>
+
+    <Style x:Key="crmListBox" TargetType="{x:Type ListBox}" BasedOn="{StaticResource ResourceKey={x:Type ListBox}}">
+        <Setter Property="Margin" Value="0,2,0,2" />
+    </Style>
+    
+    <Style x:Key="crmButton" TargetType="{x:Type Button}">
+        <Setter Property="Margin" Value="0,2,0,2" />
+        <Setter Property="MinWidth" Value="96" />
+        <Setter Property="MinHeight" Value="25" />
+    </Style>
+
+    <Style x:Key="crmDateEdit" TargetType="{x:Type dxe:DateEdit}">
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Margin" Value="0,2,0,2" />
+    </Style>
+
+    <Style x:Key="crmNumeric"  TargetType="{x:Type dxe:TextEdit}">
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Margin" Value="0,2,0,2" />
+        <Setter Property="HorizontalContentAlignment" Value="Right" />
+        <Setter Property="EditValueType" Value="{x:Type sys:Decimal}" />
+        <Setter Property="DisplayFormatString" Value="#,##0.00" />
+    </Style>
+</ResourceDictionary>

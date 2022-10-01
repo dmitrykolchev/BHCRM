@@ -1,0 +1,63 @@
+﻿CREATE TABLE [dbo].[Account]
+(
+	[Id] TIdentifier not null primary key identity, 
+	[State] TState not null,
+	[FileAs] TName not null,
+	[FullName] nvarchar(1024) null,
+	[MemberOfAccountId] TIdentifier null,
+	[TradeMarkId] TIdentifier null,
+	[AccountTypeId] int not null default(0),
+	[AccountGroupId] TIdentifier null,
+	[IndustryId] TIdentifier null,
+	[RegionId] TIdentifier null,
+	[Employees] int null,
+	[AnnualRevenue] money null,
+	[ManagingOrganizationId] TIdentifier null,
+	[AssignedToEmployeeId] TIdentifier null,
+	[AssistantEmployeeId] TIdentifier null,
+	[BudgetItemId] TIdentifier null,
+	
+	[ProjectTemplateId] TIdentifier null,
+
+	[ExecutiveId] TIdentifier null,
+	[AccountantId] TIdentifier null,
+
+	[Phone] varchar(128) null,
+	[OtherPhone] varchar(128) null,
+	[Fax] varchar(128) null,
+	[Email] varchar(128) null,
+	[OtherEmail] varchar(128) null,
+	[WebSite] varchar(128) null,
+
+	[BillingAddressStreet] nvarchar(256) null,
+	[BillingAddressCity] nvarchar(64) null,
+	[BillingAddressRegion] nvarchar(64) null,
+	[BillingAddressPostalCode] nvarchar(10) null,
+	[BillingAddressCountry] nvarchar(64) null,
+
+	[ShippingAddressStreet] nvarchar(256) null,
+	[ShippingAddressCity] nvarchar(64) null,
+	[ShippingAddressRegion] nvarchar(64) null,
+	[ShippingAddressPostalCode] nvarchar(10) null,
+	[ShippingAddressCountry] nvarchar(64) null,
+
+	[Comments] nvarchar(max) null, 
+    [Created] datetime not null, 
+    [CreatedBy] int not null, 
+    [Modified] datetime not null, 
+    [ModifiedBy] int not null, 
+    [RowVersion] ROWVERSION not null, 
+
+	CONSTRAINT [FK_Account_MemberOfAccount] FOREIGN KEY ([MemberOfAccountId]) REFERENCES [dbo].[Account]([Id]),
+	CONSTRAINT [FK_Account_ManagingOrganization] FOREIGN KEY ([ManagingOrganizationId]) REFERENCES [dbo].[Account]([Id]), 
+    CONSTRAINT [FK_Account_Industry] FOREIGN KEY ([IndustryId]) REFERENCES [dbo].[Industry]([Id]), 
+    CONSTRAINT [FK_Account_Region] FOREIGN KEY ([RegionId]) REFERENCES [dbo].[Region]([Id]), 
+    CONSTRAINT [FK_Account_Employee] FOREIGN KEY ([AssignedToEmployeeId]) REFERENCES [dbo].[Employee]([Id]), 
+	CONSTRAINT [FK_Account_AssistantEmployee] FOREIGN KEY ([AssistantEmployeeId]) REFERENCES [dbo].[Employee]([Id]), 
+    CONSTRAINT [FK_Account_Executive] FOREIGN KEY ([ExecutiveId]) REFERENCES [dbo].[Employee]([Id]), 
+    CONSTRAINT [FK_Account_Accountant] FOREIGN KEY ([AccountantId]) REFERENCES [dbo].[Employee]([Id]), 
+    CONSTRAINT [FK_Account_TradeMark] FOREIGN KEY ([TradeMarkId]) REFERENCES [dbo].[TradeMark]([Id]), 
+    CONSTRAINT [FK_Account_AccountGroup] FOREIGN KEY ([AccountGroupId]) REFERENCES [dbo].[AccountGroup]([Id]),
+	CONSTRAINT [FK_Account_ProjectTemplate] FOREIGN KEY ([ProjectTemplateId]) REFERENCES [dbo].[ProjectTemplate]([Id]), 
+    CONSTRAINT [FK_Account_BudgetItem] FOREIGN KEY ([BudgetItemId]) REFERENCES [BudgetItem]([Id])
+)

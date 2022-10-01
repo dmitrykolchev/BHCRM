@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EB716D64-E696-43C7-9128-9C97393E199C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DykBits.Crm</RootNamespace>
+    <AssemblyName>DykBits.Crm.Budget.DataAdapters</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish|AnyCPU'">
+    <OutputPath>bin\Publish\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\BudgetTemplateExtensions.cs" />
+    <Compile Include="Data\CalculationStatementDataAdapter.cs" />
+    <Compile Include="Data\CalculationStatementDataAdapterProxy.cs" />
+    <Compile Include="Data\CalculationStatementDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Data\CalculationStatementTemplateDataAdapter.cs" />
+    <Compile Include="Data\CalculationStatementTemplateDataAdapterProxy.cs" />
+    <Compile Include="Data\CalculationStatementTemplateDataAdapterProxy.Extensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DykBits.Crm.Budget.Entities\DykBits.Crm.Budget.Entities.csproj">
+      <Project>{abcd3dd5-c5d0-4b2c-8b25-02a043b11e51}</Project>
+      <Name>DykBits.Crm.Budget.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.DataAdapters\DykBits.Crm.DataAdapters.csproj">
+      <Project>{c8e01892-8c37-437f-a79d-342b88bb4c77}</Project>
+      <Name>DykBits.Crm.DataAdapters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Data\DykBits.Crm.Data.csproj">
+      <Project>{ec5a6c6d-7063-43ca-a338-9f061592fd4c}</Project>
+      <Name>DykBits.Crm.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Entities\DykBits.Crm.Entities.csproj">
+      <Project>{73a8c4a7-fb5d-40ea-8cad-b1df2cbb96bd}</Project>
+      <Name>DykBits.Crm.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Remote\DykBits.Crm.Remote.csproj">
+      <Project>{4aa05467-a1d3-401a-959c-8cac84c3b941}</Project>
+      <Name>DykBits.Crm.Remote</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Services\DykBits.Crm.Services.csproj">
+      <Project>{1ba66118-22ff-4006-9e6b-a0cfab0fbad8}</Project>
+      <Name>DykBits.Crm.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Xml\DykBits.Xml.csproj">
+      <Project>{a4305687-4c8b-4f30-a502-9501415e4d75}</Project>
+      <Name>DykBits.Xml</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

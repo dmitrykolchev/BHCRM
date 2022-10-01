@@ -1,0 +1,121 @@
+﻿<crm:EditorControlBase 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:crm ="http://www.dykbits.net/wpf/crm"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    x:Class="DykBits.Crm.UI.ProjectEditorControl"
+    mc:Ignorable="d" 
+    d:DesignHeight="600" d:DesignWidth="800" UseLayoutRounding="True" TextOptions.TextFormattingMode="Display"
+    Grid.IsSharedSizeScope="True">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="booleanToVisibility" />
+            <crm:NullToVisibilityConverter x:Key="nullToVisibility" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{x:Static crm:CrmApplicationCommands.Open}" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed" />
+    </UserControl.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="12"/>
+
+            <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="96"/>
+
+            <ColumnDefinition Width="12"/>
+
+            <ColumnDefinition Width="Auto" MinWidth="96" SharedSizeGroup="labelGroup" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="96"/>
+        </Grid.ColumnDefinitions>
+        <dxb:BarManager x:Name="barManager" Grid.ColumnSpan="12">
+            <dxb:BarManager.Items>
+                <dxb:BarButtonItem x:Name="barButtonOpen" Content="Открыть заказ покупателя" 
+                                   LargeGlyph="/DykBits.Crm.Core;component/Images/32x32/SubdocumentOpen.png"
+                                   Glyph="/DykBits.Crm.Core;component/Images/16x16/SubdocumentOpen.png" 
+                                   RibbonStyle="Large"
+                                   Command="{x:Static crm:CrmApplicationCommands.Open}" BarItemDisplayMode="ContentAndGlyph"/>
+            </dxb:BarManager.Items>
+            <dxb:BarManager.Bars>
+                <!--Use the BarItemHorzIndent property to increase the distance between items-->
+                <dxb:Bar x:Name="barProject" Caption="Проект" GlyphSize="Small" >
+                    <dxb:Bar.DockInfo>
+                        <dxb:BarDockInfo ContainerType="Top" Row="0" />
+                    </dxb:Bar.DockInfo>
+                    <dxb:Bar.ItemLinks>
+                        <dxb:BarButtonItemLink BarItemName="barButtonOpen" />
+                    </dxb:Bar.ItemLinks>
+                </dxb:Bar>
+            </dxb:BarManager.Bars>
+        </dxb:BarManager>
+
+        <Label Style="{StaticResource crmLabel}" Grid.Row="1" Grid.Column="1">Номер:</Label>
+        <TextBox Style="{StaticResource crmTextBox}" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Text="{Binding Code}" />
+
+        <Label Style="{StaticResource crmLabel}" Grid.Row="1" Grid.Column="7">Тип проекта:</Label>
+        <ComboBox Style="{StaticResource crmComboBox}" Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="3" SelectedValue="{Binding ProjectTypeId}" ItemsSource="{crm:ListSource ProjectType}" SelectedValuePath="Id" DisplayMemberPath="FileAs" />
+        
+        <Label Style="{StaticResource crmLabel}" Grid.Row="2" Grid.Column="1">Наименование:</Label>
+        <TextBox Style="{StaticResource crmTextBox}" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="9" Text="{Binding FileAs}" />
+
+        <Label Style="{StaticResource crmLabel}" Grid.Row="3" Grid.Column="1">Организация:</Label>
+        <crm:DocumentPicker Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3" SelectedValue="{Binding OrganizationId}" DataSource="Organization" />
+        
+        <Label Style="{StaticResource crmLabel}" Grid.Row="3" Grid.Column="7">Рук. проекта:</Label>
+        <crm:DocumentPicker Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="3" SelectedValue="{Binding ProjectManagerId}" DataSource="Employee" />
+
+        <Label Style="{StaticResource crmLabel}" Grid.Row="4" Grid.Column="1" Visibility="{Binding IsCommercial, Mode=OneWay, Converter={StaticResource booleanToVisibility}}">Клиент:</Label>
+        <crm:DocumentPicker Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="3" SelectedValue="{Binding AccountId}" DataSource="Account" Visibility="{Binding IsCommercial, Mode=OneWay, Converter={StaticResource booleanToVisibility}}" />
+
+        <Label Style="{StaticResource crmLabel}" Grid.Row="4" Grid.Column="7" Visibility="{Binding IsCommercial, Mode=OneWay, Converter={StaticResource booleanToVisibility}}">Договор:</Label>
+        <crm:DocumentPicker Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="3" SelectedValue="{Binding ContractId}" DataSource="Contract" Visibility="{Binding IsCommercial, Mode=OneWay, Converter={StaticResource booleanToVisibility}}" />
+
+        <Label Style="{StaticResource crmLabel}" Grid.Row="5" Grid.Column="1" Visibility="{Binding IsCommercial, Mode=OneWay, Converter={StaticResource booleanToVisibility}}">Контакт:</Label>
+        <crm:DocumentPicker x:Name="documentContact" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="9" SelectedValue="{Binding ResponsibleContactId}" DataSource="Contact" Visibility="{Binding IsCommercial, Mode=OneWay, Converter={StaticResource booleanToVisibility}}" RequestFilterData="DocumentPicker_RequestFilterData" />
+        <Border Grid.Row="6" Height="96" Grid.Column="3" Grid.ColumnSpan="3" BorderThickness="1" BorderBrush="Gray" Margin="0,2,0,2" DataContext="{Binding ElementName=documentContact,Path=SelectedItem}">
+            <StackPanel Orientation="Vertical" Margin="4">
+                <TextBlock Text="{Binding FileAs, Mode=OneWay}" FontWeight="Bold" />
+                <TextBlock><Run Text="{Binding Title, Mode=OneWay}" FontStyle="Italic" Foreground="#2A8DD4" /></TextBlock>
+                <TextBlock Visibility="{Binding BusinessPhone, Mode=OneWay, Converter={StaticResource nullToVisibility}}"><Run Text="{Binding BusinessPhone, Mode=OneWay}" Foreground="#2A8DD4" /><Run Text=" раб." Foreground="Gray"/></TextBlock>
+                <TextBlock Visibility="{Binding MobilePhone, Mode=OneWay, Converter={StaticResource nullToVisibility}}"><Run Text="{Binding MobilePhone, Mode=OneWay}" Foreground="#2A8DD4" /><Run Text=" моб." Foreground="Gray"/></TextBlock>
+                <TextBlock Visibility="{Binding Email, Mode=OneWay, Converter={StaticResource nullToVisibility}}"><Run Text="{Binding Email, Mode=OneWay}" Foreground="#2A8DD4" /></TextBlock>
+            </StackPanel>
+        </Border>
+
+        <Label Style="{StaticResource crmLabel}" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">Начало:</Label>
+        <dxe:DateEdit Style="{StaticResource crmDateEdit}" Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="1" EditValue="{Binding StartDate}" />
+        <Label Style="{StaticResource crmLabel}" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2">Завершение:</Label>
+        <dxe:DateEdit Style="{StaticResource crmDateEdit}" Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="1" EditValue="{Binding EndDate}" />
+    </Grid>
+</crm:EditorControlBase>

@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.dykbits.net/2014/crm/documentservice" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.dykbits.net/2014/crm/documentservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.dykbits.net/2014/crm/documentservice/Imports">
+      <xsd:import namespace="http://www.dykbits.net/2014/crm/documentservice" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/DykBits.DataService" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/DykBits.Crm.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDocumentService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_Ping_DocumentServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/DykBits.DataService" name="detail" element="q1:DocumentServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_Browse_InputMessage">
+    <wsdl:part name="parameters" element="tns:Browse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_Browse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BrowseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_Browse_DocumentServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/DykBits.DataService" name="detail" element="q2:DocumentServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetList" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetList_DocumentServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/DykBits.DataService" name="detail" element="q3:DocumentServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocument" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetDocument_DocumentServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/DykBits.DataService" name="detail" element="q4:DocumentServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_DeleteDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDocument" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_DeleteDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_DeleteDocument_DocumentServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/DykBits.DataService" name="detail" element="q5:DocumentServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_ChangeDocumentState_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeDocumentState" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_ChangeDocumentState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeDocumentStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_ChangeDocumentState_DocumentServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/DykBits.DataService" name="detail" element="q6:DocumentServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_Save_InputMessage">
+    <wsdl:part name="parameters" element="tns:Save" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_Save_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_Save_DocumentServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/DykBits.DataService" name="detail" element="q7:DocumentServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetDocumentNumberInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentNumberInfo" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetDocumentNumberInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentNumberInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetDocumentNumberInfo_DocumentServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/DykBits.DataService" name="detail" element="q8:DocumentServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetDocumentMetadata_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentMetadata" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetDocumentMetadata_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentMetadataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetDocumentMetadata_DocumentServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/DykBits.DataService" name="detail" element="q9:DocumentServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetCurrentEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetCurrentEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetCurrentEmployee_DocumentServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/DykBits.DataService" name="detail" element="q10:DocumentServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_ExecuteQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteQuery" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_ExecuteQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_ExecuteQuery_DocumentServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/DykBits.DataService" name="detail" element="q11:DocumentServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_ExecuteNonQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteNonQuery" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_ExecuteNonQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteNonQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_ExecuteNonQuery_DocumentServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/DykBits.DataService" name="detail" element="q12:DocumentServiceFault" />
+  </wsdl:message>
+  <wsdl:portType name="IDocumentService">
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/Ping" message="tns:IDocumentService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/PingResponse" message="tns:IDocumentService_Ping_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/PingDocumentServiceFaultFault" name="DocumentServiceFaultFault" message="tns:IDocumentService_Ping_DocumentServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Browse">
+      <wsdl:input wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/Browse" message="tns:IDocumentService_Browse_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/BrowseResponse" message="tns:IDocumentService_Browse_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/BrowseDocumentServiceFaultFault" name="DocumentServiceFaultFault" message="tns:IDocumentService_Browse_DocumentServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/GetList" message="tns:IDocumentService_GetList_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/GetListResponse" message="tns:IDocumentService_GetList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/GetListDocumentServiceFaultFault" name="DocumentServiceFaultFault" message="tns:IDocumentService_GetList_DocumentServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocument">
+      <wsdl:input wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/GetDocument" message="tns:IDocumentService_GetDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/GetDocumentResponse" message="tns:IDocumentService_GetDocument_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/GetDocumentDocumentServiceFaultFault" name="DocumentServiceFaultFault" message="tns:IDocumentService_GetDocument_DocumentServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDocument">
+      <wsdl:input wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/DeleteDocument" message="tns:IDocumentService_DeleteDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/DeleteDocumentResponse" message="tns:IDocumentService_DeleteDocument_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/DeleteDocumentDocumentServiceFaultFault" name="DocumentServiceFaultFault" message="tns:IDocumentService_DeleteDocument_DocumentServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDocumentState">
+      <wsdl:input wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/ChangeDocumentState" message="tns:IDocumentService_ChangeDocumentState_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/ChangeDocumentStateResponse" message="tns:IDocumentService_ChangeDocumentState_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/ChangeDocumentStateDocumentServiceFaultFault" name="DocumentServiceFaultFault" message="tns:IDocumentService_ChangeDocumentState_DocumentServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <wsdl:input wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/Save" message="tns:IDocumentService_Save_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/SaveResponse" message="tns:IDocumentService_Save_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/SaveDocumentServiceFaultFault" name="DocumentServiceFaultFault" message="tns:IDocumentService_Save_DocumentServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentNumberInfo">
+      <wsdl:input wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/GetDocumentNumberInfo" message="tns:IDocumentService_GetDocumentNumberInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/GetDocumentNumberInfoResponse" message="tns:IDocumentService_GetDocumentNumberInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/GetDocumentNumberInfoDocumentServiceFaultFault" name="DocumentServiceFaultFault" message="tns:IDocumentService_GetDocumentNumberInfo_DocumentServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentMetadata">
+      <wsdl:input wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/GetDocumentMetadata" message="tns:IDocumentService_GetDocumentMetadata_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/GetDocumentMetadataResponse" message="tns:IDocumentService_GetDocumentMetadata_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/GetDocumentMetadataDocumentServiceFaultFault" name="DocumentServiceFaultFault" message="tns:IDocumentService_GetDocumentMetadata_DocumentServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentEmployee">
+      <wsdl:input wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/GetCurrentEmployee" message="tns:IDocumentService_GetCurrentEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/GetCurrentEmployeeResponse" message="tns:IDocumentService_GetCurrentEmployee_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/GetCurrentEmployeeDocumentServiceFaultFault" name="DocumentServiceFaultFault" message="tns:IDocumentService_GetCurrentEmployee_DocumentServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteQuery">
+      <wsdl:input wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/ExecuteQuery" message="tns:IDocumentService_ExecuteQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/ExecuteQueryResponse" message="tns:IDocumentService_ExecuteQuery_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/ExecuteQueryDocumentServiceFaultFault" name="DocumentServiceFaultFault" message="tns:IDocumentService_ExecuteQuery_DocumentServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteNonQuery">
+      <wsdl:input wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/ExecuteNonQuery" message="tns:IDocumentService_ExecuteNonQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/ExecuteNonQueryResponse" message="tns:IDocumentService_ExecuteNonQuery_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.dykbits.net/2014/crm/documentservice/IDocumentService/ExecuteNonQueryDocumentServiceFaultFault" name="DocumentServiceFaultFault" message="tns:IDocumentService_ExecuteNonQuery_DocumentServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,109 @@
+﻿<crm:DataGridControlBase
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:crm="http://www.dykbits.net/wpf/crm"
+        xmlns:data="clr-namespace:DykBits.Crm.Data;assembly=DykBits.Crm.Entities"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+        xmlns:local="clr-namespace:DykBits.Crm"
+        x:Class="DykBits.Crm.UI.MasterMenuGridControl" 
+        DataSourceType="{x:Type data:MasterMenuView}"
+        mc:Ignorable="d" 
+        d:DesignHeight="600" d:DesignWidth="800" TextOptions.TextFormattingMode="Display" UseLayoutRounding="True">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <crm:StateConverter x:Key="stateConverter" />
+            <crm:UserConverter x:Key="userConverter" />
+            <crm:DocumentTypeConverter x:Key="documentTypeConverter" />
+            <crm:DocumentIdConverter x:Key="idConverter" />
+            <local:ServiceLevelValueConverter x:Key="serviceLevelConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <crm:DataGridControlBase.GridView>
+        <dxg:GridControl x:Name="gridView" ShowBorder="False">
+            <dxg:GridControl.View>
+                <dxg:TableView AllowMoveColumnToDropArea="True" AllowEditing="False" AutoWidth="True" AllowSorting="True" AllowGrouping="True" UseAnimationWhenExpanding="False" />
+            </dxg:GridControl.View>
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn Header="Id" FieldName="Id" Binding="{Binding Id, Mode=OneWay}" Width="10" Visible="False" />
+                <dxg:GridColumn FieldName="Icon" FixedWidth="True" Width="24" AllowResizing="False" AllowSorting="False" Binding="{Binding Path=RowData.Row, Mode=OneWay, Converter={StaticResource documentTypeConverter}, ConverterParameter=StateImage}" >
+                    <dxg:GridColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="/DykBits.Crm.Core;component/Images/16x16/DocumentIcon.png" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="Изображение" />
+                        </DataTemplate>
+                    </dxg:GridColumn.HeaderTemplate>
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:ImageEditSettings VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Stretch="None" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn Header="Состояние" FieldName="StateCaption" Width="100" Binding="{Binding Path=CurrentState.Caption, Mode=OneWay}" Visible="False" />
+                <dxg:GridColumn Header="Код" Width="100" Binding="{Binding Code, Mode=OneWay}" Visible="False" />
+                <dxg:GridColumn Header="Наименование" Width="500" Binding="{Binding FileAs, Mode=OneWay}" GroupInterval="Alphabetical" />
+                <dxg:GridColumn Header="Полное наименование" Width="500" Binding="{Binding FullName, Mode=OneWay}" Visible="False" />
+                <dxg:GridColumn Header="Базовая номенклатура" Width="100" Binding="{Binding AbstractProductId, Mode=OneWay, Converter={StaticResource idConverter}, ConverterParameter=AbstractProduct}" AllowSorting="True" AllowGrouping="True" Visible="False" />
+                <dxg:GridColumn Header="Организация" Width="100" Binding="{Binding OrganizationId, Mode=OneWay, Converter={StaticResource idConverter}, ConverterParameter=Organization}" AllowSorting="True" AllowGrouping="True" Visible="False" />
+                <dxg:GridColumn Header="Категория" Width="100" Binding="{Binding ProductCategoryId, Mode=OneWay, Converter={StaticResource idConverter}, ConverterParameter=ProductCategory}" Visible="False" />
+                <dxg:GridColumn Header="Подкатегория" Width="100" Binding="{Binding ProductSubcategoryId, Mode=OneWay, Converter={StaticResource idConverter}, ConverterParameter=ProductSubcategory}" Visible="False" />
+                <dxg:GridColumn Header="Ед. изм." Width="100" Binding="{Binding UnitOfMeasureId, Mode=OneWay, Converter={StaticResource idConverter}, ConverterParameter=UnitOfMeasure.Code}" />
+                <dxg:GridColumn Header="Уровень обслуживания" Width="100" Binding="{Binding ServiceLevelId, Mode=OneWay, Converter={StaticResource serviceLevelConverter}}" Visible="False" />
+                <dxg:GridColumn Header="Осн. ингредиент" Width="100" Binding="{Binding DishIngredientId, Mode=OneWay, Converter={StaticResource idConverter}, ConverterParameter=DishIngredient}" />
+                <dxg:GridColumn Header="Тип" Width="100" Binding="{Binding DishTypeId, Mode=OneWay, Converter={StaticResource idConverter}, ConverterParameter=DishType}" GroupIndex="0" AllowSorting="True" AllowGrouping="True" />
+                <dxg:GridColumn Header="Подтип" Width="100" Binding="{Binding DishSubtypeId, Mode=OneWay, Converter={StaticResource idConverter}, ConverterParameter=DishSubtype}" AllowSorting="True" AllowGrouping="True" />
+                <dxg:GridColumn Header="Категория блюда" Width="100" Binding="{Binding DishCourseId, Mode=OneWay, Converter={StaticResource idConverter}, ConverterParameter=DishCourse}" Visible="False" />
+                <dxg:GridColumn Header="Диета" Width="100" Binding="{Binding DishDietId, Mode=OneWay, Converter={StaticResource idConverter}, ConverterParameter=DishDiet}" Visible="False" />
+                <dxg:GridColumn Header="Кухня" Width="100" Binding="{Binding DishWorldId, Mode=OneWay, Converter={StaticResource idConverter}, ConverterParameter=DishWorld}" />
+                <dxg:GridColumn Header="Способ подачи" Width="100" Binding="{Binding DishServingId, Mode=OneWay, Converter={StaticResource idConverter}, ConverterParameter=DishServing}" />
+                <dxg:GridColumn Header="Метод приготовления" Width="100" Binding="{Binding DishCookingMethodId, Mode=OneWay, Converter={StaticResource idConverter}, ConverterParameter=DishCookingMethod}" Visible="False" />
+                <dxg:GridColumn Header="Сезон" Width="100" Binding="{Binding SeasonId, Mode=OneWay, Converter={StaticResource idConverter}, ConverterParameter=Season}" Visible="False" />
+                <dxg:GridColumn Header="Выход (г)" Width="100" Binding="{Binding ServingAmount, Mode=OneWay}">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings DisplayFormat="#,##0.00" HorizontalContentAlignment="Right" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn Header="Себестоимость" Width="100" Binding="{Binding StandardCost, Mode=OneWay}">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings DisplayFormat="#,##0.00" HorizontalContentAlignment="Right" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn Header="Цена" Width="100" Binding="{Binding ListPrice, Mode=OneWay}">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings DisplayFormat="#,##0.00" HorizontalContentAlignment="Right" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn Header="Наценка" Width="150" Binding="{Binding PriceMarginId, Mode=OneWay, Converter={StaticResource idConverter}, ConverterParameter=PriceMargin}" AllowSorting="True" AllowGrouping="True" />
+                <dxg:GridColumn Header="Дата создания" Width="200" Visible="False" Binding="{Binding Created, Mode=OneWay}" GroupInterval="Date">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings DisplayFormat="dd.MM.yyyy HH:mm:ss" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn Header="Создано" Width="200" Visible="False" Binding="{Binding CreatedBy, Mode=OneWay, Converter={StaticResource userConverter}}" />
+                <dxg:GridColumn Header="Дата изменения" Width="200" Visible="False" Binding="{Binding Modified, Mode=OneWay}" GroupInterval="Date">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings DisplayFormat="dd.MM.yyyy HH:mm:ss" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn Header="Изменено" Width="200" Visible="False" Binding="{Binding ModifiedBy, Mode=OneWay, Converter={StaticResource userConverter}}" />
+            </dxg:GridControl.Columns>
+        </dxg:GridControl>
+    </crm:DataGridControlBase.GridView>
+    <crm:DataGridControlBase.FilterView>
+        <crm:DataViewFilterControl DocumentType="{x:Type data:Product}" x:Name="filterControl">
+            <StackPanel Orientation="Vertical">
+                <Label Style="{StaticResource crmLabel}" Content="Организация:" />
+                <crm:DocumentPicker DataSource="Organization" SelectedValue="{Binding OrganizationId}" />
+                <Label Style="{StaticResource crmLabel}" Content="Базовый:" />
+                <crm:DocumentPicker DataSource="AbstractProduct" SelectedValue="{Binding AbstractProductId}" />
+                <Label Style="{StaticResource crmLabel}" Content="Категория:" />
+                <crm:DataComboBox DataSource="ProductCategory" SelectedValue="{Binding ProductCategoryId}" />
+                <Label Style="{StaticResource crmLabel}" Content="Подкатегория:" />
+                <crm:DataComboBox DataSource="ProductSubcategory" SelectedValue="{Binding ProductSubcategoryId}" />
+            </StackPanel>
+        </crm:DataViewFilterControl>
+    </crm:DataGridControlBase.FilterView>
+</crm:DataGridControlBase>

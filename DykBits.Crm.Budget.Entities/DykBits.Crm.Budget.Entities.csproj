@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ABCD3DD5-C5D0-4B2C-8B25-02A043B11E51}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DykBits.Crm</RootNamespace>
+    <AssemblyName>DykBits.Crm.Budget.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish|AnyCPU'">
+    <OutputPath>bin\Publish\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\CalculationStatement.cs" />
+    <Compile Include="Data\CalculationStatement.Extensions.cs" />
+    <Compile Include="Data\CalculationStatement.Filter.cs" />
+    <Compile Include="Data\CalculationStatementFilter.cs" />
+    <Compile Include="Data\CalculationStatementItem.cs" />
+    <Compile Include="Data\CalculationStatementLine.cs" />
+    <Compile Include="Data\CalculationStatementLineBeverageItem.cs" />
+    <Compile Include="Data\CalculationStatementLineItem.cs" />
+    <Compile Include="Data\CalculationStatementLineMenuItem.cs" />
+    <Compile Include="Data\CalculationStatementLineProductItem.cs" />
+    <Compile Include="Data\CalculationStatementReport.cs" />
+    <Compile Include="Data\CalculationStatementReportItem.cs" />
+    <Compile Include="Data\CalculationStatementSection.cs" />
+    <Compile Include="Data\CalculationStatementLineCollection.cs" />
+    <Compile Include="Data\CalculationStatementSectionItem.cs" />
+    <Compile Include="Data\CalculationStatementItemCollection.cs" />
+    <Compile Include="Data\CalculationStatementSectionCollection.cs" />
+    <Compile Include="Data\CalculationStatementSubtotalSectionItem.cs" />
+    <Compile Include="Data\CalculationStatementSubtotalWithVATSectionItem.cs" />
+    <Compile Include="Data\CalculationStatementTemplate.cs" />
+    <Compile Include="Data\CalculationStatementTemplate.Extensions.cs" />
+    <Compile Include="Data\CalculationStatementTemplate.Filter.cs" />
+    <Compile Include="Data\CalculationStatementTemplateFilter.cs" />
+    <Compile Include="Data\CalculationStatementTemplateItem.cs" />
+    <Compile Include="Data\CalculationStatementTemplateItemCollection.cs" />
+    <Compile Include="Data\CalculationStatementTemplateLine.cs" />
+    <Compile Include="Data\CalculationStatementTemplateLineCollection.cs" />
+    <Compile Include="Data\CalculationStatementTemplateLineItem.cs" />
+    <Compile Include="Data\CalculationStatementTemplateReport.cs" />
+    <Compile Include="Data\CalculationStatementTemplateReportItem.cs" />
+    <Compile Include="Data\CalculationStatementTemplateSection.cs" />
+    <Compile Include="Data\CalculationStatementTemplateSectionCollection.cs" />
+    <Compile Include="Data\CalculationStatementTemplateSectionItem.cs" />
+    <Compile Include="Data\CalculationStatementTemplateSubtotalSectionItem.cs" />
+    <Compile Include="Data\CalculationStatementTemplateView.cs" />
+    <Compile Include="Data\CalculationStatementView.cs" />
+    <Compile Include="Data\CalculationStatementSubtotalWithDiscountSectionItem.cs" />
+    <Compile Include="Data\CalculationStatementView.Extensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DykBits.Crm.Data\DykBits.Crm.Data.csproj">
+      <Project>{ec5a6c6d-7063-43ca-a338-9f061592fd4c}</Project>
+      <Name>DykBits.Crm.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Entities\DykBits.Crm.Entities.csproj">
+      <Project>{73a8c4a7-fb5d-40ea-8cad-b1df2cbb96bd}</Project>
+      <Name>DykBits.Crm.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Services\DykBits.Crm.Services.csproj">
+      <Project>{1ba66118-22ff-4006-9e6b-a0cfab0fbad8}</Project>
+      <Name>DykBits.Crm.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Xml\DykBits.Xml.csproj">
+      <Project>{a4305687-4c8b-4f30-a502-9501415e4d75}</Project>
+      <Name>DykBits.Xml</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

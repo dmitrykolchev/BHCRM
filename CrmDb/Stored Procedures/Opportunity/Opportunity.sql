@@ -1,0 +1,32 @@
+﻿CREATE TABLE [dbo].[Opportunity]
+(
+	[Id] TIdentifier not null primary key identity, 
+	[State] TState not null,
+	[FileAs] TName not null,
+	[OrganizationId] TIdentifier not null,
+	[AssignedToEmployeeId] TIdentifier not null,
+	[AccountId] TIdentifier not null,
+	[OpportunityTypeId] TIdentifier not null,
+	[LeadSourceId] TIdentifier not null,
+	[ProjectTypeId] TIdentifier not null,
+	[ReasonId] TIdentifier not null,
+	[AmountOfGuests] int null,
+	[Value] money not null,
+	[DateClosed] date not null,
+	[EventDate] date not null,
+	[Probability] decimal(4,2) not null,
+    [Comments] nvarchar(max) null, 
+    [Created] datetime not null, 
+    [CreatedBy] int not null, 
+    [Modified] datetime not null, 
+    [ModifiedBy] int not null, 
+    [RowVersion] rowversion not null, 
+    CONSTRAINT [FK_Opportunity_OpportunityType] FOREIGN KEY ([OpportunityTypeId]) REFERENCES [OpportunityType]([Id]), 
+    CONSTRAINT [FK_Opportunity_Account] FOREIGN KEY ([AccountId]) REFERENCES [Account]([Id]), 
+    CONSTRAINT [FK_Opportunity_Employee] FOREIGN KEY ([AssignedToEmployeeId]) REFERENCES [Employee]([Id]), 
+    CONSTRAINT [FK_Opportunity_LeadSource] FOREIGN KEY ([LeadSourceId]) REFERENCES [LeadSource]([Id]), 
+    CONSTRAINT [FK_Opportunity_Organization] FOREIGN KEY ([OrganizationId]) REFERENCES [Account] ([Id]), 
+    CONSTRAINT [FK_Opportunity_ProjectType] FOREIGN KEY ([ProjectTypeId]) REFERENCES [ProjectType]([Id]), 
+    CONSTRAINT [FK_Opportunity_Reason] FOREIGN KEY ([ReasonId]) REFERENCES [Reason]([Id])
+
+)

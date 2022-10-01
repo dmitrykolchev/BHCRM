@@ -1,0 +1,658 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{73A8C4A7-FB5D-40EA-8CAD-B1DF2CBB96BD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DykBits.Crm</RootNamespace>
+    <AssemblyName>DykBits.Crm.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Publish\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\AbstractProduct.cs" />
+    <Compile Include="Data\AbstractProduct.Filter.cs" />
+    <Compile Include="Data\AbstractProductFilter.cs" />
+    <Compile Include="Data\AbstractProductView.cs" />
+    <Compile Include="Data\AccessRight.cs" />
+    <Compile Include="Data\AccessRight.Extensions.cs" />
+    <Compile Include="Data\AccessRight.Filter.cs" />
+    <Compile Include="Data\AccessRightView.cs" />
+    <Compile Include="Data\AccessRightView.Extensions.cs" />
+    <Compile Include="Data\Account.cs" />
+    <Compile Include="Data\Account.Filter.cs" />
+    <Compile Include="Data\AccountChangeAccessData.cs" />
+    <Compile Include="Data\AccountEvent.cs" />
+    <Compile Include="Data\AccountEvent.Extensions.cs" />
+    <Compile Include="Data\AccountEvent.Filter.cs" />
+    <Compile Include="Data\AccountEventDirection.cs" />
+    <Compile Include="Data\AccountEventDirection.Extensions.cs" />
+    <Compile Include="Data\AccountEventDirection.Filter.cs" />
+    <Compile Include="Data\AccountEventDirectionView.cs" />
+    <Compile Include="Data\AccountEventFilter.cs" />
+    <Compile Include="Data\AccountEventTemplate.cs" />
+    <Compile Include="Data\AccountEventTemplate.Filter.cs" />
+    <Compile Include="Data\AccountEventTemplateView.cs" />
+    <Compile Include="Data\AccountEventType.cs" />
+    <Compile Include="Data\AccountEventType.Extensions.cs" />
+    <Compile Include="Data\AccountEventType.Filter.cs" />
+    <Compile Include="Data\AccountEventTypeView.cs" />
+    <Compile Include="Data\AccountEventView.cs" />
+    <Compile Include="Data\AccountEventView.Extensions.cs" />
+    <Compile Include="Data\AccountFilter.cs" />
+    <Compile Include="Data\AccountGroup.Filter.cs" />
+    <Compile Include="Data\AccountType.Extensions.cs" />
+    <Compile Include="Data\AccountType.Filter.cs" />
+    <Compile Include="Data\AccountView.Extensions.cs" />
+    <Compile Include="Data\AdvanceItem.cs" />
+    <Compile Include="Data\AdvanceItemFilter.cs" />
+    <Compile Include="Data\ApplicationRole.Filter.cs" />
+    <Compile Include="Data\ApplicationRoleAccessRight.cs" />
+    <Compile Include="Data\ApplicationRoleView.Extensions.cs" />
+    <Compile Include="Data\BalanceSheetFilter.cs" />
+    <Compile Include="Data\BalanceSheetLine.cs" />
+    <Compile Include="Data\BankAccount.Filter.cs" />
+    <Compile Include="Data\Beverage.cs" />
+    <Compile Include="Data\Beverage.Extensions.cs" />
+    <Compile Include="Data\Beverage.Filter.cs" />
+    <Compile Include="Data\BeverageFilter.cs" />
+    <Compile Include="Data\BeverageMisc.cs" />
+    <Compile Include="Data\BeverageMisc.Filter.cs" />
+    <Compile Include="Data\BeverageMiscView.cs" />
+    <Compile Include="Data\BeveragePack.cs" />
+    <Compile Include="Data\BeveragePack.Filter.cs" />
+    <Compile Include="Data\BeveragePackView.cs" />
+    <Compile Include="Data\BeverageSubtype.cs" />
+    <Compile Include="Data\BeverageSubtype.Filter.cs" />
+    <Compile Include="Data\BeverageSubtypeFilter.cs" />
+    <Compile Include="Data\BeverageSubtypeView.cs" />
+    <Compile Include="Data\BeverageType.cs" />
+    <Compile Include="Data\BeverageType.Filter.cs" />
+    <Compile Include="Data\BeverageTypeView.cs" />
+    <Compile Include="Data\BeverageView.cs" />
+    <Compile Include="Data\BeverageView.Extensions.cs" />
+    <Compile Include="Data\Budget.cs" />
+    <Compile Include="Data\Budget.Extensions.cs" />
+    <Compile Include="Data\Budget.Filter.cs" />
+    <Compile Include="Data\BudgetAmountOfGuests.cs" />
+    <Compile Include="Data\BudgetFilter.cs" />
+    <Compile Include="Data\BudgetItem.cs" />
+    <Compile Include="Data\BudgetItem.Extensions.cs" />
+    <Compile Include="Data\BudgetItem.Filter.cs" />
+    <Compile Include="Data\BudgetItemFilter.cs" />
+    <Compile Include="Data\BudgetItemGroup.cs" />
+    <Compile Include="Data\BudgetItemGroup.Extensions.cs" />
+    <Compile Include="Data\BudgetItemGroup.Filter.cs" />
+    <Compile Include="Data\BudgetItemGroupType.cs" />
+    <Compile Include="Data\BudgetItemGroupView.cs" />
+    <Compile Include="Data\BudgetItemLink.cs" />
+    <Compile Include="Data\BudgetItemLink.Extensions.cs" />
+    <Compile Include="Data\BudgetItemLink.Filter.cs" />
+    <Compile Include="Data\BudgetItemLinkView.cs" />
+    <Compile Include="Data\BudgetItemView.Extensions.cs" />
+    <Compile Include="Data\BudgetLine.cs" />
+    <Compile Include="Data\BudgetTemplate.Filter.Extensions.cs" />
+    <Compile Include="Data\CreditMoneyOperation.cs" />
+    <Compile Include="Data\CreditMoneyOperationFilter.cs" />
+    <Compile Include="Data\InvoiceByBudgetItemItem.cs" />
+    <Compile Include="Data\Reports\BudgetReport.cs" />
+    <Compile Include="Data\Reports\BudgetReportItem.cs" />
+    <Compile Include="Data\BudgetTemplate.Filter.cs" />
+    <Compile Include="Data\BudgetView.cs" />
+    <Compile Include="Data\BudgetView.Extensions.cs" />
+    <Compile Include="Data\BusinessActivityType.Filter.cs" />
+    <Compile Include="Data\CalculationStage.cs" />
+    <Compile Include="Data\CalculationStage.Extensions.cs" />
+    <Compile Include="Data\CalculationStage.Filter.cs" />
+    <Compile Include="Data\CalculationStageView.cs" />
+    <Compile Include="Data\Category.Filter.cs" />
+    <Compile Include="Data\CateringType.Filter.cs" />
+    <Compile Include="Data\ConsolidatedAccrualLine.cs" />
+    <Compile Include="Data\ConsolidatedBudgetItem.cs" />
+    <Compile Include="Data\ConsolidatedBudgetItemFilter.cs" />
+    <Compile Include="Data\ConsolidatedBudgetLine.cs" />
+    <Compile Include="Data\ConsolidatedInventoryOperationLine.cs" />
+    <Compile Include="Data\ConsolidatedInventoryOperationLineFilter.cs" />
+    <Compile Include="Data\ConsolidatedMoneyOperationLine.cs" />
+    <Compile Include="Data\ConsolidatedOperatingBudgetLine.cs" />
+    <Compile Include="Data\Contact.Filter.cs" />
+    <Compile Include="Data\ContactGroup.Filter.cs" />
+    <Compile Include="Data\ContactRole.cs" />
+    <Compile Include="Data\ContactRole.Filter.cs" />
+    <Compile Include="Data\ContactRoleView.cs" />
+    <Compile Include="Data\Contract.Filter.cs" />
+    <Compile Include="Data\CostCenter.Filter.cs" />
+    <Compile Include="Data\Country.Filter.cs" />
+    <Compile Include="Data\CurrentUser.cs" />
+    <Compile Include="Data\CurrentUser.Extensions.cs" />
+    <Compile Include="Data\CurrentUser.Filter.cs" />
+    <Compile Include="Data\CurrentUserView.cs" />
+    <Compile Include="Data\DataQuery.cs" />
+    <Compile Include="Data\DataQuery.Filter.cs" />
+    <Compile Include="Data\DataQueryView.cs" />
+    <Compile Include="Data\DataQueryView.Extensions.cs" />
+    <Compile Include="Data\DishCookingMethod.Filter.cs" />
+    <Compile Include="Data\DishCourse.Filter.cs" />
+    <Compile Include="Data\DishDiet.Filter.cs" />
+    <Compile Include="Data\DishIngredient.Filter.cs" />
+    <Compile Include="Data\DishOccasion.Filter.cs" />
+    <Compile Include="Data\DishServing.Filter.cs" />
+    <Compile Include="Data\DishSubtype.Filter.cs" />
+    <Compile Include="Data\DishType.Filter.cs" />
+    <Compile Include="Data\DishWorld.Filter.cs" />
+    <Compile Include="Data\Division.Filter.cs" />
+    <Compile Include="Data\DocumentAccessControlList.cs" />
+    <Compile Include="Data\DocumentAccessControlList.Extensions.cs" />
+    <Compile Include="Data\DocumentAccessControlList.Filter.cs" />
+    <Compile Include="Data\DocumentAccessControlListView.cs" />
+    <Compile Include="Data\DocumentAccessType.Filter.cs" />
+    <Compile Include="Data\DocumentEmployeeAccessRight.Extensions.cs" />
+    <Compile Include="Data\DocumentEmployeeAccessRight.Filter.cs" />
+    <Compile Include="Data\DocumentGenericRight.cs" />
+    <Compile Include="Data\DocumentNumberingRule.Extensions.cs" />
+    <Compile Include="Data\DocumentNumberingRule.Filter.cs" />
+    <Compile Include="Data\DocumentPropertyMetadata.Filter.cs" />
+    <Compile Include="Data\DocumentReport.cs" />
+    <Compile Include="Data\DocumentReport.Filter.cs" />
+    <Compile Include="Data\DocumentReportFilter.cs" />
+    <Compile Include="Data\DocumentReportView.cs" />
+    <Compile Include="Data\DocumentReportView.Extensions.cs" />
+    <Compile Include="Data\DocumentStateEntry.Filter.cs" />
+    <Compile Include="Data\DocumentStateEntryFilter.cs" />
+    <Compile Include="Data\DocumentStateLog.cs" />
+    <Compile Include="Data\DocumentStateLog.Filter.cs" />
+    <Compile Include="Data\DocumentStateLogView.cs" />
+    <Compile Include="Data\DocumentTransition.Extensions.cs" />
+    <Compile Include="Data\DocumentTransition.Filter.cs" />
+    <Compile Include="Data\DocumentTransitionAccess.cs" />
+    <Compile Include="Data\DocumentTransitionFilter.cs" />
+    <Compile Include="Data\DocumentTypeEntry.Extensions.cs" />
+    <Compile Include="Data\DishCookingMethod.cs" />
+    <Compile Include="Data\DishCookingMethodView.cs" />
+    <Compile Include="Data\DishCourse.cs" />
+    <Compile Include="Data\DishCourseView.cs" />
+    <Compile Include="Data\DishDiet.cs" />
+    <Compile Include="Data\DishDietView.cs" />
+    <Compile Include="Data\DishIngredient.cs" />
+    <Compile Include="Data\DishIngredientView.cs" />
+    <Compile Include="Data\DishOccasion.cs" />
+    <Compile Include="Data\DishOccasionView.cs" />
+    <Compile Include="Data\DishServing.cs" />
+    <Compile Include="Data\DishServingView.cs" />
+    <Compile Include="Data\DishSubtype.cs" />
+    <Compile Include="Data\DishSubtypeFilter.cs" />
+    <Compile Include="Data\DishSubtypeView.cs" />
+    <Compile Include="Data\DishType.cs" />
+    <Compile Include="Data\DishTypeView.cs" />
+    <Compile Include="Data\DishWorld.cs" />
+    <Compile Include="Data\DishWorldView.cs" />
+    <Compile Include="Data\DocumentTypeEntry.Filter.cs" />
+    <Compile Include="Data\DocumentViewEntry.Filter.cs" />
+    <Compile Include="Data\Employee.Filter.cs" />
+    <Compile Include="Data\EmployeeSalary.cs" />
+    <Compile Include="Data\ErrorInformation.cs" />
+    <Compile Include="Data\ErrorInformation.Extensions.cs" />
+    <Compile Include="Data\ErrorInformation.Filter.cs" />
+    <Compile Include="Data\ErrorInformationView.cs" />
+    <Compile Include="Data\ErrorMessage.cs" />
+    <Compile Include="Data\ErrorMessage.Extensions.cs" />
+    <Compile Include="Data\ErrorMessage.Filter.cs" />
+    <Compile Include="Data\ErrorMessageView.cs" />
+    <Compile Include="Data\ErrorMessageView.Extensions.cs" />
+    <Compile Include="Data\EstimatesDocument.cs" />
+    <Compile Include="Data\EstimatesDocument.Extensions.cs" />
+    <Compile Include="Data\EstimatesDocument.Filter.cs" />
+    <Compile Include="Data\EstimatesDocumentFilter.cs" />
+    <Compile Include="Data\EstimatesDocumentItem.cs" />
+    <Compile Include="Data\EstimatesDocumentLine.cs" />
+    <Compile Include="Data\Reports\EstimatesDocumentReport.cs" />
+    <Compile Include="Data\EstimatesDocumentView.cs" />
+    <Compile Include="Data\EstimatesDocumentView.Extensions.cs" />
+    <Compile Include="Data\EstimatesTemplate.cs" />
+    <Compile Include="Data\EstimatesTemplate.Extensions.cs" />
+    <Compile Include="Data\EstimatesDocumentSection.cs" />
+    <Compile Include="Data\EstimatesTemplate.Filter.cs" />
+    <Compile Include="Data\EstimatesTemplateSection.cs" />
+    <Compile Include="Data\EstimatesTemplateView.cs" />
+    <Compile Include="Data\ExtraCostRate.cs" />
+    <Compile Include="Data\ExtraCostRate.Filter.cs" />
+    <Compile Include="Data\ExtraCostRateView.cs" />
+    <Compile Include="Data\Finance\BalanceItem.cs" />
+    <Compile Include="Data\Finance\CashFlowItem.cs" />
+    <Compile Include="Data\Finance\FinanceReportItem.cs" />
+    <Compile Include="Data\Finance\ProfitLossItem.cs" />
+    <Compile Include="Data\GLAccount.Filter.cs" />
+    <Compile Include="Data\Importance.cs" />
+    <Compile Include="Data\Importance.Extensions.cs" />
+    <Compile Include="Data\Importance.Filter.cs" />
+    <Compile Include="Data\ImportanceView.cs" />
+    <Compile Include="Data\Industry.Filter.cs" />
+    <Compile Include="Data\InventoryBalance.cs" />
+    <Compile Include="Data\InventoryBalance.Extensions.cs" />
+    <Compile Include="Data\InventoryBalanceFilter.cs" />
+    <Compile Include="Data\InventoryStatement.Filter.cs" />
+    <Compile Include="Data\InventoryStatementFilter.cs" />
+    <Compile Include="Data\InvoicePaymentByContragentItem.cs" />
+    <Compile Include="Data\InvoiceByContragentItem.cs" />
+    <Compile Include="Data\ItemColor.Filter.cs" />
+    <Compile Include="Data\Lead.Filter.cs" />
+    <Compile Include="Data\LeadSource.Filter.cs" />
+    <Compile Include="Data\MarketingProgramType.Filter.cs" />
+    <Compile Include="Data\MasterMenu.cs" />
+    <Compile Include="Data\MasterMenu.Extensions.cs" />
+    <Compile Include="Data\MasterMenu.Filter.cs" />
+    <Compile Include="Data\MasterMenuFilter.cs" />
+    <Compile Include="Data\MasterMenuView.cs" />
+    <Compile Include="Data\MasterMenuView.Extensions.cs" />
+    <Compile Include="Data\MoneyOperation.cs" />
+    <Compile Include="Data\MoneyOperation.Extensions.cs" />
+    <Compile Include="Data\MoneyOperation.Filter.cs" />
+    <Compile Include="Data\MoneyOperationFilter.cs" />
+    <Compile Include="Data\MoneyOperationReportByOperationTypeFilter.cs" />
+    <Compile Include="Data\MoneyOperationReportByOperationTypeItem.cs" />
+    <Compile Include="Data\MoneyOperationType.cs" />
+    <Compile Include="Data\MoneyOperationType.Extensions.cs" />
+    <Compile Include="Data\MoneyOperationType.Filter.cs" />
+    <Compile Include="Data\MoneyOperationTypeView.cs" />
+    <Compile Include="Data\MoneyOperationView.cs" />
+    <Compile Include="Data\OperatingBudget.cs" />
+    <Compile Include="Data\OperatingBudget.Extensions.cs" />
+    <Compile Include="Data\OperatingBudget.Filter.cs" />
+    <Compile Include="Data\OperatingBudgetDocumentBrowse.cs" />
+    <Compile Include="Data\OperatingBudgetFilter.cs" />
+    <Compile Include="Data\OperatingBudgetLine.cs" />
+    <Compile Include="Data\OperatingBudgetView.cs" />
+    <Compile Include="Data\OperatingCalculation.cs" />
+    <Compile Include="Data\OperatingCalculation.Extensions.cs" />
+    <Compile Include="Data\OperatingCalculation.Filter.cs" />
+    <Compile Include="Data\OperatingCalculationFilter.cs" />
+    <Compile Include="Data\OperatingCalculationLine.cs" />
+    <Compile Include="Data\OperatingCalculationView.cs" />
+    <Compile Include="Data\Opportunity.Filter.cs" />
+    <Compile Include="Data\OpportunityFilter.cs" />
+    <Compile Include="Data\OpportunityType.Filter.cs" />
+    <Compile Include="Data\Organization.Filter.cs" />
+    <Compile Include="Data\Payroll.cs" />
+    <Compile Include="Data\Payroll.Extensions.cs" />
+    <Compile Include="Data\Payroll.Filter.cs" />
+    <Compile Include="Data\PayrollItemBase.cs" />
+    <Compile Include="Data\PayrollLine.cs" />
+    <Compile Include="Data\PayrollView.cs" />
+    <Compile Include="Data\Position.Filter.cs" />
+    <Compile Include="Data\PresentationNode.cs" />
+    <Compile Include="Data\PresentationNode.Extensions.cs" />
+    <Compile Include="Data\PresentationNode.Filter.cs" />
+    <Compile Include="Data\PresentationNodeApplicationRole.cs" />
+    <Compile Include="Data\PresentationNodeApplicationRoleCollection.cs" />
+    <Compile Include="Data\PresentationNodeFilter.cs" />
+    <Compile Include="Data\PresentationNodeType.cs" />
+    <Compile Include="Data\PresentationNodeView.cs" />
+    <Compile Include="Data\PresentationNodeView.Extensions.cs" />
+    <Compile Include="Data\PriceList.Filter.cs" />
+    <Compile Include="Data\PriceListLine.cs" />
+    <Compile Include="Data\PriceMargin.cs" />
+    <Compile Include="Data\PriceMargin.Filter.cs" />
+    <Compile Include="Data\PriceMarginView.cs" />
+    <Compile Include="Data\Product.Extensions.cs" />
+    <Compile Include="Data\Product.Filter.cs" />
+    <Compile Include="Data\ProductCategory.Filter.cs" />
+    <Compile Include="Data\ProductClass.cs" />
+    <Compile Include="Data\ProductCostStatement.cs" />
+    <Compile Include="Data\ProductCostStatement.Extensions.cs" />
+    <Compile Include="Data\ProductCostStatement.Filter.cs" />
+    <Compile Include="Data\ProductCostStatementLine.cs" />
+    <Compile Include="Data\ProductCostStatementView.cs" />
+    <Compile Include="Data\ProductSubcategory.Filter.cs" />
+    <Compile Include="Data\ProductSupplier.cs" />
+    <Compile Include="Data\ProductType.Extensions.cs" />
+    <Compile Include="Data\ProductType.Filter.cs" />
+    <Compile Include="Data\ProductView.Extensions.cs" />
+    <Compile Include="Data\Project.Filter.cs" />
+    <Compile Include="Data\ProjectFilter.cs" />
+    <Compile Include="Data\ProjectMember.Filter.cs" />
+    <Compile Include="Data\ProjectMemberChangeData.cs" />
+    <Compile Include="Data\ProjectMemberRole.Extensions.cs" />
+    <Compile Include="Data\ProjectMemberRole.Filter.cs" />
+    <Compile Include="Data\ProjectTask.Extensions.cs" />
+    <Compile Include="Data\ProjectTask.Filter.cs" />
+    <Compile Include="Data\ProjectTaskStatus.Filter.cs" />
+    <Compile Include="Data\ProjectTaskStatusReportItem.cs" />
+    <Compile Include="Data\ProjectTaskStatus.cs" />
+    <Compile Include="Data\ProjectTaskStatusEntry.cs" />
+    <Compile Include="Data\ProjectTaskStatusReport.cs" />
+    <Compile Include="Data\ProjectTaskStatusReportData.cs" />
+    <Compile Include="Data\ProjectTaskStatusView.cs" />
+    <Compile Include="Data\ProjectTaskTemplate.cs" />
+    <Compile Include="Data\ProjectTaskTemplate.Extensions.cs" />
+    <Compile Include="Data\ProjectTaskTemplate.Filter.cs" />
+    <Compile Include="Data\ProjectTaskTemplateFilter.cs" />
+    <Compile Include="Data\ProjectTaskTemplateView.cs" />
+    <Compile Include="Data\ProjectTemplate.cs" />
+    <Compile Include="Data\ProjectTemplate.Filter.cs" />
+    <Compile Include="Data\ProjectTemplateView.cs" />
+    <Compile Include="Data\ProjectType.Extensions.cs" />
+    <Compile Include="Data\ProjectType.Filter.cs" />
+    <Compile Include="Data\PurchaseInvoice.Extensions.cs" />
+    <Compile Include="Data\PurchaseInvoice.Filter.cs" />
+    <Compile Include="Data\PurchaseInvoiceFilter.cs" />
+    <Compile Include="Data\PurchaseInvoiceView.Extensions.cs" />
+    <Compile Include="Data\PurchaseOrder.Filter.cs" />
+    <Compile Include="Data\PurchaseOrderFilter.cs" />
+    <Compile Include="Data\Reports\PurchaseOrderReport.cs" />
+    <Compile Include="Data\Reason.Filter.cs" />
+    <Compile Include="Data\ReasonType.Filter.cs" />
+    <Compile Include="Data\Region.Filter.cs" />
+    <Compile Include="Data\RelationType.Filter.cs" />
+    <Compile Include="Data\Reminder.cs" />
+    <Compile Include="Data\Reminder.Filter.cs" />
+    <Compile Include="Data\ReminderView.cs" />
+    <Compile Include="Data\Reports\PurchaseOrderReportItem.cs" />
+    <Compile Include="Data\Reports\SalesOrderReport.cs" />
+    <Compile Include="Data\Reports\SalesOrderReportItem.cs" />
+    <Compile Include="Data\ReturnStatement.cs" />
+    <Compile Include="Data\ReturnStatement.Extensions.cs" />
+    <Compile Include="Data\ReturnStatement.Filter.cs" />
+    <Compile Include="Data\ReturnStatementFilter.cs" />
+    <Compile Include="Data\ReturnStatementLine.cs" />
+    <Compile Include="Data\ReturnStatementView.cs" />
+    <Compile Include="Data\SalesInvoice.Extensions.cs" />
+    <Compile Include="Data\SalesInvoice.Filter.cs" />
+    <Compile Include="Data\SalesInvoiceFilter.cs" />
+    <Compile Include="Data\SalesInvoiceView.Extensions.cs" />
+    <Compile Include="Data\SalesOrder.Filter.cs" />
+    <Compile Include="Data\SalesOrderFilter.cs" />
+    <Compile Include="Data\Season.cs" />
+    <Compile Include="Data\Season.Filter.cs" />
+    <Compile Include="Data\SeasonView.cs" />
+    <Compile Include="Data\SecurityScheme.cs" />
+    <Compile Include="Data\SecurityScheme.Extensions.cs" />
+    <Compile Include="Data\SecurityScheme.Filter.cs" />
+    <Compile Include="Data\SecuritySchemeView.cs" />
+    <Compile Include="Data\ServiceLevel.Extensions.cs" />
+    <Compile Include="Data\ServiceLevel.Filter.cs" />
+    <Compile Include="Data\ServiceRequest.Filter.cs" />
+    <Compile Include="Data\ServiceRequestChangeStateData.cs" />
+    <Compile Include="Data\ServiceRequestFilter.cs" />
+    <Compile Include="Data\ServiceRequestType.Filter.cs" />
+    <Compile Include="Data\SizeOfServiceRequest.Filter.cs" />
+    <Compile Include="Data\StoragePlace.Filter.cs" />
+    <Compile Include="Data\TaxRate.cs" />
+    <Compile Include="Data\TaxRate.Extensions.cs" />
+    <Compile Include="Data\TaxRate.Filter.cs" />
+    <Compile Include="Data\TaxRateView.cs" />
+    <Compile Include="Data\TradeMark.Filter.cs" />
+    <Compile Include="Data\UnitOfMeasure.Extensions.cs" />
+    <Compile Include="Data\UnitOfMeasure.Filter.cs" />
+    <Compile Include="Data\UnitOfMeasureClass.Filter.cs" />
+    <Compile Include="Data\User.Extensions.cs" />
+    <Compile Include="Data\User.Filter.cs" />
+    <Compile Include="Data\UserAccessRight.cs" />
+    <Compile Include="Data\UserApplicationRole.cs" />
+    <Compile Include="Data\UserFilter.cs" />
+    <Compile Include="Data\UserNotification.cs" />
+    <Compile Include="Data\UserNotification.Filter.cs" />
+    <Compile Include="Data\UserNotificationFilter.cs" />
+    <Compile Include="Data\UserNotificationView.cs" />
+    <Compile Include="Data\UserNotificationView.Extensions.cs" />
+    <Compile Include="Data\VATRate.cs" />
+    <Compile Include="Data\VATRate.Extensions.cs" />
+    <Compile Include="Data\VATRate.Filter.cs" />
+    <Compile Include="Data\VATRateView.cs" />
+    <Compile Include="Data\ContactGroup.cs" />
+    <Compile Include="Data\ContactGroupView.cs" />
+    <Compile Include="Data\ProjectMemberFilter.cs" />
+    <Compile Include="Data\ProjectTaskFilter.cs" />
+    <Compile Include="Data\ServiceRequestView.Extensions.cs" />
+    <Compile Include="Data\Venue.Extensions.cs" />
+    <Compile Include="Data\Account.Extensions.cs" />
+    <Compile Include="Data\AccountByMarketingProgramView.cs" />
+    <Compile Include="Data\AccountGroup.cs" />
+    <Compile Include="Data\AccountGroupView.cs" />
+    <Compile Include="Data\AccountType.cs" />
+    <Compile Include="Data\AccountTypeFlag.cs" />
+    <Compile Include="Data\AccountTypeView.cs" />
+    <Compile Include="Data\AccountView.cs" />
+    <Compile Include="Data\ApplicationRole.cs" />
+    <Compile Include="Data\ApplicationRole.Extensions.cs" />
+    <Compile Include="Data\ApplicationRoleView.cs" />
+    <Compile Include="Data\BankAccount.cs" />
+    <Compile Include="Data\BankAccountFilter.cs" />
+    <Compile Include="Data\BankAccountView.cs" />
+    <Compile Include="Data\BudgetItemView.cs" />
+    <Compile Include="Data\BudgetTemplate.cs" />
+    <Compile Include="Data\BudgetTemplate.Extensions.cs" />
+    <Compile Include="Data\BudgetTemplateLine.cs" />
+    <Compile Include="Data\BudgetTemplateView.cs" />
+    <Compile Include="Data\BusinessActivityType.cs" />
+    <Compile Include="Data\BusinessActivityTypeView.cs" />
+    <Compile Include="Data\Category.cs" />
+    <Compile Include="Data\CategoryView.cs" />
+    <Compile Include="Data\CateringType.cs" />
+    <Compile Include="Data\CateringTypeView.cs" />
+    <Compile Include="Data\Contact.cs" />
+    <Compile Include="Data\Contact.Extensions.cs" />
+    <Compile Include="Data\ContactByMarketingProgramView.cs" />
+    <Compile Include="Data\ContactFilter.cs" />
+    <Compile Include="Data\ContactView.cs" />
+    <Compile Include="Data\Contract.cs" />
+    <Compile Include="Data\Contract.Extensions.cs" />
+    <Compile Include="Data\ContractFilter.cs" />
+    <Compile Include="Data\ContractPaymentCalendar.cs" />
+    <Compile Include="Data\ContractView.cs" />
+    <Compile Include="Data\ContractView.Extensions.cs" />
+    <Compile Include="Data\CostCenter.cs" />
+    <Compile Include="Data\CostCenterFilter.cs" />
+    <Compile Include="Data\CostCenterView.cs" />
+    <Compile Include="Data\Country.cs" />
+    <Compile Include="Data\CountryView.cs" />
+    <Compile Include="Data\Division.cs" />
+    <Compile Include="Data\DivisionFilter.cs" />
+    <Compile Include="Data\DivisionView.cs" />
+    <Compile Include="Data\DocumentAccessType.cs" />
+    <Compile Include="Data\DocumentAccessType.Extensions.cs" />
+    <Compile Include="Data\DocumentAccessTypeView.cs" />
+    <Compile Include="Data\DocumentEmployeeAccessRight.cs" />
+    <Compile Include="Data\DocumentEmployeeAccessRightFilter.cs" />
+    <Compile Include="Data\DocumentEmployeeAccessRightView.cs" />
+    <Compile Include="Data\DocumentNumberingRule.cs" />
+    <Compile Include="Data\DocumentNumberingRuleView.cs" />
+    <Compile Include="Data\DocumentPropertyMetadata.cs" />
+    <Compile Include="Data\DocumentPropertyMetadataView.cs" />
+    <Compile Include="Data\DocumentStateEntry.cs" />
+    <Compile Include="Data\DocumentStateEntryView.cs" />
+    <Compile Include="Data\DocumentStateEntryView.Extensions.cs" />
+    <Compile Include="Data\DocumentTransition.cs" />
+    <Compile Include="Data\DocumentTransitionView.cs" />
+    <Compile Include="Data\DocumentTypeEntry.cs" />
+    <Compile Include="Data\DocumentTypeEntryView.cs" />
+    <Compile Include="Data\DocumentTypeEntryView.Extensions.cs" />
+    <Compile Include="Data\DocumentViewEntry.cs" />
+    <Compile Include="Data\DocumentViewEntryView.cs" />
+    <Compile Include="Data\Employee.cs" />
+    <Compile Include="Data\Employee.Extensions.cs" />
+    <Compile Include="Data\EmployeeFilter.cs" />
+    <Compile Include="Data\EmployeeView.cs" />
+    <Compile Include="Data\GLAccount.cs" />
+    <Compile Include="Data\GLAccountView.cs" />
+    <Compile Include="Data\InventoryStatement.cs" />
+    <Compile Include="Data\InventoryStatement.Extensions.cs" />
+    <Compile Include="Data\InventoryStatementLine.cs" />
+    <Compile Include="Data\InventoryStatementView.cs" />
+    <Compile Include="Data\MarketingProgramType.cs" />
+    <Compile Include="Data\MarketingProgramTypeSelector.cs" />
+    <Compile Include="Data\MarketingProgramTypeView.cs" />
+    <Compile Include="Data\PriceList.cs" />
+    <Compile Include="Data\PriceList.Extensions.cs" />
+    <Compile Include="Data\PriceListView.cs" />
+    <Compile Include="Data\ProductType.cs" />
+    <Compile Include="Data\ProductTypeView.cs" />
+    <Compile Include="Data\PurchaseOrder.cs" />
+    <Compile Include="Data\PurchaseOrder.Extensions.cs" />
+    <Compile Include="Data\ReasonSelector.cs" />
+    <Compile Include="Data\ReasonType.cs" />
+    <Compile Include="Data\ReasonTypeView.cs" />
+    <Compile Include="Data\RelationType.cs" />
+    <Compile Include="Data\RelationTypeView.cs" />
+    <Compile Include="Data\SalesOrderLine.cs" />
+    <Compile Include="Data\PurchaseOrderLine.cs" />
+    <Compile Include="Data\PurchaseOrderView.cs" />
+    <Compile Include="Data\Industry.cs" />
+    <Compile Include="Data\IndustryView.cs" />
+    <Compile Include="Data\ItemColor.cs" />
+    <Compile Include="Data\ItemColorView.cs" />
+    <Compile Include="Data\Lead.cs" />
+    <Compile Include="Data\LeadSource.cs" />
+    <Compile Include="Data\LeadSourceView.cs" />
+    <Compile Include="Data\LeadView.cs" />
+    <Compile Include="Data\NamespaceDeclarator.cs" />
+    <Compile Include="Data\Opportunity.cs" />
+    <Compile Include="Data\OpportunityType.cs" />
+    <Compile Include="Data\OpportunityTypeView.cs" />
+    <Compile Include="Data\OpportunityView.cs" />
+    <Compile Include="Data\Organization.cs" />
+    <Compile Include="Data\OrganizationView.cs" />
+    <Compile Include="Data\Position.cs" />
+    <Compile Include="Data\PositionView.cs" />
+    <Compile Include="Data\Product.cs" />
+    <Compile Include="Data\ProductCategory.cs" />
+    <Compile Include="Data\ProductCategoryView.cs" />
+    <Compile Include="Data\ProductFilter.cs" />
+    <Compile Include="Data\ProductSubcategory.cs" />
+    <Compile Include="Data\ProductSubcategoryFilter.cs" />
+    <Compile Include="Data\ProductSubcategoryView.cs" />
+    <Compile Include="Data\ProductView.cs" />
+    <Compile Include="Data\Project.cs" />
+    <Compile Include="Data\Project.Extensions.cs" />
+    <Compile Include="Data\ProjectMember.cs" />
+    <Compile Include="Data\ProjectMemberRole.cs" />
+    <Compile Include="Data\ProjectMemberRoleView.cs" />
+    <Compile Include="Data\ProjectMemberView.cs" />
+    <Compile Include="Data\ProjectTask.cs" />
+    <Compile Include="Data\ProjectTaskView.cs" />
+    <Compile Include="Data\ProjectType.cs" />
+    <Compile Include="Data\ProjectTypeView.cs" />
+    <Compile Include="Data\ProjectView.cs" />
+    <Compile Include="Data\PurchaseInvoice.cs" />
+    <Compile Include="Data\PurchaseInvoiceView.cs" />
+    <Compile Include="Data\Reason.cs" />
+    <Compile Include="Data\ReasonView.cs" />
+    <Compile Include="Data\Region.cs" />
+    <Compile Include="Data\RegionView.cs" />
+    <Compile Include="Data\SalesInvoice.cs" />
+    <Compile Include="Data\SalesInvoiceView.cs" />
+    <Compile Include="Data\SalesOrder.cs" />
+    <Compile Include="Data\SalesOrder.Extensions.cs" />
+    <Compile Include="Data\SalesOrderView.cs" />
+    <Compile Include="Data\ServiceLevel.cs" />
+    <Compile Include="Data\ServiceLevelFlag.cs" />
+    <Compile Include="Data\ServiceLevelView.cs" />
+    <Compile Include="Data\ServiceRequest.cs" />
+    <Compile Include="Data\ServiceRequest.Extensions.cs" />
+    <Compile Include="Data\ServiceRequestType.cs" />
+    <Compile Include="Data\ServiceRequestTypeView.cs" />
+    <Compile Include="Data\ServiceRequestView.cs" />
+    <Compile Include="Data\SizeOfServiceRequest.cs" />
+    <Compile Include="Data\SizeOfServiceRequestView.cs" />
+    <Compile Include="Data\StaticMethods.cs" />
+    <Compile Include="Data\StoragePlace.cs" />
+    <Compile Include="Data\StoragePlaceFilter.cs" />
+    <Compile Include="Data\StoragePlaceView.cs" />
+    <Compile Include="Data\TradeMark.cs" />
+    <Compile Include="Data\TradeMarkView.cs" />
+    <Compile Include="Data\UnitOfMeasure.cs" />
+    <Compile Include="Data\UnitOfMeasureClass.cs" />
+    <Compile Include="Data\UnitOfMeasureClassView.cs" />
+    <Compile Include="Data\UnitOfMeasureView.cs" />
+    <Compile Include="Data\User.cs" />
+    <Compile Include="Data\UserView.cs" />
+    <Compile Include="Data\Venue.cs" />
+    <Compile Include="Data\Venue.Filter.cs" />
+    <Compile Include="Data\VenuePlace.cs" />
+    <Compile Include="Data\VenuePlace.Filter.cs" />
+    <Compile Include="Data\VenuePlaceView.cs" />
+    <Compile Include="Data\VenueType.cs" />
+    <Compile Include="Data\VenueType.Filter.cs" />
+    <Compile Include="Data\VenueTypeView.cs" />
+    <Compile Include="Data\VenueView.cs" />
+    <Compile Include="Data\WriteoffStatement.cs" />
+    <Compile Include="Data\WriteoffStatement.Extensions.cs" />
+    <Compile Include="Data\WriteoffStatement.Filter.cs" />
+    <Compile Include="Data\WriteoffStatementFilter.cs" />
+    <Compile Include="Data\WriteoffStatementLine.cs" />
+    <Compile Include="Data\WriteoffStatementView.cs" />
+    <Compile Include="Data\IOperatingBudgetDocument.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DykBits.Crm.Data\DykBits.Crm.Data.csproj">
+      <Project>{ec5a6c6d-7063-43ca-a338-9f061592fd4c}</Project>
+      <Name>DykBits.Crm.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Crm.Services\DykBits.Crm.Services.csproj">
+      <Project>{1ba66118-22ff-4006-9e6b-a0cfab0fbad8}</Project>
+      <Name>DykBits.Crm.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DykBits.Xml\DykBits.Xml.csproj">
+      <Project>{a4305687-4c8b-4f30-a502-9501415e4d75}</Project>
+      <Name>DykBits.Xml</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

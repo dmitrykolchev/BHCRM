@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="DykBits.Crm.UI.NavigationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ui="clr-namespace:DykBits.Crm.UI"
+             xmlns:crm="http://www.dykbits.net/wpf/crm"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" UseLayoutRounding="True">
+    <UserControl.Resources>
+        <HierarchicalDataTemplate x:Key="treeItemTemplate" ItemsSource="{Binding Path=Children}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{Binding Path=SmallImage}" Margin="4" />
+                <TextBlock Margin="4" Text="{Binding Path=Caption}" />
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <DataTemplate x:Key="listItemTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{Binding Path=SmallImage}" Margin="4" />
+                <TextBlock Margin="4" Text="{Binding Path=Caption}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition x:Name="row2" Height="Auto" MaxHeight="320" />
+        </Grid.RowDefinitions>
+        <TreeView x:Name="treeView" Grid.Row="0" ItemTemplate="{StaticResource treeItemTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  BorderThickness="0">
+        </TreeView>
+        <GridSplitter x:Name="splitter" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="LightGray" Visibility="Collapsed" Height="5" />
+        <ListBox x:Name="listView" Grid.Row="2" ItemTemplate="{StaticResource listItemTemplate}" BorderThickness="0" Visibility="Collapsed" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,73 @@
+﻿<crm:DataGridControlBase
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:crm="http://www.dykbits.net/wpf/crm"
+        xmlns:data="clr-namespace:DykBits.Crm.Data;assembly=DykBits.Crm.Entities"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+        xmlns:lui="clr-namespace:DykBits.Crm.UI"
+        x:Class="DykBits.Crm.UI.BudgetGridControl" 
+        DataSourceType="{x:Type data:BudgetView}"
+        mc:Ignorable="d" 
+        d:DesignHeight="600" d:DesignWidth="800" TextOptions.TextFormattingMode="Display" UseLayoutRounding="True">
+    <crm:DataGridControlBase.GridView>
+        <crm:StandardGridControl x:Name="gridView">
+            <dxg:GridControl.View>
+                <crm:StandardTableView ShowTotalSummary="True" ShowGroupFooters="True" />
+            </dxg:GridControl.View>
+            <dxg:GridControl.GroupSummary>
+                <crm:StandardCount />
+                <crm:StandardSum Field="RowData.Row.StandardValueWithVAT" />
+                <crm:StandardSum Field="RowData.Row.PlannedValueWithVAT" />
+                <crm:StandardSum Field="RowData.Row.ActualValueWithVAT" />
+            </dxg:GridControl.GroupSummary>
+            <dxg:GridControl.TotalSummary>
+                <crm:StandardSum Field="RowData.Row.StandardValueWithVAT" />
+                <crm:StandardSum Field="RowData.Row.PlannedValueWithVAT" />
+                <crm:StandardSum Field="RowData.Row.ActualValueWithVAT" />
+            </dxg:GridControl.TotalSummary>
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn x:Name="columnId" crm:StandardGridColumn.Column="Id" />
+                <dxg:GridColumn x:Name="columnIcon" crm:StandardGridColumn.Column="Icon" />
+                <dxg:GridColumn x:Name="columnState" crm:StandardGridColumn.Column="State" />
+                <dxg:GridColumn x:Name="columnFileAs" crm:StandardGridColumn.Column="FileAs" Visible="False" />
+                <dxg:GridColumn x:Name="columnNumber" crm:StandardGridColumn.Column="Number" />
+                <dxg:GridColumn x:Name="columnServiceRequestNumber" Header="Заказ №" Width="100" Binding="{Binding ServiceRequestNumber, Mode=OneWay}" Visible="False" />
+                <dxg:GridColumn x:Name="columnDocumentDate" crm:StandardGridColumn.Column="DocumentDate" />
+                <dxg:GridColumn x:Name="columnOrganization" Header="Организация" Width="200" Binding="{crm:ReferenceBinding OrganizationId, ClassName=Organization}" Visible="False" crm:StandardGridColumn.IsReference="True" />
+                <dxg:GridColumn x:Name="columnTradeMark" Header="Торговая марка" Width="200" Binding="{crm:ReferenceBinding TradeMarkId, ClassName=TradeMark}" Visible="True" crm:StandardGridColumn.IsReference="True" GroupIndex="0" />
+                <dxg:GridColumn x:Name="columnAccount" Header="Заказчик" Width="200" Binding="{crm:ReferenceBinding AccountId, ClassName=Account}" />
+                <dxg:GridColumn x:Name="columnVenueProvider" Header="Площадка" Width="200" Binding="{crm:ReferenceBinding VenueProviderId, ClassName=Account}" Visible="False" />
+                <dxg:GridColumn x:Name="columnServiceRequestType"  Header="Формат мерроприятия" Width="100" Binding="{crm:ReferenceBinding ServiceRequestTypeId, ClassName=ServiceRequestType}" Visible="False" />
+                <dxg:GridColumn x:Name="columnReason" Header="Повод" Width="100" Binding="{crm:ReferenceBinding ReasonId, ClassName=Reason}" Visible="False" />
+                <dxg:GridColumn x:Name="columnEventDate" Header="Дата мероприятия" Width="200" Binding="{Binding EventDate, Mode=OneWay}" GroupInterval="DateMonth" crm:StandardGridColumn.DisplayFormat="Date" />
+                <dxg:GridColumn x:Name="columnAmountOfGuests" Header="Кол-во гостей" Width="200" Binding="{Binding AmountOfGuests, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Integer" />
+                <dxg:GridColumn x:Name="columnValue" Header="Предварительный бюджет (руб)" Width="200" Visible="False" Binding="{Binding Value, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnValuePerGuest" Header="Бюджет на гостя (руб)" Width="200" Visible="False" Binding="{Binding ValuePerGuest, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnStandardValue" Header="Бюджет (норматив)" Width="200" Visible="False" Binding="{Binding StandardValueWithVAT, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnPlannedValue" Header="Бюджет (план)" Width="200" Binding="{Binding PlannedValueWithVAT, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnActualValue" Header="Бюджет (факт)" Width="200" Binding="{Binding ActualValueWithVAT, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnCreated" crm:StandardGridColumn.Column="Created" />
+                <dxg:GridColumn x:Name="columnCreatedBy" crm:StandardGridColumn.Column="CreatedBy" />
+                <dxg:GridColumn x:Name="columnModified" crm:StandardGridColumn.Column="Modified" />
+                <dxg:GridColumn x:Name="columnModifiedBy" crm:StandardGridColumn.Column="ModifiedBy" />
+            </dxg:GridControl.Columns>
+        </crm:StandardGridControl>
+    </crm:DataGridControlBase.GridView>
+    <crm:DataGridControlBase.FilterView>
+        <crm:DataViewFilterControl DocumentType="{x:Type data:Budget}">
+            <StackPanel Orientation="Vertical">
+                <crm:PeriodSelectorControl PeriodStart="{crm:BindingEx PeriodStart, Mode=TwoWay}" PeriodEnd="{crm:BindingEx PeriodEnd, Mode=TwoWay}" />
+                <Label Content="Организация" />
+                <crm:DocumentPicker SelectedValue="{crm:BindingEx OrganizationId}" DataSource="Organization" />
+                <Label Content="Торговая марка" />
+                <crm:DocumentPicker SelectedValue="{crm:BindingEx TradeMarkId}" DataSource="TradeMark" />
+                <Label Content="Заказчик" />
+                <crm:DocumentPicker SelectedValue="{crm:BindingEx AccountId}" DataSource="Account" />
+            </StackPanel>
+        </crm:DataViewFilterControl>
+    </crm:DataGridControlBase.FilterView>
+</crm:DataGridControlBase>

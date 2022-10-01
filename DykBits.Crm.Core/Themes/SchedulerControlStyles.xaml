@@ -1,0 +1,63 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+                    xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduler" 
+                    xmlns:cmd="clr-namespace:DykBits.Crm.Input"
+                    xmlns:local="clr-namespace:DykBits.Crm.UI">
+    <Style x:Key="schedulerControlStyle" TargetType="{x:Type local:SchedulerControlBase}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:SchedulerControlBase}">
+                    <Grid x:Name="Root_PART">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ContentPresenter Content="{TemplateBinding SchedulerView}" Grid.Column="0" />
+                        <GridSplitter x:Name="Splitter_PART" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" ResizeDirection="Columns" Width="4" />
+                        <Grid x:Name="Navigator_ROOT" Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid x:Name="Filter_PART" Grid.Row="0" Visibility="Collapsed">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                        <Image Source="/DykBits.Crm.Core;component/Images/16x16/Filter.png" Margin="4" Stretch="None" />
+                                        <TextBlock Margin="4" VerticalAlignment="Center" FontWeight="Bold">Фильтр</TextBlock>
+                                    </StackPanel>
+                                </Label>
+                                <ContentPresenter Grid.Row="1" Content="{TemplateBinding FilterView}" Margin="4" />
+                                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Button x:Name="buttonApply" Margin="4" MinWidth="86" Height="25" Command="{x:Static cmd:CrmApplicationCommands.Refresh}">Применить</Button>
+                                    <Button x:Name="buttonReset" Margin="4" MinWidth="86" Height="25">Сбросить</Button>
+                                </StackPanel>
+                            </Grid>
+                            <GridSplitter x:Name="FilterSplitter_PART" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" ResizeDirection="Rows"  Height="4" Visibility="Collapsed" />
+                            <dxe:DateNavigator Grid.Row="2">
+                                <dxe:DateNavigator.StyleSettings>
+                                    <dxsch:SchedulerDateNavigatorStyleSettings SchedulerControl="{TemplateBinding SchedulerView}" />
+                                </dxe:DateNavigator.StyleSettings>
+                            </dxe:DateNavigator>
+                        </Grid>
+                    </Grid>
+                    <!--<ControlTemplate.Triggers>
+                        <Trigger Property="IsFilterVisible" Value="True">
+                            <Setter TargetName="FilterSplitter_PART" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="Filter_PART" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,139 @@
+﻿<crm:DataGridControlBase
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:crm="http://www.dykbits.net/wpf/crm"
+        xmlns:data="clr-namespace:DykBits.Crm.Data;assembly=DykBits.Crm.Entities"    
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+        xmlns:lui="clr-namespace:DykBits.Crm.UI"
+        x:Class="DykBits.Crm.UI.ServiceRequestGridControl" 
+        DataSourceType="{x:Type data:ServiceRequestView}"
+        mc:Ignorable="d" 
+        d:DesignHeight="600" d:DesignWidth="800" TextOptions.TextFormattingMode="Display" UseLayoutRounding="True">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <crm:UICommand x:Key="projectMemberChange" Text="ProjectMemberChange" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <crm:DataGridControlBase.Actions>
+        <crm:UIAction Command="{StaticResource projectMemberChange}" Text="Изменить рабочую группу..." />
+    </crm:DataGridControlBase.Actions>
+    <crm:DataGridControlBase.CommandBindings>
+        <CommandBinding x:Name="ProjectMemberChange" Command="{StaticResource projectMemberChange}" CanExecute="CommandBinding_CanExecute" Executed="ProjectMemberChange_Executed" />
+    </crm:DataGridControlBase.CommandBindings>
+    <crm:DataGridControlBase.GridView>
+        <crm:StandardGridControl>
+            <dxg:GridControl.View>
+                <crm:StandardTableView ShowTotalSummary="True" ShowGroupFooters="True" />
+            </dxg:GridControl.View>
+            <dxg:GridControl.GroupSummary>
+                <crm:StandardCount />
+                <crm:StandardSum Field="RowData.Row.Value" />
+                <crm:StandardSum Field="RowData.Row.BudgetValue" />
+            </dxg:GridControl.GroupSummary>
+            <dxg:GridControl.TotalSummary>
+                <crm:StandardSum Field="RowData.Row.Value" />
+                <crm:StandardSum Field="RowData.Row.BudgetValue" />
+            </dxg:GridControl.TotalSummary>
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn x:Name="columnId" crm:StandardGridColumn.Column="Id" />
+                <dxg:GridColumn x:Name="columnIcon" crm:StandardGridColumn.Column="Icon" />
+                <dxg:GridColumn x:Name="columnHasAttachments" crm:StandardGridColumn.IsIcon="True">
+                    <dxg:GridColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Image Source="{x:Static crm:ApplicationImages.Attachment}" />
+                        </DataTemplate>
+                    </dxg:GridColumn.HeaderTemplate>
+                    <dxg:GridColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image x:Name="imageAttachment" Stretch="None" />
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding RowData.Row.HasAttachments}" Value="True">
+                                    <Setter TargetName="imageAttachment" Property="Source" Value="{x:Static crm:ApplicationImages.Attachment}" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </dxg:GridColumn.CellTemplate>
+                </dxg:GridColumn>
+                <dxg:GridColumn x:Name="columnState" crm:StandardGridColumn.Column="State" />
+                <dxg:GridColumn x:Name="columnNumber" crm:StandardGridColumn.Column="Number" />
+                <dxg:GridColumn x:Name="columnDocumentDate" crm:StandardGridColumn.Column="DocumentDate" />
+                <dxg:GridColumn x:Name="columnFileAs" crm:StandardGridColumn.Column="FileAs" Visible="False" />
+
+                <dxg:GridColumn x:Name="columnEventMonth" Header="Дата мероприятия (месяц)" Width="100" Binding="{Binding EventMonth, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Month" />
+                <dxg:GridColumn x:Name="columnEventDate" Header="Дата мероприятия" Width="100" Binding="{Binding EventDate, Mode=OneWay}" crm:StandardGridColumn.DisplayFormat="Date" />
+                <dxg:GridColumn x:Name="columnCustomerId" Header="Клиент" Width="200" Binding="{crm:ReferenceBinding CustomerId, ClassName=Account}" />
+                <dxg:GridColumn x:Name="columnVenueProviderId" Header="Площадка" Width="200" Binding="{crm:ReferenceBinding VenueProviderId, ClassName=Account}" />
+                <dxg:GridColumn x:Name="columnAccountId" Header="Контрагент" Width="200" Binding="{crm:ReferenceBinding AccountId, ClassName=Account}" Visible="False" />
+                <dxg:GridColumn x:Name="columnAgentId" Header="Агент" Width="200" Binding="{crm:ReferenceBinding AgentId, ClassName=Account}" Visible="False" />
+                <dxg:GridColumn x:Name="columnServiceRequestTypeId" Header="Формат мерроприятия" Width="100" Binding="{crm:ReferenceBinding ServiceRequestTypeId, ClassName=ServiceRequestType}" />
+                <dxg:GridColumn x:Name="columnServiceLevelId" Header="Уровень обслуживания" Width="100" Binding="{crm:ReferenceBinding ServiceLevelId, ClassName=ServiceLevel}" />
+                <dxg:GridColumn x:Name="columnReasonId" Header="Повод" Width="100" Binding="{crm:ReferenceBinding ReasonId, ClassName=Reason}" Visible="False" />
+                <dxg:GridColumn x:Name="columnLeadSourceId" Header="Источник" Width="100" Binding="{crm:ReferenceBinding LeadSourceId, ClassName=LeadSource}" />
+                <dxg:GridColumn x:Name="columnAmountOfGuests" Header="Кол-во гостей" Width="100" Binding="{Binding AmountOfGuests,Mode=OneWay}" Visible="False" crm:StandardGridColumn.DisplayFormat="Integer" />
+                <dxg:GridColumn x:Name="columnValue" Header="Бюджет" Width="100" Binding="{Binding Value}" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnBudgetValue" Header="ПРС" Width="100" Binding="{Binding BudgetValue}" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnValuePerGuest" Header="Бюджет на гостя" Width="100" Binding="{Binding ValuePerGuest}" Visible="False" crm:StandardGridColumn.DisplayFormat="Money" />
+                <dxg:GridColumn x:Name="columnTradeMarkId" Header="Торговая марка" Width="200" Binding="{crm:ReferenceBinding TradeMarkId, ClassName=TradeMark}" AllowSorting="True" AllowGrouping="True" />
+                <dxg:GridColumn x:Name="columnOrganizationId" Header="Организация" Width="200" Binding="{crm:ReferenceBinding OrganizationId, ClassName=Organization}" AllowSorting="True" AllowGrouping="True" Visible="False" />
+                <dxg:GridColumn x:Name="columnResponsibleEmployeeId" Header="Лоббист" Width="200" Binding="{crm:ReferenceBinding ResponsibleEmployeeId, ClassName=Employee}" AllowSorting="True" AllowGrouping="True" />
+                <dxg:GridColumn x:Name="columnProjectMebeme1Id" Header="Account Manager" Width="200" Binding="{crm:ReferenceBinding ProjectMember1Id, ClassName=Employee}" AllowSorting="True" AllowGrouping="True" Visible="False" />
+                <dxg:GridColumn x:Name="columnProjectMember2Id" Header="Project Assistant" Width="200" Binding="{crm:ReferenceBinding ProjectMember2Id, ClassName=Employee}" AllowSorting="True" AllowGrouping="True" Visible="False" />
+                <dxg:GridColumn x:Name="columnProjectMember3Id" Header="Project Manager" Width="200" Binding="{crm:ReferenceBinding ProjectMember3Id, ClassName=Employee}" AllowSorting="True" AllowGrouping="True" Visible="False" />
+                <dxg:GridColumn x:Name="columnProjectMember4Id" Header="Account Assistant" Width="200" Binding="{crm:ReferenceBinding ProjectMember4Id, ClassName=Employee}" AllowSorting="True" AllowGrouping="True" Visible="False" />
+                <dxg:GridColumn x:Name="columnResponsibleContactId" Header="Контакт" Width="200" Binding="{crm:ReferenceBinding ResponsibleContactId, ClassName=Contact}" AllowSorting="True" AllowGrouping="True" Visible="False" />
+                <dxg:GridColumn x:Name="columnMileage" Header="Километраж" Width="100" Binding="{Binding Mileage,Mode=OneWay}" Visible="False" />
+                <dxg:GridColumn x:Name="columnEventDuration" Header="Продолжительность" Width="100" Binding="{Binding EventDuration,Mode=OneWay}" Visible="False" crm:StandardGridColumn.DisplayFormat="Integer" />
+                
+                <dxg:GridColumn x:Name="columnCreated" crm:StandardGridColumn.Column="Created" />
+                <dxg:GridColumn x:Name="columnCreatedBy" crm:StandardGridColumn.Column="CreatedBy" />
+                <dxg:GridColumn x:Name="columnModified" crm:StandardGridColumn.Column="Modified" />
+                <dxg:GridColumn x:Name="columnModifiedBy" crm:StandardGridColumn.Column="ModifiedBy" />
+            </dxg:GridControl.Columns>
+        </crm:StandardGridControl>
+    </crm:DataGridControlBase.GridView>
+    <crm:DataGridControlBase.FilterView>
+        <crm:DataViewFilterControl DocumentType="{x:Type data:ServiceRequest}" x:Name="filterControl">
+            <crm:DataViewFilterControl.Resources>
+                <Style x:Key="f1" TargetType="{x:Type crm:DataViewFilterContentControl}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type crm:DataViewFilterContentControl}">
+                                <StackPanel Orientation="Vertical">
+                                    <Label Style="{StaticResource crmLabel}" Content="Организация:" />
+                                    <crm:DocumentPicker DataSource="Organization" SelectedValue="{Binding OrganizationId}" />
+                                    <Label Style="{StaticResource crmLabel}" Content="Торговая марка:" />
+                                    <crm:DataComboBox SelectedValue="{Binding TradeMarkId}" DataSource="TradeMark" />
+                                    <Label x:Name="labelAccount" Style="{StaticResource crmLabel}" Content="Контрагент:" />
+                                    <crm:DocumentPicker x:Name="documentAccount" DataSource="Account" Grid.Column="1" SelectedValue="{Binding AccountId}"  />
+                                    <Label x:Name="labelVenue" Style="{StaticResource crmLabel}" Content="Площадка:" />
+                                    <crm:DocumentPicker x:Name="documentVenue" DataSource="Venue" Grid.Column="1" SelectedValue="{Binding VenueProviderId}" />
+                                    <Label Style="{StaticResource crmLabel}" Content="Участник проекта:" />
+                                    <crm:DocumentPicker DataSource="Employee" Grid.Column="1" SelectedValue="{Binding ProjectMemberId}" />
+                                    <crm:PeriodSelectorControl PeriodStart="{Binding PeriodStart, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PeriodEnd="{Binding PeriodEnd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                                <ControlTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type crm:DataGridControlBase}}, Path=DataContext.DataItemClass}" Value="Account">
+                                        <Setter TargetName="labelAccount" Property="Visibility" Value="Collapsed"/>
+                                        <Setter TargetName="documentAccount" Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type crm:DataGridControlBase}}, Path=DataContext.DataItemClass}" Value="Venue">
+                                        <Setter TargetName="labelVenue" Property="Visibility" Value="Collapsed"/>
+                                        <Setter TargetName="documentVenue" Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </crm:DataViewFilterControl.Resources>
+            <crm:DataViewFilterContentControl Style="{StaticResource f1}" />
+        </crm:DataViewFilterControl>
+    </crm:DataGridControlBase.FilterView>
+</crm:DataGridControlBase>

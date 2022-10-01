@@ -1,0 +1,68 @@
+﻿<UserControl 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:z="clr-namespace:DykBits.Crm"
+        xmlns:crm ="http://www.dykbits.net/wpf/crm"
+        x:Class="DykBits.Crm.UI.DocumentPropertiesControl"
+        mc:Ignorable="d" 
+        d:DesignHeight="480" d:DesignWidth="400" Margin="4">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CommonControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <z:DocumentTypeConverter x:Key="documentTypeConverter" />
+            <z:UserConverter x:Key="userConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <TabControl>
+            <TabItem Header="Общие">
+                <Grid Margin="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="12" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Image Stretch="None" Source="{Binding Converter={StaticResource documentTypeConverter}, ConverterParameter=LargeImage}" Margin="4" />
+                    <TextBox Style="{StaticResource crmTextBox}" IsReadOnly="True" Grid.Column="2" Text="{Binding FileAs}" VerticalAlignment="Center" />
+                    <Border Grid.Row="1" Grid.ColumnSpan="3" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" Margin="0,4,0,4" />
+                    <Label Style="{StaticResource crmLabel}" Grid.Row="2" >Тип:</Label>
+                    <Label Style="{StaticResource crmLabel}" Grid.Row="2" Grid.Column="2">
+                        <Label.Content>
+                                <TextBlock>
+                                    <Run Text="{Binding Converter={StaticResource documentTypeConverter},Mode=OneWay}" />
+                                    <Run Text=" (" />
+                                    <Run Text="{Binding Path=Id,Mode=OneWay}" />
+                                    <Run Text=")" />
+                                </TextBlock>
+                        </Label.Content>
+                    </Label>
+                    <Border Grid.Row="3" Grid.ColumnSpan="3" BorderThickness="0,1,0,0" BorderBrush="Gray" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"  Margin="0,4,0,4" />
+                    <Label Style="{StaticResource crmLabel}" Grid.Row="4">Создано:</Label>
+                    <Label Style="{StaticResource crmLabel}" Grid.Row="4" Grid.Column="2" Content="{Binding Created}" ContentStringFormat="{}{0:dd.MM.yyyy HH:mm:ss}"/>
+                    <Label Style="{StaticResource crmLabel}" Grid.Row="5">Создал:</Label>
+                    <Label Style="{StaticResource crmLabel}" Grid.Row="5" Grid.Column="2" Content="{Binding CreatedBy, Converter={StaticResource userConverter}}" />
+                    <Label Style="{StaticResource crmLabel}" Grid.Row="6">Изменено:</Label>
+                    <Label Style="{StaticResource crmLabel}" Grid.Row="6" Grid.Column="2" Content="{Binding Modified}" ContentStringFormat="{}{0:dd.MM.yyyy HH:mm:ss}" />
+                    <Label Style="{StaticResource crmLabel}" Grid.Row="7">Изменил:</Label>
+                    <Label Style="{StaticResource crmLabel}" Grid.Row="7" Grid.Column="2" Content="{Binding ModifiedBy, Converter={StaticResource userConverter}}"/>
+                    <TextBox Style="{StaticResource crmComments}" Grid.Row="8" Grid.ColumnSpan="3" IsReadOnly="True" Text="{Binding Comments}" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>
