@@ -1,3 +1,3 @@
 CRM для кейтерингового бизнеса
 
-WPF, SQL Server, .NET Framework, Windows
+WPF, WCF, SQL Server, .NET Framework, Windows
